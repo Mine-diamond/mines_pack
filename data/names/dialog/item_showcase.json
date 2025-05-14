@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:notice",
+  "title": { "text": "物品展示", "color": "blue" },
+  "body": [
+    {
+      "type": "item",
+      "item": {
+        "id": "minecraft:diamond_sword",
+        "tag": {
+          "Enchantments": [
+            { "id": "minecraft:sharpness", "lvl": 5 }
+          ],
+          "display": {
+            "Name": "{\"text\":\"传奇之剑\",\"color\":\"light_purple\"}"
+          }
+        }
+      },
+      "description": {
+        "contents": {
+          "text": "锋利 V 的钻石剑\n只可远观，不可亵玩",
+          "color": "gray"
+        },
+        "width": 160
+      },
+      "show_decorations": true,
+      "show_tooltip": true
+    }
+  ],
+  "can_close_with_escape": true,
+  "external_title": { "text": "查看物品", "color": "gray" }
+}

@@ -1,0 +1,81 @@
+{
+    "type": "minecraft:multi_action",
+    "button_width": 310,
+    "columns": 2,
+    "external_title": "快捷操作",
+    "title": "快捷操作",
+    "body": [
+    {
+      "type": "plain_message",
+      "contents": {
+        "text": "超多快捷操作",
+        "color": "white"
+      }
+    }
+  ],
+    "actions": [
+        {
+            "label": "设为白天",
+            "on_click": {
+                "action": "run_command",
+                "command": "/time set noon"
+            }
+        },
+        {
+            "label": "设为黑夜",
+            "on_click": {
+                "action": "run_command",
+                "command": "/time set midnight"
+            }
+        },
+        {
+            "label": "清理掉落物",
+            "on_click": {
+                "action": "run_command",
+                "command": "/kill @e[type=item]"
+            }
+        },
+        {
+            "label": "清理非玩家实体",
+            "on_click": {
+                "action": "run_command",
+                "command": "/kill @e[type=!player]"
+            }
+        },
+        {
+            "label": "玩家无敌",
+            "on_click": {
+                "action": "run_command",
+                "command": "/execute as @s run function names:invulnerable"
+            }
+        },
+        {
+            "label": "取消玩家无敌",
+            "on_click": {
+                "action": "run_command",
+                "command": "/execute as @s run function names:un_invulnerable"
+            }
+        },
+        {
+            "label": "一击必杀",
+            "on_click": {
+                "action": "run_command",
+                "command": "/execute as @s run function names:one_click_kill"
+            }
+        },
+        {
+            "label": "取消一击必杀",
+            "on_click": {
+                "action": "run_command",
+                "command": "/execute as @s run function names:cancel_one_click_kill"
+            }
+        },
+        {
+            "label": "常见设置",
+            "on_click": {
+                "action": "show_dialog",
+                "dialog": "names:usual_setting"
+            }
+        }
+    ]
+}

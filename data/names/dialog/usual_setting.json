@@ -1,0 +1,65 @@
+{
+    "type": "minecraft:multi_action",
+    "button_width": 310,
+    "columns": 2,
+    "external_title": "常见操作",
+    "title": "常见操作",
+    "actions": [
+        {
+            "label": "关闭时间循环",
+            "on_click": {
+                "action": "run_command",
+                "command": "/gamerule doDaylightCycle false"
+            }
+        },
+        {
+            "label": "开启时间循环",
+            "on_click": {
+                "action": "run_command",
+                "command": "/gamerule doDaylightCycle true"
+            }
+        },
+        {
+            "label": "关闭天气循环",
+            "on_click": {
+                "action": "run_command",
+                "command": "/gamerule doWeatherCycle false"
+            }
+        },
+        {
+            "label": "开启天气循环",
+            "on_click": {
+                "action": "run_command",
+                "command": "/gamerule doWeatherCycle true"
+            }
+        },
+        {
+            "label": "关闭生物自然生成",
+            "on_click": {
+                "action": "run_command",
+                "command": "/gamerule doMobSpawning false"
+            }
+        },
+        {
+            "label": "开启生物自然生成",
+            "on_click": {
+                "action": "run_command",
+                "command": "/gamerule doMobSpawning true"
+            }
+        },
+        {
+            "label": "开启死亡不掉落",
+            "on_click": {
+                "action": "run_command",
+                "command": "/gamerule keepInventory true"
+            }
+        },
+        {
+            "label": "关闭死亡不掉落",
+            "on_click": {
+                "action": "run_command",
+                "command": "/gamerule keepInventory false"
+            }
+        }
+    ]
+}

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:notice",
+  "title": { "text": "欢迎！", "color": "gold" },
+
+  "body": {
+    "type": "minecraft:plain_message",
+    "contents": { "text": "这是一个最简单的 Dialog 示例。", "color": "white" }
+  },
+
+  "action": {                       
+    "label": { "text": "知道了", "color": "green" }
+  }
+}
