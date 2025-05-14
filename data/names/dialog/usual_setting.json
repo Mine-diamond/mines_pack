@@ -60,6 +60,13 @@
                 "action": "run_command",
                 "command": "/gamerule keepInventory false"
             }
+        },
+        {
+            "label": "一键配置",
+            "on_click": {
+                "action": "run_command",
+                "command": "/function names:usual_setting"
+            }
         }
     ]
 }

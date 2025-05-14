@@ -76,6 +76,13 @@
                 "action": "show_dialog",
                 "dialog": "names:usual_setting"
             }
+        },
+        {
+            "label": "数据包仓库链接",
+            "on_click": {
+                "action": "open_url",
+                "url": "https://github.com/Mine-diamond/mines_pack"
+            }
         }
     ]
 }
