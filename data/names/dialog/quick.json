@@ -71,6 +71,20 @@
             }
         },
         {
+            "label": "赶路模式",
+            "on_click": {
+                "action": "run_command",
+                "command": "/execute as @s run function names:world_run_mode"
+            }
+        },
+        {
+            "label": "取消赶路模式",
+            "on_click": {
+                "action": "run_command",
+                "command": "/execute as @s run function names:cancel_world_run_mode"
+            }
+        },
+        {
             "label": "常见设置",
             "on_click": {
                 "action": "show_dialog",
