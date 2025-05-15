@@ -62,6 +62,13 @@
             }
         },
         {
+            "label": "设置随机刻速率",
+            "on_click": {
+                "action": "show_dialog",
+                "dialog": "names:random_tick_setting"
+            }
+        },
+        {
             "label": "一键配置",
             "on_click": {
                 "action": "run_command",

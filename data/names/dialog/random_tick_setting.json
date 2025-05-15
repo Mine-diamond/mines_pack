@@ -1,0 +1,49 @@
+{
+    "type": "minecraft:multi_action_input_form",
+    "title": "设置随机刻",
+    "inputs": [
+        {
+            "key": "input",
+            "type": "minecraft:number_range",
+            "steps": 200,
+            "start": 0,
+            "end": 200,
+            "label": "随机刻值",
+            "width": 300
+        }
+    ],
+    "actions": [
+        {
+            "label": "设置为随机刻速度",
+            "id": "gamerule1",
+            "on_submit": {
+                "type": "minecraft:command_template",
+                "template": "gamerule randomTickSpeed $(input)"
+            }
+        },
+        {
+            "label": "随机刻速度设置为0",
+            "id": "gamerule2",
+            "on_submit": {
+                "type": "minecraft:command_template",
+                "template": "gamerule randomTickSpeed 0$(in)"
+            }
+        },
+        {
+            "label": "随机刻速度设置为3(默认)",
+            "id": "gamerule2",
+            "on_submit": {
+                "type": "minecraft:command_template",
+                "template": "gamerule randomTickSpeed 3$(in)"
+            }
+        },
+        {
+            "label": "随机刻速度设置为200",
+            "id": "gamerule2",
+            "on_submit": {
+                "type": "minecraft:command_template",
+                "template": "gamerule randomTickSpeed 200$(in)"
+            }
+        }
+    ]
+}

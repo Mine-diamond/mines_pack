@@ -85,6 +85,20 @@
             }
         },
         {
+            "label": "开启时间显示",
+            "on_click": {
+                "action": "run_command",
+                "command": "/execute as @s run function names:time/time_show"
+            }
+        },
+        {
+            "label": "关闭时间显示",
+            "on_click": {
+                "action": "run_command",
+                "command": "/execute as @s run function names:time/time_hide"
+            }
+        },
+        {
             "label": "常见设置",
             "on_click": {
                 "action": "show_dialog",
