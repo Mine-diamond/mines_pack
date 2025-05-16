@@ -6,56 +6,56 @@
     "title": "常见操作",
     "actions": [
         {
-            "label": "关闭时间循环",
+            "label": "§c关闭§f时间循环",
             "on_click": {
                 "action": "run_command",
                 "command": "/gamerule doDaylightCycle false"
             }
         },
         {
-            "label": "开启时间循环",
+            "label": "§b开启§f时间循环",
             "on_click": {
                 "action": "run_command",
                 "command": "/gamerule doDaylightCycle true"
             }
         },
         {
-            "label": "关闭天气循环",
+            "label": "§c关闭§f天气循环",
             "on_click": {
                 "action": "run_command",
                 "command": "/gamerule doWeatherCycle false"
             }
         },
         {
-            "label": "开启天气循环",
+            "label": "§b开启§f天气循环",
             "on_click": {
                 "action": "run_command",
                 "command": "/gamerule doWeatherCycle true"
             }
         },
         {
-            "label": "关闭生物自然生成",
+            "label": "§c关闭§f生物自然生成",
             "on_click": {
                 "action": "run_command",
                 "command": "/gamerule doMobSpawning false"
             }
         },
         {
-            "label": "开启生物自然生成",
+            "label": "§b开启§f生物自然生成",
             "on_click": {
                 "action": "run_command",
                 "command": "/gamerule doMobSpawning true"
             }
         },
         {
-            "label": "开启死亡不掉落",
+            "label": "§b开启§f死亡不掉落",
             "on_click": {
                 "action": "run_command",
                 "command": "/gamerule keepInventory true"
             }
         },
         {
-            "label": "关闭死亡不掉落",
+            "label": "§c关闭§f死亡不掉落",
             "on_click": {
                 "action": "run_command",
                 "command": "/gamerule keepInventory false"
@@ -69,11 +69,15 @@
             }
         },
         {
-            "label": "一键配置",
+            "label": {
+                "text": "一键配置",
+                "color": "green"
+            },
             "on_click": {
                 "action": "run_command",
                 "command": "/function names:usual_setting"
-            }
+            },
+            "tooltip": "-§c关闭§f时间循环\n-§c关闭§f天气循环\n-§c关闭§f生物自然生成\n-§b开启§f死亡不掉落"
         }
     ]
 }

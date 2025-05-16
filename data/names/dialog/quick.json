@@ -38,8 +38,8 @@
         {
             "label": "清理非玩家实体",
             "on_click": {
-                "action": "run_command",
-                "command": "/kill @e[type=!player]"
+                "action": "show_dialog",
+                "dialog": "names:kill_all_mob_comfirm"
             }
         },
         {
@@ -99,18 +99,39 @@
             }
         },
         {
-            "label": "常见设置",
+            "label": "高亮实体",
+            "on_click": {
+                "action": "run_command",
+                "command": "/effect give @e minecraft:glowing infinite 1 true"
+            }
+        },
+        {
+            "label": "取消高亮实体",
+            "on_click": {
+                "action": "run_command",
+                "command": "/effect clear @e minecraft:glowing"
+            }
+        },
+        {
+            "label": {
+                "text": "常见设置",
+                "color": "yellow"
+            },
             "on_click": {
                 "action": "show_dialog",
                 "dialog": "names:usual_setting"
             }
         },
         {
-            "label": "数据包仓库链接",
+            "label": {
+                "text": "数据包仓库链接",
+                "color": "aqua"
+            },
             "on_click": {
                 "action": "open_url",
                 "url": "https://github.com/Mine-diamond/mines_pack"
-            }
+            },
+            "tooltip": "https://github.com/Mine-diamond/mines_pack"
         }
     ]
 }

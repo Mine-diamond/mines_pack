@@ -1,13 +1,19 @@
 {
     "type": "minecraft:multi_action_input_form",
     "title": "设置随机刻",
+    "body": [
+        {
+            "type": "minecraft:plain_message",
+            "contents": "按Esc放弃编辑"
+        }
+    ],
     "inputs": [
         {
             "key": "input",
             "type": "minecraft:number_range",
-            "steps": 200,
+            "steps": 300,
             "start": 0,
-            "end": 200,
+            "end": 300,
             "label": "随机刻值",
             "width": 300
         }

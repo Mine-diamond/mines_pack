@@ -1,0 +1,35 @@
+{
+    "type": "minecraft:confirmation",
+    "title":"确认操作",
+    "external_title": "确认操作",
+    "body": [
+        {
+            "type": "minecraft:plain_message",
+            "contents": [
+                {
+                    "text": "确认清除附近所有生物和实体?这可能带来"
+                },
+                {
+                    "text": "严重后果",
+                    "color": "red"
+                },
+                {
+                    "text": "!\n确保周围没有重要生物。"
+                }
+            ]
+        }
+    ],
+    "yes": {
+        "label": {
+            "text":"确认",
+            "color": "red"
+        },
+        "on_click": {
+            "action": "run_command",
+            "command": "/kill @e[type=!player]"
+        }
+    },
+    "no": {
+        "label": "取消"
+    }
+}
