@@ -47,7 +47,8 @@
             "on_click": {
                 "action": "run_command",
                 "command": "/execute as @s run function names:invulnerable"
-            }
+            },
+            "tooltip": "启用后，你将不受伤害\n但是不防负面效果，比如黑暗和缓慢"
         },
         {
             "label": "取消玩家无敌",
@@ -61,7 +62,8 @@
             "on_click": {
                 "action": "run_command",
                 "command": "/execute as @s run function names:one_click_kill"
-            }
+            },
+            "tooltip": "启用后，你的一击能打出100000点伤害\n远程攻击伤害不变"
         },
         {
             "label": "取消一击必杀",
@@ -75,7 +77,8 @@
             "on_click": {
                 "action": "run_command",
                 "command": "/execute as @s run function names:world_run_mode"
-            }
+            },
+            "tooltip": "启用后，你不用跳跃就能爬上10格的高度，同时在水中也不会减速\n注意:该模式在重启游戏后部分效果会消失(因为一些bug)"
         },
         {
             "label": "取消赶路模式",
@@ -102,19 +105,33 @@
             "label": "高亮实体",
             "on_click": {
                 "action": "run_command",
-                "command": "/effect give @e minecraft:glowing infinite 1 true"
+                "command": "/function names:highlight/highlight_show"
             }
         },
         {
             "label": "取消高亮实体",
             "on_click": {
                 "action": "run_command",
-                "command": "/effect clear @e minecraft:glowing"
+                "command": "/function names:highlight/highlight_hide"
+            }
+        },
+        {
+            "label": "开启死亡位置提示",
+            "on_click": {
+                "action": "run_command",
+                "command": "/function names:deathback/death_notice_setting {value:true}"
+            }
+        },
+        {
+            "label": "关闭死亡位置提示",
+            "on_click": {
+                "action": "run_command",
+                "command": "/function names:deathback/death_notice_setting {value:false}"
             }
         },
         {
             "label": {
-                "text": "常见设置",
+                "text": "常见游戏规则设置",
                 "color": "yellow"
             },
             "on_click": {

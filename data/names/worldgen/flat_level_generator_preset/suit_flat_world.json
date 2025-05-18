@@ -1,0 +1,29 @@
+{
+  "display": "stone_bricks",
+  "settings": {
+    "biome": "minecraft:plains",
+    "lakes": false,
+    "features": false,
+    "structures": {
+      "structures": {}
+    },
+    "layers": [
+      {
+        "block": "minecraft:bedrock",
+        "height": 1
+      },
+      {
+        "block": "minecraft:stone",
+        "height": 57
+      },
+      {
+        "block": "minecraft:dirt",
+        "height": 5
+      },
+      {
+        "block": "minecraft:grass_block",
+        "height": 1
+      }
+    ]
+  }
+}

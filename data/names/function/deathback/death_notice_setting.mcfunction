@@ -1,0 +1,1 @@
+$data modify storage mines_pack:death_notice if_notice set value $(value)

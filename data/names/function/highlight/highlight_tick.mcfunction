@@ -1,0 +1,1 @@
+execute if data storage mines_pack:highlight {EnabledFlags:1b} run effect give @e glowing 1 1 true

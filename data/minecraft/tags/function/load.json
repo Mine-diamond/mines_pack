@@ -1,5 +1,7 @@
 {
     "values":[
-        "names:time/time_load"
+        "names:time/time_load",
+        "names:world_run_mode_set",
+        "names:deathback/death_load"
     ]
 }

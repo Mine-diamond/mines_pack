@@ -7,7 +7,6 @@ scoreboard players operation #dummyCurrentPlayerTime mines.worldtime %= #dummyPl
 execute store result score #dummyCurrentPlayerTimeMIN mines.worldtime run scoreboard players operation #dummyCurrentPlayerTime mines.worldtime /= #dummyPlayerTimeMIN mines.worldtime
 
 execute store result score #dummyCurrentPlayerTime mines.worldtime run time query gametime
-scoreboard players operation #dummyCurrentPlayerTime mines.worldtime %= #dummyPlayerTimeHOUR mines.worldtime
 scoreboard players operation #dummyCurrentPlayerTime mines.worldtime %= #dummyPlayerTimeMIN mines.worldtime
 execute store result score #dummyCurrentPlayerTimeSEC mines.worldtime run scoreboard players operation #dummyCurrentPlayerTime mines.worldtime /= #dummyPlayerTime mines.worldtime
 

@@ -1,0 +1,2 @@
+execute if function names:deathback/if_immediate_respawn run function names:deathback/death_detect_ir
+execute unless function names:deathback/if_immediate_respawn run function names:deathback/death_detect
