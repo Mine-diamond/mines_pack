@@ -2,6 +2,6 @@
     "values": [
         "names:time/time_tick",
         "names:highlight/highlight_tick",
-        "names:deathback/death_detect_switch"
+        "names:deathback/death_detect"
     ]
 }

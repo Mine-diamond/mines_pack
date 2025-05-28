@@ -79,5 +79,9 @@
             },
             "tooltip": "-§c关闭§f时间循环\n-§c关闭§f天气循环\n-§c关闭§f生物自然生成\n-§b开启§f死亡不掉落"
         }
-    ]
+    ],
+    "on_cancel": {
+        "action": "show_dialog",
+        "dialog": "names:quick"
+    }
 }

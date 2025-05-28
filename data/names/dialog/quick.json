@@ -9,7 +9,8 @@
       "type": "plain_message",
       "contents": {
         "text": "超多快捷操作",
-        "color": "white"
+        "color": "white",
+        "bold": true
       }
     }
   ],
@@ -116,17 +117,24 @@
             }
         },
         {
-            "label": "开启死亡位置提示",
+            "label": "启用夜视",
             "on_click": {
                 "action": "run_command",
-                "command": "/function names:deathback/death_notice_setting {value:true}"
+                "command": "/effect give @s minecraft:night_vision infinite 1 true"
             }
         },
         {
-            "label": "关闭死亡位置提示",
+            "label": "禁用夜视",
             "on_click": {
                 "action": "run_command",
-                "command": "/function names:deathback/death_notice_setting {value:false}"
+                "command": "/effect clear @s minecraft:night_vision"
+            }
+        },
+        {
+            "label": "死亡位置行为",
+            "on_click": {
+                "action": "show_dialog",
+                "dialog": "names:death_operate"
             }
         },
         {
@@ -137,6 +145,16 @@
             "on_click": {
                 "action": "show_dialog",
                 "dialog": "names:usual_setting"
+            }
+        },
+        {
+            "label": {
+                "text": "获取常用物品",
+                "color": "yellow"
+            },
+            "on_click": {
+                "action": "show_dialog",
+                "dialog": "names:get_item"
             }
         },
         {

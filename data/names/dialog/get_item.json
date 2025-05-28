@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:multi_action",
+    "title": "快捷获取各种物品",
+    "columns": 4,
+    "actions": [
+        {
+            "label": {
+                "text": "下界合金装备"
+            },
+            "on_click": {
+                "action": "show_dialog",
+                "dialog": "names:get_netherite_item"
+            }
+        }
+    ],
+    "on_cancel": {
+        "action": "show_dialog",
+        "dialog": "names:quick"
+    }
+}
