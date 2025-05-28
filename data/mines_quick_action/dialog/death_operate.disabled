@@ -30,7 +30,7 @@
             "label": "确认",
             "on_submit": {
                 "type": "minecraft:command_template",
-                "template": "function names:deathback/death_operate_setting {value:$(value)}"
+                "template": "function mines_quick_action:deathback/death_operate_setting {value:$(value)}"
             }
         }
     ]

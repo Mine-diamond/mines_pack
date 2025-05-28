@@ -7,14 +7,14 @@
             "label": {
                 "text": "下界合金装备"
             },
-            "on_click": {
-                "action": "show_dialog",
-                "dialog": "names:get_netherite_item"
+            "action": {
+                "type": "show_dialog",
+                "dialog": "mines_quick_action:get_netherite_item"
             }
         }
     ],
     "on_cancel": {
         "action": "show_dialog",
-        "dialog": "names:quick"
+        "dialog": "mines_quick_action:quick"
     }
 }

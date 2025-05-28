@@ -1,6 +1,6 @@
 {
   "replace": false,
   "values": [
-    "names:quick"
+    "mines_quick_action:quick"
   ]
 }

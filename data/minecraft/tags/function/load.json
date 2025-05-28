@@ -1,7 +1,7 @@
 {
     "values":[
-        "names:time/time_load",
-        "names:world_run_mode_set",
-        "names:deathback/death_load"
+        "mines_quick_action:time/time_load",
+        "mines_quick_action:world_run_mode_set",
+        "mines_quick_action:deathback/death_load"
     ]
 }

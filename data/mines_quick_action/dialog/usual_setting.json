@@ -7,65 +7,58 @@
     "actions": [
         {
             "label": "§c关闭§f时间循环",
-            "on_click": {
-                "action": "run_command",
+            "action": {
+                "type": "run_command",
                 "command": "/gamerule doDaylightCycle false"
             }
         },
         {
             "label": "§b开启§f时间循环",
-            "on_click": {
-                "action": "run_command",
+            "action": {
+                "type": "run_command",
                 "command": "/gamerule doDaylightCycle true"
             }
         },
         {
             "label": "§c关闭§f天气循环",
-            "on_click": {
-                "action": "run_command",
+            "action": {
+                "type": "run_command",
                 "command": "/gamerule doWeatherCycle false"
             }
         },
         {
             "label": "§b开启§f天气循环",
-            "on_click": {
-                "action": "run_command",
+            "action": {
+                "type": "run_command",
                 "command": "/gamerule doWeatherCycle true"
             }
         },
         {
             "label": "§c关闭§f生物自然生成",
-            "on_click": {
-                "action": "run_command",
+            "action": {
+                "type": "run_command",
                 "command": "/gamerule doMobSpawning false"
             }
         },
         {
             "label": "§b开启§f生物自然生成",
-            "on_click": {
-                "action": "run_command",
+            "action": {
+                "type": "run_command",
                 "command": "/gamerule doMobSpawning true"
             }
         },
         {
             "label": "§b开启§f死亡不掉落",
-            "on_click": {
-                "action": "run_command",
+            "action": {
+                "type": "run_command",
                 "command": "/gamerule keepInventory true"
             }
         },
         {
             "label": "§c关闭§f死亡不掉落",
-            "on_click": {
-                "action": "run_command",
+            "action": {
+                "type": "run_command",
                 "command": "/gamerule keepInventory false"
-            }
-        },
-        {
-            "label": "设置随机刻速率",
-            "on_click": {
-                "action": "show_dialog",
-                "dialog": "names:random_tick_setting"
             }
         },
         {
@@ -73,15 +66,18 @@
                 "text": "一键配置",
                 "color": "green"
             },
-            "on_click": {
-                "action": "run_command",
-                "command": "/function names:usual_setting"
+            "action": {
+                "type": "run_command",
+                "command": "/function mines_quick_action:usual_setting"
             },
             "tooltip": "-§c关闭§f时间循环\n-§c关闭§f天气循环\n-§c关闭§f生物自然生成\n-§b开启§f死亡不掉落"
         }
     ],
-    "on_cancel": {
-        "action": "show_dialog",
-        "dialog": "names:quick"
+    "exit_action":{
+        "label":"返回",
+        "action": {
+            "type": "show_dialog",
+            "dialog": "mines_quick_action:quick"
+        }
     }
 }

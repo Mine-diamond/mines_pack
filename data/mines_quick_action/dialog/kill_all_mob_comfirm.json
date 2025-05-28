@@ -25,7 +25,7 @@
             "text":"确认",
             "color": "red"
         },
-        "on_click": {
+        "actions": {
             "action": "run_command",
             "command": "/kill @e[type=!player]"
         }
