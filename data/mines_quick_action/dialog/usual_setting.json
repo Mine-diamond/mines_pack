@@ -62,6 +62,13 @@
             }
         },
         {
+            "label": "设置随机刻速度",
+            "action": {
+                "type": "show_dialog",
+                "dialog": "mines_quick_action:random_tick_setting"
+            }
+        },
+        {
             "label": {
                 "text": "一键配置",
                 "color": "green"
