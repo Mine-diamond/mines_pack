@@ -1,0 +1,72 @@
+{
+    "type": "minecraft:multi_action",
+    "title": "设置实体交互距离",
+    "columns": 1,
+    "body": [
+        {
+            "type": "minecraft:plain_message",
+            "contents": "Minecraft原版在玩家处于创造模式时,会自动将实体交互距离增加2格。\n因此,生存模式下的默认交互距离为3格,而创造模式下则为5格(3默认 + 2额外增加)。\n启用“强制模式”后,无论玩家处于哪种游戏模式,都会强制使用下方设置的距离,不再额外增加。",
+            "width": 400
+        }
+    ],
+    "inputs": [
+        {
+            "key": "force_mode",
+            "type": "minecraft:boolean",
+            "label": {
+                "text": "强制模式"
+            },
+            "initial": false,
+            "on_false": "0",
+            "on_true": "1"
+        },
+        {
+            "key": "input",
+            "type": "minecraft:number_range",
+            "start": 0,
+            "end": 64,
+            "label": "实体交互距离",
+            "width": 300,
+            "step":0.5,
+            "initial": 3
+        }
+    ],
+    "actions": [
+        {
+            "label": "设置为实体交互距离",
+            "action": {
+                "type": "dynamic/run_command",
+                "template": "function mines_quick_action:distant_adjust/entity_adjust_change {force:$(force_mode),value:$(input)}"
+            }
+        },
+        {
+            "label": "实体交互距离设置为§a0",
+            "action": {
+                "type": "dynamic/run_command",
+                "template": "function mines_quick_action:distant_adjust/entity_adjust_change {force:$(force_mode),value:0}"
+            }
+        },
+        {
+            "label": "实体交互距离设置为§a3§f(默认)",
+            "action": {
+                "type": "dynamic/run_command",
+                "template": "function mines_quick_action:distant_adjust/entity_adjust_change {force:$(force_mode),value:3}"
+            }
+        },
+        {
+            "label": "实体交互距离设置为§a64§f(最大)",
+            "action": {
+                "type": "dynamic/run_command",
+                "template": "function mines_quick_action:distant_adjust/entity_adjust_change {force:$(force_mode),value:64}"
+            }
+        }
+    ],
+    "exit_action":{
+        "label":"返回",
+        "action": {
+            "type": "show_dialog",
+            "dialog": "mines_quick_action:usual_setting"
+        }
+    },
+    "after_action": "close"
+}

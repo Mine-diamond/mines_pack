@@ -1,5 +1,5 @@
 {
-    "type": "minecraft:multi_action_input_form",
+    "type": "minecraft:multi_action",
     "title": "死亡位置提示",
     "inputs": [
         {
@@ -26,10 +26,10 @@
     ],
     "actions": [
         {
-            "id": "a",
+            
             "label": "确认",
-            "on_submit": {
-                "type": "minecraft:command_template",
+            "action": {
+                "type": "minecraft:dynamic/run_command",
                 "template": "function mines_quick_action:deathback/death_operate_setting {value:$(value)}"
             }
         }

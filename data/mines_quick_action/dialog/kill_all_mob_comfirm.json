@@ -31,6 +31,10 @@
         }
     },
     "no": {
-        "label": "取消"
+        "label": "取消",
+        "action": {
+            "type": "show_dialog",
+            "dialog": "mines_quick_action:quick"
+        }
     }
 }

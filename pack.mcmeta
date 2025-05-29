@@ -1,6 +1,14 @@
 {
   "pack": {
-    "description": "定义了一系列快捷操作",
-    "pack_format": 77
+    "description": [
+      {
+        "text": "定义了一系列快捷操作"
+      },
+      {
+        "text": "\nby MineDiamond",
+        "color": "blue"
+      }
+    ],
+    "pack_format": 79
   }
 }

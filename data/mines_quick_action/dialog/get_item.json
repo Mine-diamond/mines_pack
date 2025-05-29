@@ -2,6 +2,12 @@
     "type": "minecraft:multi_action",
     "title": "快捷获取各种物品",
     "columns": 4,
+    "body": [
+        {
+            "type": "minecraft:plain_message",
+            "contents": "还没完成喵~"
+        }
+    ],
     "actions": [
         {
             "label": {
