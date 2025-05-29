@@ -20,14 +20,24 @@
             "width": 1000
         }
     ],
+    "inputs": [
+        {
+            "key": "value",
+            "type": "minecraft:boolean",
+            "label": "无掉落物",
+            "initial": false,
+            "on_false": "0",
+            "on_true": "1"
+        }
+    ],
     "yes": {
         "label": {
             "text":"确认",
             "color": "red"
         },
-        "actions": {
-            "action": "run_command",
-            "command": "/kill @e[type=!player]"
+        "action": {
+            "type": "dynamic/run_command",
+            "template": "function mines_quick_action:kill_all_mob {value:$(value)}"
         }
     },
     "no": {
@@ -36,5 +46,6 @@
             "type": "show_dialog",
             "dialog": "mines_quick_action:quick"
         }
-    }
+    },
+    "pause": false
 }

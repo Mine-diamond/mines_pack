@@ -183,9 +183,6 @@
             "tooltip": "https://github.com/Mine-diamond/mines_pack"
         }
     ],
-    "exit_action": {
-        "label": "关闭"
-    },
     "after_action": "none",
     "pause": false
 }

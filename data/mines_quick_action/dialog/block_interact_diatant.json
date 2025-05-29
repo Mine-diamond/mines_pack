@@ -63,7 +63,8 @@
         "label":"返回",
         "action": {
             "type": "show_dialog",
-            "dialog": "mines_quick_action:usual_setting"
+            "dialog": "mines_quick_action:quick"
         }
-    }
+    },
+    "pause": false
 }
