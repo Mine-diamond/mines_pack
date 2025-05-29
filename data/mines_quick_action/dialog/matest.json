@@ -1,21 +1,31 @@
 {
     "type":"minecraft:multi_action",
     "columns": 2,
-    "external_title": "快捷操作",
-    "title": "快捷操作",
+    "external_title": "逃脱循环",
+    "title": "逃脱循环",
+    "body": [
+        {
+            "type": "minecraft:plain_message",
+            "contents": [
+                {
+                    "text": "你好"
+                },
+                {
+                    "text": "abx"
+                },
+                {
+                    "score":{"name":"*","objective":"mines.esc_pressed_time"},
+                    "color": "dark_aqua"
+                }
+            ]
+        }
+    ],
     "actions":[
         {
-            "label": "say it",
-            "action": {
-                "type": "minecraft:dynamic/run_command",
-                "template": "say @s $(input)"
-            }
-        },
-        {
-            "label": "设为白天",
+            "label": "认输了",
             "action": {
                 "type": "run_command",
-                "command": "/time set noon"
+                "command": "/trigger mines.circle_triger set 0"
             }
         }
         
@@ -23,8 +33,8 @@
     "exit_action": {
         "label": "退出",
         "action": {
-            "type": "show_dialog",
-            "dialog": "mines_quick_action:matest"
+            "type": "run_command",
+            "command": "trigger mines.circle_triger"
         }
     }
 }

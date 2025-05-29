@@ -3,6 +3,7 @@
         "mines_quick_action:time/time_tick",
         "mines_quick_action:highlight/highlight_tick",
         "mines_quick_action:deathback/death_detect",
-        "mines_quick_action:distant_adjust/distant_adjust_tick"
+        "mines_quick_action:distant_adjust/distant_adjust_tick",
+        "mines_quick_action:loopdialog_func/loop_tick"
     ]
 }

@@ -185,5 +185,7 @@
     ],
     "exit_action": {
         "label": "关闭"
-    }
+    },
+    "after_action": "none",
+    "pause": false
 }

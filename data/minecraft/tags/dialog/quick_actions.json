@@ -1,5 +1,6 @@
 {
     "values":[
-        "mines_quick_action:quick"
+        "mines_quick_action:quick",
+        "mines_quick_action:matest"
     ]
 }

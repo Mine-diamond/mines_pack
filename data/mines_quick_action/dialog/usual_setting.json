@@ -78,6 +78,48 @@
                 "command": "/function mines_quick_action:usual_setting"
             },
             "tooltip": "-§c关闭§f时间循环\n-§c关闭§f天气循环\n-§c关闭§f生物自然生成\n-§b开启§f死亡不掉落"
+        },
+        {
+            "label": "§c关闭§f广播命令方块输出",
+            "action": {
+                "type": "run_command",
+                "command": "/gamerule commandBlockOutput false"
+            }
+        },
+        {
+            "label": "§b开启§f广播命令方块输出",
+            "action": {
+                "type": "run_command",
+                "command": "/gamerule commandBlockOutput true"
+            }
+        },
+        {
+            "label": "§c关闭§f生物死亡掉落",
+            "action": {
+                "type": "run_command",
+                "command": "/gamerule doMobLoot false"
+            }
+        },
+        {
+            "label": "§b开启§f生物死亡掉落",
+            "action": {
+                "type": "run_command",
+                "command": "/gamerule doMobLoot true"
+            }
+        },
+        {
+            "label": "§c关闭§f方块挖掘掉落",
+            "action": {
+                "type": "run_command",
+                "command": "/gamerule doTileDrops false"
+            }
+        },
+        {
+            "label": "§b开启§f方块挖掘掉落",
+            "action": {
+                "type": "run_command",
+                "command": "/gamerule doTileDrops true"
+            }
         }
     ],
     "exit_action":{
@@ -86,5 +128,7 @@
             "type": "show_dialog",
             "dialog": "mines_quick_action:quick"
         }
-    }
+    },
+    "after_action": "none",
+    "pause": false
 }
