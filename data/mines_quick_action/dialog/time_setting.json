@@ -1,0 +1,118 @@
+{
+    "type": "minecraft:multi_action",
+    "title": "时间设置",
+    "columns": 1,
+    "inputs": [
+        {
+            "key": "time",
+            "type": "minecraft:number_range",
+            "label": "时间",
+            "start": 0,
+            "end": 24000,
+            "step": 10,
+            "initial": 6000,
+            "width": 400
+        },
+        {
+            "key": "lunar_phase",
+            "type": "minecraft:single_option",
+            "label": "月相",
+            "label_visible": true,
+            "options": [
+                {
+                    "id": "10",
+                    "display": "与当前一致",
+                    "initial": true
+                },
+                {
+                    "id": "0",
+                    "display": "满月"
+                },
+                {
+                    "id": "1",
+                    "display": "亏凸月"
+                },
+                {
+                    "id": "2",
+                    "display": "下弦月"
+                },
+                {
+                    "id": "3",
+                    "display": "残月"
+                },
+                {
+                    "id": "4",
+                    "display": "新月"
+                },
+                {
+                    "id": "5",
+                    "display": "蛾眉月"
+                },
+                {
+                    "id": "6",
+                    "display": "上弦月"
+                },
+                {
+                    "id": "7",
+                    "display": "盈凸月"
+                }
+            ]
+        }
+    ],
+    "body": [
+        {
+            "type": "minecraft:plain_message",
+            "contents": "清晨:0               中午:6000                 傍晚:12000            半夜:18000                 ",
+            "width": 500
+        },
+        {
+            "type": "minecraft:plain_message",
+            "contents": "↓                        ↓                       ↓                       ↓                         ",
+            "width": 500
+        }
+    ],
+    "actions": [
+        {
+            "label": "设置为当前时间",
+            "action": {
+                "type": "dynamic/run_command",
+                "template": "function mines_quick_action:day_time_change/day_time_change {time:$(time),lunar_phase:$(lunar_phase)}"
+            }
+        },
+        {
+            "label": "清晨",
+            "action": {
+                "type": "dynamic/run_command",
+                "template": "function mines_quick_action:day_time_change/day_time_change {time:0,lunar_phase:$(lunar_phase)}"
+            }
+        },
+        {
+            "label": "中午",
+            "action": {
+                "type": "dynamic/run_command",
+                "template": "function mines_quick_action:day_time_change/day_time_change {time:6000,lunar_phase:$(lunar_phase)}"
+            }
+        },
+        {
+            "label": "傍晚",
+            "action": {
+                "type": "dynamic/run_command",
+                "template": "function mines_quick_action:day_time_change/day_time_change {time:12000,lunar_phase:$(lunar_phase)}"
+            }
+        },
+        {
+            "label": "半夜",
+            "action": {
+                "type": "dynamic/run_command",
+                "template": "function mines_quick_action:day_time_change/day_time_change {time:18000,lunar_phase:$(lunar_phase)}"
+            }
+        }
+    ],
+    "exit_action": {
+        "label": "返回",
+        "action": {
+            "type": "show_dialog",
+            "dialog": "mines_quick_action:quick"
+        }
+    }
+}

@@ -16,20 +16,6 @@
   ],
     "actions": [
         {
-            "label": "设为白天",
-            "action": {
-                "type": "run_command",
-                "command": "/time set noon"
-            }
-        },
-        {
-            "label": "设为黑夜",
-            "action": {
-                "type": "run_command",
-                "command": "/time set midnight"
-            }
-        },
-        {
             "label": "清理掉落物",
             "action": {
                 "type": "run_command",
@@ -142,6 +128,13 @@
             "action": {
                 "type": "show_dialog",
                 "dialog": "mines_quick_action:entity_interact_distant"
+            }
+        },
+        {
+            "label": "设置当前时间",
+            "action": {
+                "type": "show_dialog",
+                "dialog": "mines_quick_action:time_setting"
             }
         },
         {
