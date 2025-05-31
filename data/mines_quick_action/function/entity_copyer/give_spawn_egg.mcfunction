@@ -1,0 +1,1 @@
+$give @s $(id)_spawn_egg[entity_data=$(data),item_name=[{"text":"被带走的",italic:false},{"translate":"entity.minecraft.$(id)"}]]

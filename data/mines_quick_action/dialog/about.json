@@ -1,0 +1,42 @@
+{
+    "type": "minecraft:multi_action",
+    "title": "关于页面",
+    "body": [
+        {
+            "type": "minecraft:item",
+            "item": {
+                "id": "player_head",
+                "components": {"minecraft:profile":"yao_ym"}
+            },
+            "show_tooltip": false
+        },
+        {
+            "type": "minecraft:plain_message",
+            "contents": [
+                {
+                    "text": "一个定义了一系列快捷操作的数据包",
+                    "color": "#D87E2E"
+                }
+            ]
+        }
+    ],
+    "actions": [
+        {
+            "label": [
+                {
+                    "text": "查看仓库",
+                    "color": "aqua"
+                }
+            ],
+            "action": {
+                "type": "open_url",
+                "url": "https://github.com/Mine-diamond/mines_pack"
+            },
+            "tooltip": "https://github.com/Mine-diamond/mines_pack",
+            "width": 100
+        }
+    ],
+    "exit_action": {
+        "label": "退出"
+    }
+}

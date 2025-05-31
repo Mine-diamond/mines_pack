@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:multi_action",
+    "title": "带走你面向的生物",
+    "body": [
+        {
+            "type": "minecraft:plain_message",
+            "contents": "必须面向生物下部"
+        }
+    ],
+    "actions": [
+        {
+            "label": "确认",
+            "action": {
+                "type": "run_command",
+                "command": "function mines_quick_action:entity_copyer/get_entity_data"
+            }
+        }
+    ]
+}

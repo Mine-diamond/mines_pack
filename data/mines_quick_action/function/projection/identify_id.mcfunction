@@ -1,0 +1,1 @@
+$execute if entity @s[type=$(id)] run data modify storage mines_quick_action:projection_result id set value "$(id)"

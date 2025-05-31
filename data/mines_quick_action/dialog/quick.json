@@ -155,6 +155,13 @@
             }
         },
         {
+            "label": "带走生物",
+            "action": {
+                "type": "show_dialog",
+                "dialog": "mines_quick_action:pick_up_entity"
+            }
+        },
+        {
             "label": {
                 "text": "获取常用物品",
                 "color": "yellow"
