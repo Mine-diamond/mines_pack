@@ -1,0 +1,1 @@
+tellraw @s ["",{text:"abc",color:"red"},{"text":"这是什么颜色?"}]
