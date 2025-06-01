@@ -1,1 +1,4 @@
-$give @s $(id)_spawn_egg[entity_data=$(data),item_name=[{"text":"被带走的",italic:false},{"translate":"entity.minecraft.$(id)"}]]
+$execute unless data storage mines_pack:entity_copy_data data.CustomName run give @s $(id)_spawn_egg[entity_data=$(data),item_name=[{"text":"被带走的",italic:false},{"translate":"entity.minecraft.$(id)"}]]
+$execute if data storage mines_pack:entity_copy_data data.CustomName run give @s $(id)_spawn_egg[entity_data=$(data),item_name=[{"text":"被带走的",italic:false},{"text":"$(CustomName)",italic:true}]]
+$execute unless data storage mines_pack:entity_copy_data data.CustomName run tellraw @s [{"text":"你带走了"},{"translate":"entity.minecraft.$(id)"}]
+execute if data storage mines_pack:entity_copy_data data.CustomName run tellraw @a [{"text":"你带走了"},{"storage":"mines_pack:entity_copy_data",nbt:"data.CustomName"}]

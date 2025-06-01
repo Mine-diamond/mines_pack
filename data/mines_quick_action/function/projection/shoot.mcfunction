@@ -15,6 +15,6 @@ execute if entity @e[distance=..0.7,type=#projection_entity] \
     run return fail
 
 scoreboard players add #dummyCurrentProjecteTime mines.projection 1
-execute if score #dummyCurrentProjecteTime mines.projection matches 60.. run return fail
+$execute if score #dummyCurrentProjecteTime mines.projection matches $(max_step) run return fail
 
-execute positioned ^ ^ ^0.1 run function mines_quick_action:projection/shoot
+execute positioned ^ ^ ^0.1 run function mines_quick_action:projection/shoot with storage mines_quick_action:projection

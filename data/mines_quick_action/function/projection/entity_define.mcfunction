@@ -2,7 +2,6 @@ data modify storage mines_pack:entity_id total_num set value 86
 data modify storage mines_pack:entity_id id_list set value [ \
     "minecraft:allay", \
     "minecraft:armadillo", \
-    "minecraft:armor_stand", \
     "minecraft:axolotl", \
     "minecraft:bat", \
     "minecraft:bee", \
@@ -91,7 +90,6 @@ data modify storage mines_pack:entity_id id_list set value [ \
 data modify storage mines_pack:entity_id_pure id_list set value [ \
     "allay", \
     "armadillo", \
-    "armor_stand", \
     "axolotl", \
     "bat", \
     "bee", \

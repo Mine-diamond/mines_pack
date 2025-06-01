@@ -1,1 +1,1 @@
-tellraw @s ["",{text:"abc",color:"red"},{"text":"这是什么颜色?"}]
+$execute if score #dummyCurrentPlayerTime mines.worldtime matches $(i).. run say 是的

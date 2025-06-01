@@ -1,7 +1,27 @@
 {
     "type": "minecraft:multi_action",
     "title": "带走你面向的生物",
+    "inputs": [
+        {
+            "key": "max_length",
+            "type": "minecraft:number_range",
+            "start": 1,
+            "end": 30,
+            "label": "检测长度(格)",
+            "initial": 6,
+            "step": 1
+        }
+    ],
     "body": [
+        {
+            "type": "minecraft:plain_message",
+            "contents": "将你面向的生物变成刷怪蛋存起来,且其实体信息将会保留,你可以在合适的位置放出来"
+        },
+        {
+            "type": "minecraft:plain_message",
+            "contents": "注意:仅支持有刷怪蛋的生物,比如不支持带走盔甲架\n注意:使用刷怪蛋时§c如果是通过右键同类型实体来放置生物§f,比如你手上拿着猪刷怪蛋右键猪(而不是方块)来放置生物,那么新生成的实体的自定义数据会被删除,这是刷怪蛋本身的机制(或bug),注意不要这么做",
+            "width": 300
+        },
         {
             "type": "minecraft:plain_message",
             "contents": "必须面向生物下部"
@@ -11,8 +31,8 @@
         {
             "label": "确认",
             "action": {
-                "type": "run_command",
-                "command": "function mines_quick_action:entity_copyer/get_entity_data"
+                "type": "dynamic/run_command",
+                "template": "function mines_quick_action:entity_copyer/start_with_length {max_length:$(max_length)}"
             }
         }
     ]
