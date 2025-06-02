@@ -1,0 +1,1 @@
+data modify storage mines_pack:projection_block_config max_step set value 60

@@ -1,0 +1,20 @@
+{
+    "type": "minecraft:multi_action",
+    "title": "tp",
+    "external_title": "tp到目光位置",
+    "body": [
+        {
+            "type": "minecraft:plain_message",
+            "contents": "tp到你看向的位置"
+        }
+    ],
+    "actions": [
+        {
+            "label": "点击进行tp",
+            "action": {
+                "type": "run_command",
+                "command": "function mines_quick_action:block_projection_fc/move_to_look_at {length:500}"
+            }
+        }
+    ]
+}

@@ -1,0 +1,3 @@
+execute store result storage mines_pack:projection_block_instant_show_jump length int 1 run scoreboard players get @s mines.detect_block_distant
+
+function mines_quick_action:block_projection_fc/get_block_distant_actionbar with storage mines_pack:projection_block_instant_show_jump

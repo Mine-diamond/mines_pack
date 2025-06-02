@@ -1,0 +1,1 @@
+execute as @a[scores={mines.show_block_distant=1}] run function mines_quick_action:block_projection_fc/show_block_distant_tick_jump

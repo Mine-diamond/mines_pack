@@ -1,6 +1,7 @@
 {
     "values":[
         "mines_quick_action:quick",
-        "mines_quick_action:pick_up_entity"
+        "mines_quick_action:pick_up_entity",
+        "mines_quick_action:move_to_look_at"
     ]
 }

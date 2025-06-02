@@ -162,6 +162,13 @@
             }
         },
         {
+            "label": "tp到目光位置",
+            "action": {
+                "type": "show_dialog",
+                "dialog": "mines_quick_action:move_to_look_at"
+            }
+        },
+        {
             "label": {
                 "text": "获取常用物品",
                 "color": "yellow"

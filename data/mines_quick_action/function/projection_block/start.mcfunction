@@ -1,0 +1,10 @@
+scoreboard players set #dummyCurrentIndex mines.projection_block 0
+data remove storage mines_pack:projection_block_result_target Pos
+data remove storage mines_pack:projection_block_result_adjacent Pos
+data remove storage mines_pack:projection_block_result_distant distant
+data remove storage mines_pack:projection_block_result_distant step
+data modify storage mines_pack:projection_block_result_success success set value 0
+
+execute anchored eyes run function mines_quick_action:projection_block/shoot with storage mines_pack:projection_block_config
+
+function mines_quick_action:projection_block/end

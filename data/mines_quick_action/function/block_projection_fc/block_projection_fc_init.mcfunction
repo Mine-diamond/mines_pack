@@ -1,0 +1,2 @@
+scoreboard objectives add mines.show_block_distant dummy
+scoreboard objectives add mines.detect_block_distant dummy
