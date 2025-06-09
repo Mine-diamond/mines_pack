@@ -17,6 +17,15 @@
                 "type": "show_dialog",
                 "dialog": "mines_quick_action:get_netherite_item"
             }
+        },
+        {
+            "label": {
+                "text": "魔法物品"
+            },
+            "action": {
+                "type": "show_dialog",
+                "dialog": "mines_quick_action:get_magic_item"
+            }
         }
     ],
     "on_cancel": {

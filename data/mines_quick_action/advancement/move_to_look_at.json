@@ -1,0 +1,20 @@
+{
+  "criteria": {
+    "generic:player_consumed_item": {
+      "trigger": "using_item",
+      "conditions": {
+        "item": {
+          "predicates": {
+            "minecraft:custom_data": {
+              "custom_item": true,
+              "id": "generic:move_to_look_at"
+            }
+          }
+        }
+      }
+    }
+  },
+  "rewards": {
+    "function": "mines_quick_action:block_projection_fc/item_move_to_look_at"
+  }
+}

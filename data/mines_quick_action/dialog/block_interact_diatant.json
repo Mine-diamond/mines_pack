@@ -13,7 +13,9 @@
         {
             "key": "force_mode",
             "type": "minecraft:boolean",
-            "label": "强制模式",
+            "label": {
+                "text": "强制模式"
+            },
             "initial": false,
             "on_false": "0",
             "on_true": "1"

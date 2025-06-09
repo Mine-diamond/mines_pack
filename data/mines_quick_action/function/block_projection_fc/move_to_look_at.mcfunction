@@ -4,8 +4,9 @@ execute store result storage mines_pack:projection_block_config max_step int 1 r
 
 function mines_quick_action:projection_block/start
 
+
 execute if data storage mines_pack:projection_block_result_success {success:0} run tell @s "前方没有方块"
-execute if data storage mines_pack:projection_block_result_success {success:0} run return fail
+execute if data storage mines_pack:projection_block_result_success {success:0} run return 0
 
 data modify storage mines_pack:move_to_pos x set from storage mines_pack:projection_block_result_adjacent Pos[0]
 data modify storage mines_pack:move_to_pos y set from storage mines_pack:projection_block_result_adjacent Pos[1]

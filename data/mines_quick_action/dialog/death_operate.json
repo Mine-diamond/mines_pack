@@ -18,7 +18,11 @@
                 {
                     "id": "2",
                     "display": {
-                        "text": "死亡时重生在死亡位置§c(有bug)"
+                        "text": "死亡时重生在死亡位置§c(有bug)",
+                        "hover_event": {
+                            "action": "show_text",
+                            "value": "有bug"
+                        }
                     }
                 }
             ]

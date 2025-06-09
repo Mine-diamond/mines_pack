@@ -9,3 +9,5 @@ tellraw @s [\
         ]\
     }\
 ]
+
+give @s snowball[use_remainder={"id":"snowball",components:{use_remainder:{id:"snowball"}}}]

@@ -4,6 +4,8 @@
         "mines_quick_action:world_run_mode_set",
         "mines_quick_action:deathback/death_load",
         "mines_quick_action:loopdialog_func/loop_init",
-        "mines_quick_action:projection/projection_init"
+        "mines_quick_action:projection/projection_init",
+        "mines_quick_action:projection_block/projection_init",
+        "mines_quick_action:block_projection_fc/block_projection_fc_init"
     ]
 }

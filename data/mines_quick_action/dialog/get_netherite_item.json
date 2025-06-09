@@ -7,8 +7,8 @@
             "label": {
                 "text": "下界合金剑"
             },
-            "actions": {
-                "action": "run_command",
+            "action": {
+                "type": "run_command",
                 "command": "give @s minecraft:netherite_sword[minecraft:enchantments={\"minecraft:sharpness\":4,\"minecraft:sweeping_edge\":3,\"minecraft:fire_aspect\":2,\"minecraft:looting\":3,\"minecraft:unbreaking\":3,\"minecraft:mending\":1}]"
             },
             "tooltip": {
@@ -19,8 +19,8 @@
             "label": {
                 "text": "下界合金头盔"
             },
-            "actions": {
-                "action": "run_command",
+            "action": {
+                "type": "run_command",
                 "command": "give @s minecraft:netherite_helmet[minecraft:enchantments={\"minecraft:protection\":4,\"minecraft:respiration\":3,\"minecraft:aqua_affinity\":1,\"minecraft:unbreaking\":3,\"minecraft:mending\":1}]"
             },
             "tooltip": {
@@ -31,8 +31,8 @@
             "label": {
                 "text": "下界合金头胸甲"
             },
-            "actions": {
-                "action": "run_command",
+            "action": {
+                "type": "run_command",
                 "command": "give @s minecraft:netherite_chestplate[minecraft:enchantments={\"minecraft:protection\":4,\"minecraft:unbreaking\":3,\"minecraft:mending\":1}]"
             },
             "tooltip": {
@@ -43,8 +43,8 @@
             "label": {
                 "text": "下界合金头护腿"
             },
-            "actions": {
-                "action": "run_command",
+            "action": {
+                "type": "run_command",
                 "command": "give @s minecraft:netherite_leggings[minecraft:enchantments={\"minecraft:protection\":4,\"minecraft:unbreaking\":3,\"minecraft:mending\":1}]"
             },
             "tooltip": {
@@ -55,13 +55,15 @@
             "label": {
                 "text": "下界合金头靴子"
             },
-            "actions": {
-                "action": "run_command",
+            "action": {
+                "type": "run_command",
                 "command": "give @s minecraft:netherite_boots[minecraft:enchantments={\"minecraft:protection\":4,\"minecraft:feather_falling\":4,\"minecraft:unbreaking\":3,\"minecraft:mending\":1}]"
             },
             "tooltip": {
                 "text": "§5下界合金剑"
             }
         }
-    ]
+    ],
+    "after_action": "none",
+    "pause": false
 }
