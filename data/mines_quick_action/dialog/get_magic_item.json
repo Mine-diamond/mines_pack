@@ -5,26 +5,20 @@
     "actions": [
         {
             "label": {
-                "text": "目视魔杖"
+                "text": "目光跃迁杖"
             },
             "action": {
                 "type": "run_command",
-                "command": "/give @s minecraft:blaze_rod[minecraft:custom_data={\"custom_item\": true,\"id\": \"generic:move_to_look_at\"},minecraft:blocks_attacks={block_delay_seconds:100000},item_name= \"目视魔杖\",lore=[{text:\"传送到你看向的位置\"}]]"
-            },
-            "tooltip": {
-                "text": "§5下界合金剑"
+                "command": "/give @s minecraft:blaze_rod[minecraft:custom_data={\"custom_item\": true,\"id\": \"generic:move_to_look_at\"},minecraft:blocks_attacks={block_delay_seconds:100000},item_name= \"目光跃迁杖\",lore=[{text:\"传送到你看向的位置\"}]]"
             }
         },
         {
             "label": {
-                "text": "下界合金头盔"
+                "text": "生物压缩杖"
             },
             "action": {
                 "type": "run_command",
-                "command": "give @s minecraft:netherite_helmet[minecraft:enchantments={\"minecraft:protection\":4,\"minecraft:respiration\":3,\"minecraft:aqua_affinity\":1,\"minecraft:unbreaking\":3,\"minecraft:mending\":1}]"
-            },
-            "tooltip": {
-                "text": "§5下界合金剑"
+                "command": "/give @s minecraft:breeze_rod[minecraft:custom_data={\"custom_item\": true,\"id\": \"generic:pick_up_entity\"},minecraft:blocks_attacks={block_delay_seconds:100000},item_name= \"生物压缩杖\",lore=[{text:\"将你看向的生物打包带走\"},{text:\"最远只能带走前方目视6格的生物\"}]]"
             }
         }
     ],

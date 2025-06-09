@@ -1,0 +1,20 @@
+{
+  "criteria": {
+    "generic:player_consumed_item": {
+      "trigger": "using_item",
+      "conditions": {
+        "item": {
+          "predicates": {
+            "minecraft:custom_data": {
+              "custom_item": true,
+              "id": "generic:pick_up_entity"
+            }
+          }
+        }
+      }
+    }
+  },
+  "rewards": {
+    "function": "mines_quick_action:entity_copyer/item_pick_up_entity"
+  }
+}
