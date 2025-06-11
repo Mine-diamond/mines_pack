@@ -9,7 +9,7 @@
             },
             "action": {
                 "type": "run_command",
-                "command": "/give @s minecraft:blaze_rod[minecraft:custom_data={\"custom_item\": true,\"id\": \"generic:move_to_look_at\"},minecraft:blocks_attacks={block_delay_seconds:100000},item_name= \"目光跃迁杖\",lore=[{text:\"传送到你看向的位置\"}]]"
+                "command": "/give @s minecraft:blaze_rod[minecraft:custom_data={\"custom_item\": true,\"id\": \"generic:move_to_look_at\"},minecraft:consumable={animation:\"none\",consume_seconds:10000,sound:{sound_id:ambient.nether.basalt_deltas.heavy_click1,range:0}},item_name= \"目光跃迁杖\",lore=[{text:\"传送到你看向的位置\"}]]"
             }
         },
         {
@@ -18,7 +18,16 @@
             },
             "action": {
                 "type": "run_command",
-                "command": "/give @s minecraft:breeze_rod[minecraft:custom_data={\"custom_item\": true,\"id\": \"generic:pick_up_entity\"},minecraft:blocks_attacks={block_delay_seconds:100000},item_name= \"生物压缩杖\",lore=[{text:\"将你看向的生物打包带走\"},{text:\"最远只能带走前方目视6格的生物\"}]]"
+                "command": "/give @s minecraft:breeze_rod[minecraft:custom_data={\"custom_item\": true,\"id\": \"generic:pick_up_entity\"},minecraft:consumable={animation:\"none\",consume_seconds:10000,sound:{sound_id:ambient.nether.basalt_deltas.heavy_click1,range:0}},item_name= \"生物压缩杖\",lore=[{text:\"将你看向的生物打包带走\"},{text:\"最远只能带走前方目视6格的生物\"}]]"
+            }
+        },
+        {
+            "label": {
+                "text": "末地烛1"
+            },
+            "action": {
+                "type": "run_command",
+                "command": "/give @s minecraft:end_rod[minecraft:custom_data={\"custom_item\": true,\"id\": \"generic:fuck_entity\"},minecraft:consumable={animation:brush,consume_seconds:10000,sound:{sound_id:ambient.nether.basalt_deltas.heavy_click1,range:0}}]"
             }
         }
     ],
