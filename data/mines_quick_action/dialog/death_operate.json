@@ -1,5 +1,5 @@
 {
-    "type": "minecraft:multi_action",
+    "type": "minecraft:confirmation",
     "title": "死亡位置提示",
     "inputs": [
         {
@@ -28,18 +28,15 @@
             ]
         }
     ],
-    "actions": [
-        {
-            
-            "label": "确认",
+    "yes": {
+        "label": {"translate": "gui.ok"},
             "action": {
                 "type": "minecraft:dynamic/run_command",
                 "template": "function mines_quick_action:deathback/death_operate_setting {value:$(value)}"
             }
-        }
-    ],
-    "exit_action": {
-        "label": "返回",
+    },
+    "no": {
+        "label": {"translate":"gui.cancel"},
         "action": {
             "type": "show_dialog",
             "dialog": "mines_quick_action:quick"

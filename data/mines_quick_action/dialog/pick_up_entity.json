@@ -29,7 +29,7 @@
     ],
     "actions": [
         {
-            "label": "确认",
+            "label": "点击带走生物",
             "action": {
                 "type": "dynamic/run_command",
                 "template": "function mines_quick_action:entity_copyer/start_with_length {max_length:$(max_length)}"

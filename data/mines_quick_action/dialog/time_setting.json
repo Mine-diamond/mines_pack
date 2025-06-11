@@ -62,7 +62,7 @@
     "body": [
         {
             "type": "minecraft:plain_message",
-            "contents": "清晨:0               中午:6000                 傍晚:12000            半夜:18000                 ",
+            "contents": "清晨:0                   中午:6000             傍晚:12000            半夜:18000                 ",
             "width": 500
         },
         {
@@ -73,7 +73,7 @@
     ],
     "actions": [
         {
-            "label": "设置为当前时间",
+            "label": "§b设置为当前时间",
             "action": {
                 "type": "dynamic/run_command",
                 "template": "function mines_quick_action:day_time_change/day_time_change {time:$(time),lunar_phase:$(lunar_phase)}"
@@ -109,7 +109,9 @@
         }
     ],
     "exit_action": {
-        "label": "返回",
+        "label": {
+            "translate": "gui.cancel"
+        },
         "action": {
             "type": "show_dialog",
             "dialog": "mines_quick_action:quick"

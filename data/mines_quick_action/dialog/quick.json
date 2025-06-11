@@ -1,7 +1,7 @@
 {
     "type": "minecraft:multi_action",
     "button_width": 310,
-    "columns": 2,
+    "columns": 3,
     "external_title": "快捷操作",
     "title": "快捷操作",
     "body": [
@@ -30,90 +30,10 @@
             }
         },
         {
-            "label": "玩家无敌",
+            "label": "设置当前时间",
             "action": {
-                "type": "run_command",
-                "command": "/execute as @s run function mines_quick_action:invulnerable"
-            },
-            "tooltip": "启用后，你将不受伤害\n但是不防负面效果，比如黑暗和缓慢"
-        },
-        {
-            "label": "取消玩家无敌",
-            "action": {
-                "type": "run_command",
-                "command": "/execute as @s run function mines_quick_action:un_invulnerable"
-            }
-        },
-        {
-            "label": "一击必杀",
-            "action": {
-                "type": "run_command",
-                "command": "/execute as @s run function mines_quick_action:one_click_kill"
-            },
-            "tooltip": "启用后，你的一击能打出100000点伤害\n远程攻击伤害不变"
-        },
-        {
-            "label": "取消一击必杀",
-            "action": {
-                "type": "run_command",
-                "command": "/execute as @s run function mines_quick_action:cancel_one_click_kill"
-            }
-        },
-        {
-            "label": "赶路模式",
-            "action": {
-                "type": "run_command",
-                "command": "/execute as @s run function mines_quick_action:world_run_mode"
-            },
-            "tooltip": "启用后,你的速度更快,不用跳跃就能爬上10格的高度,同时在水中也不会减速"
-        },
-        {
-            "label": "取消赶路模式",
-            "action": {
-                "type": "run_command",
-                "command": "/execute as @s run function mines_quick_action:cancel_world_run_mode"
-            }
-        },
-        {
-            "label": "开启时间显示",
-            "action": {
-                "type": "run_command",
-                "command": "/execute as @s run function mines_quick_action:time/time_show"
-            }
-        },
-        {
-            "label": "关闭时间显示",
-            "action": {
-                "type": "run_command",
-                "command": "/execute as @s run function mines_quick_action:time/time_hide"
-            }
-        },
-        {
-            "label": "高亮实体",
-            "action": {
-                "type": "run_command",
-                "command": "/function mines_quick_action:highlight/highlight_show"
-            }
-        },
-        {
-            "label": "取消高亮实体",
-            "action": {
-                "type": "run_command",
-                "command": "/function mines_quick_action:highlight/highlight_hide"
-            }
-        },
-        {
-            "label": "启用夜视",
-            "action": {
-                "type": "run_command",
-                "command": "/effect give @s minecraft:night_vision infinite 1 true"
-            }
-        },
-        {
-            "label": "禁用夜视",
-            "action": {
-                "type": "run_command",
-                "command": "/effect clear @s minecraft:night_vision"
+                "type": "show_dialog",
+                "dialog": "mines_quick_action:time_setting"
             }
         },
         {
@@ -128,23 +48,6 @@
             "action": {
                 "type": "show_dialog",
                 "dialog": "mines_quick_action:entity_interact_distant"
-            }
-        },
-        {
-            "label": "设置当前时间",
-            "action": {
-                "type": "show_dialog",
-                "dialog": "mines_quick_action:time_setting"
-            }
-        },
-        {
-            "label": {
-                "text": "常见游戏规则设置",
-                "color": "yellow"
-            },
-            "action": {
-                "type": "show_dialog",
-                "dialog": "mines_quick_action:usual_setting"
             }
         },
         {
@@ -166,6 +69,110 @@
             "action": {
                 "type": "show_dialog",
                 "dialog": "mines_quick_action:move_to_look_at"
+            }
+        },
+        {
+            "label": "获取看向的方块的距离",
+            "action": {
+                "type": "show_dialog",
+                "dialog": "mines_quick_action:show_block_distant"
+            }
+        },
+        {
+            "label": "玩家无敌",
+            "action": {
+                "type": "run_command",
+                "command": "/execute as @s run function mines_quick_action:invulnerable"
+            },
+            "tooltip": "启用后，你将不受伤害\n但是不防负面效果，比如黑暗和缓慢"
+        },
+        {
+            "label": "一击必杀",
+            "action": {
+                "type": "run_command",
+                "command": "/execute as @s run function mines_quick_action:one_click_kill"
+            },
+            "tooltip": "启用后，你的一击能打出100000点伤害\n远程攻击伤害不变"
+        },
+        {
+            "label": "赶路模式",
+            "action": {
+                "type": "run_command",
+                "command": "/execute as @s run function mines_quick_action:world_run_mode"
+            },
+            "tooltip": "启用后,你的速度更快,不用跳跃就能爬上10格的高度,同时在水中也不会减速"
+        },
+        {
+            "label": "取消玩家无敌",
+            "action": {
+                "type": "run_command",
+                "command": "/execute as @s run function mines_quick_action:un_invulnerable"
+            }
+        },
+        {
+            "label": "取消一击必杀",
+            "action": {
+                "type": "run_command",
+                "command": "/execute as @s run function mines_quick_action:cancel_one_click_kill"
+            }
+        },
+        {
+            "label": "取消赶路模式",
+            "action": {
+                "type": "run_command",
+                "command": "/execute as @s run function mines_quick_action:cancel_world_run_mode"
+            }
+        },
+        {
+            "label": "开启时间显示",
+            "action": {
+                "type": "run_command",
+                "command": "/execute as @s run function mines_quick_action:time/time_show"
+            }
+        },
+        {
+            "label": "高亮实体",
+            "action": {
+                "type": "run_command",
+                "command": "/function mines_quick_action:highlight/highlight_show"
+            }
+        },
+        {
+            "label": "启用夜视",
+            "action": {
+                "type": "run_command",
+                "command": "/effect give @s minecraft:night_vision infinite 1 true"
+            }
+        },
+        {
+            "label": "关闭时间显示",
+            "action": {
+                "type": "run_command",
+                "command": "/execute as @s run function mines_quick_action:time/time_hide"
+            }
+        },
+        {
+            "label": "取消高亮实体",
+            "action": {
+                "type": "run_command",
+                "command": "/function mines_quick_action:highlight/highlight_hide"
+            }
+        },
+        {
+            "label": "禁用夜视",
+            "action": {
+                "type": "run_command",
+                "command": "/effect clear @s minecraft:night_vision"
+            }
+        },
+        {
+            "label": {
+                "text": "常见游戏规则设置",
+                "color": "yellow"
+            },
+            "action": {
+                "type": "show_dialog",
+                "dialog": "mines_quick_action:usual_setting"
             }
         },
         {

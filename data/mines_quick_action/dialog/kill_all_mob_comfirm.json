@@ -24,7 +24,7 @@
         {
             "key": "value",
             "type": "minecraft:boolean",
-            "label": "无掉落物",
+            "label": "不产生掉落物",
             "initial": false,
             "on_false": "0",
             "on_true": "1"
@@ -32,7 +32,7 @@
     ],
     "yes": {
         "label": {
-            "text":"确认",
+            "translate": "gui.ok",
             "color": "red"
         },
         "action": {
@@ -41,7 +41,9 @@
         }
     },
     "no": {
-        "label": "取消",
+        "label": {
+            "translate": "gui.cancel"
+        },
         "action": {
             "type": "show_dialog",
             "dialog": "mines_quick_action:quick"

@@ -33,7 +33,7 @@
     ],
     "actions": [
         {
-            "label": "设置为实体交互距离",
+            "label": "§b设置为实体交互距离",
             "action": {
                 "type": "dynamic/run_command",
                 "template": "function mines_quick_action:distant_adjust/entity_adjust_change {force:$(force_mode),value:$(input)}"
