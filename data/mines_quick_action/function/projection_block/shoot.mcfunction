@@ -14,7 +14,7 @@ execute unless block ^ ^ ^ air run return 1
 
 scoreboard players add #dummyCurrentIndex mines.projection_block 1
 #tellraw @s [{score:{name:"#dummyCurrentIndex",objective:"mines.projection_block"}}]
-$execute if score #dummyCurrentIndex mines.projection_block matches $(max_step)..4000 run say 没找到方块
+#$execute if score #dummyCurrentIndex mines.projection_block matches $(max_step)..4000 run say 没找到方块
 $execute if score #dummyCurrentIndex mines.projection_block matches $(max_step)..4000 run return 0
 
 execute positioned ^ ^ ^0.1 run function mines_quick_action:projection_block/shoot with storage mines_pack:projection_block_config

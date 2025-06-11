@@ -9,7 +9,7 @@
             },
             "action": {
                 "type": "run_command",
-                "command": "/give @s minecraft:blaze_rod[minecraft:custom_data={\"custom_item\": true,\"id\": \"generic:move_to_look_at\"},minecraft:consumable={animation:\"none\",consume_seconds:10000,sound:{sound_id:ambient.nether.basalt_deltas.heavy_click1,range:0}},item_name= \"目光跃迁杖\",lore=[{text:\"传送到你看向的位置\"}]]"
+                "command": "/give @s minecraft:blaze_rod[minecraft:custom_data={\"custom_item\": true,\"id\": \"generic:move_to_look_at\"},minecraft:consumable={animation:\"none\",consume_seconds:10000,sound:{sound_id:ambient.nether.basalt_deltas.heavy_click1,range:0}},item_name= \"目光跃迁杖\",lore=[{text:\"传送到你看向的位置\"}],rarity=\"epic\"]"
             }
         },
         {
@@ -18,7 +18,7 @@
             },
             "action": {
                 "type": "run_command",
-                "command": "/give @s minecraft:breeze_rod[minecraft:custom_data={\"custom_item\": true,\"id\": \"generic:pick_up_entity\"},minecraft:consumable={animation:\"none\",consume_seconds:10000,sound:{sound_id:ambient.nether.basalt_deltas.heavy_click1,range:0}},item_name= \"生物压缩杖\",lore=[{text:\"将你看向的生物打包带走\"},{text:\"最远只能带走前方目视6格的生物\"}]]"
+                "command": "/give @s minecraft:breeze_rod[minecraft:custom_data={\"custom_item\": true,\"id\": \"generic:pick_up_entity\"},minecraft:consumable={animation:\"none\",consume_seconds:10000,sound:{sound_id:ambient.nether.basalt_deltas.heavy_click1,range:0}},item_name= \"生物压缩杖\",lore=[{text:\"将你看向的生物打包带走\"},{text:\"最远只能带走前方目视6格的生物\"}],rarity=\"epic\"]"
             }
         },
         {
@@ -27,7 +27,7 @@
             },
             "action": {
                 "type": "run_command",
-                "command": "/give @s minecraft:end_rod[minecraft:custom_data={\"custom_item\": true,\"id\": \"generic:fuck_entity\"},minecraft:consumable={animation:brush,consume_seconds:10000,sound:{sound_id:ambient.nether.basalt_deltas.heavy_click1,range:0}}]"
+                "command": "/give @s minecraft:end_rod[minecraft:custom_data={\"custom_item\": true,\"id\": \"generic:fuck_entity\"},minecraft:consumable={animation:brush,consume_seconds:10000,sound:{sound_id:ambient.nether.basalt_deltas.heavy_click1,range:0}},attribute_modifiers=[{type:\"entity_interaction_range\",id:\"mines_pack:no_entity_interact\",amount:-1,operation:\"add_multiplied_total\",slot:\"offhand\"},{type:\"block_interaction_range\",id:\"mines_pack:no_block_interact\",amount:-1,operation:\"add_multiplied_total\",slot:\"offhand\"}],tooltip_display={hidden_components:[\"attribute_modifiers\"]},lore=[{text:\"- 将这根末地烛放在副手，然后你就可以艹其他生物了\",italic:false,color:white},{text:\"- 注意只有原本就能繁殖(除了村民)才能艹\",italic:false,color:white},{text:\"- 为了防止意外的交互，放在副手后你将不能与方块/生物\",italic:false,color:white},{text:\"进行其它交互(比如打开马的装备栏)\",italic:false,color:white},{text:\"- 该末地烛在放到地上后会变成普通的末地烛，不能再用来\",italic:false,color:white},{text:\"艹生物\",italic:false,color:white}],rarity=\"uncommon\"]"
             }
         }
     ],

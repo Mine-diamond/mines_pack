@@ -10,6 +10,18 @@
               "id": "generic:fuck_entity"
             }
           }
+        },
+        "player": {
+          "equipment": {
+            "offhand": {
+              "predicates": {
+                "custom_data": {
+                  "custom_item": true,
+                  "id": "generic:fuck_entity"
+                }
+              }
+            }
+          }
         }
       }
     }
