@@ -18,12 +18,12 @@
             },
             "action": {
                 "type": "run_command",
-                "command": "/give @s minecraft:breeze_rod[minecraft:custom_data={\"custom_item\": true,\"id\": \"generic:pick_up_entity\"},minecraft:consumable={animation:\"none\",consume_seconds:10000,sound:{sound_id:ambient.nether.basalt_deltas.heavy_click1,range:0}},item_name= \"生物压缩杖\",lore=[{text:\"将你看向的生物打包带走\"},{text:\"最远只能带走前方目视6格的生物\"}],rarity=\"epic\"]"
+                "command": "/give @s minecraft:breeze_rod[minecraft:custom_data={\"custom_item\": true,\"id\": \"generic:pick_up_entity\"},minecraft:consumable={animation:\"none\",consume_seconds:10000,sound:{sound_id:ambient.nether.basalt_deltas.heavy_click1,range:0}},item_name= \"生物压缩杖\",lore=[{text:\"将你看向的生物变成怪物蛋带走\"},{text:\"最远只能带走前方目视6格的生物\"}],rarity=\"epic\"]"
             }
         },
         {
             "label": {
-                "text": "末地烛1"
+                "text": "末地烛"
             },
             "action": {
                 "type": "run_command",

@@ -7,6 +7,7 @@
         "mines_quick_action:projection/projection_init",
         "mines_quick_action:projection_block/projection_init",
         "mines_quick_action:block_projection_fc/block_projection_fc_init",
-        "mines_quick_action:fuck_entity/schedule_show_heart"
+        "mines_quick_action:fuck_entity/schedule_show_heart",
+        "mines_quick_action:fuck_entity/fuck_init"
     ]
 }

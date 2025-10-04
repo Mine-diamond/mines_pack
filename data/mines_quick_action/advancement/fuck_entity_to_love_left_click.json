@@ -1,0 +1,31 @@
+{
+  "criteria": {
+    "generic:player_consumed_item": {
+      "trigger": "minecraft:tick",
+      "conditions": {
+        "player": {
+          "slots": {
+            "weapon.offhand": {
+              "predicates": {
+                "custom_data": {
+                  "custom_item": true,
+                  "id": "generic:fuck_entity"
+                }
+              }
+            }
+          },
+          "type_specific": {
+            "type": "minecraft:player",
+            "input": {
+              "sneak": true
+            }
+          }
+        }
+    }
+
+    }
+  },
+  "rewards": {
+    "function": "mines_quick_action:fuck_entity/simple_fuck_left_click"
+  }
+}

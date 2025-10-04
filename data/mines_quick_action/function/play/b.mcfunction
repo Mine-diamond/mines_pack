@@ -1,1 +1,1 @@
-$execute if score #dummyCurrentPlayerTime mines.worldtime matches $(i).. run say 是的
+title @s actionbar "§b||||||||||§e||||||||||§d||||||||||§c|||§f|||||||"
