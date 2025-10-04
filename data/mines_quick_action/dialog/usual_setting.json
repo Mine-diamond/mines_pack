@@ -120,6 +120,20 @@
                 "type": "run_command",
                 "command": "/gamerule doTileDrops true"
             }
+        },
+        {
+            "label": "§c关闭§f进度通知公告",
+            "action": {
+                "type": "run_command",
+                "command": "/gamerule announceAdvancements false"
+            }
+        },
+        {
+            "label": "§b开启§f进度通知公告",
+            "action": {
+                "type": "run_command",
+                "command": "/gamerule announceAdvancements true"
+            }
         }
     ],
     "exit_action":{
