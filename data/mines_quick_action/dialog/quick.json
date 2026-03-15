@@ -42,10 +42,10 @@
             }
         },
         {
-            "label": "提示死亡位置",
+            "label": "自定义攻击伤害",
             "action": {
                 "type": "show_dialog",
-                "dialog": "mines_quick_action:death_operate"
+                "dialog": "mines_quick_action:custom_attack_damage"
             }
         },
         {
@@ -78,12 +78,11 @@
             "tooltip": "启用后，你将不受伤害\n但是不防负面效果，比如黑暗和缓慢"
         },
         {
-            "label": "一击必杀",
+            "label": "高亮实体",
             "action": {
                 "type": "run_command",
-                "command": "/execute as @s run function mines_quick_action:unclassified_quick_actions/enable_one_click_kill"
-            },
-            "tooltip": "启用后，你的一击能打出100000点伤害\n远程攻击伤害不变"
+                "command": "/function mines_quick_action:highlight/highlight_show"
+            }
         },
         {
             "label": "赶路模式",
@@ -101,10 +100,10 @@
             }
         },
         {
-            "label": "取消一击必杀",
+            "label": "取消高亮实体",
             "action": {
                 "type": "run_command",
-                "command": "/execute as @s run function mines_quick_action:unclassified_quick_actions/disable_one_click_kill"
+                "command": "/function mines_quick_action:highlight/highlight_hide"
             }
         },
         {
@@ -122,17 +121,17 @@
             }
         },
         {
-            "label": "高亮实体",
-            "action": {
-                "type": "run_command",
-                "command": "/function mines_quick_action:highlight/highlight_show"
-            }
-        },
-        {
             "label": "启用夜视",
             "action": {
                 "type": "run_command",
                 "command": "/effect give @s minecraft:night_vision infinite 1 true"
+            }
+        },
+        {
+            "label": "提示死亡位置",
+            "action": {
+                "type": "show_dialog",
+                "dialog": "mines_quick_action:death_operate"
             }
         },
         {
@@ -143,18 +142,22 @@
             }
         },
         {
-            "label": "取消高亮实体",
-            "action": {
-                "type": "run_command",
-                "command": "/function mines_quick_action:highlight/highlight_hide"
-            }
-        },
-        {
             "label": "禁用夜视",
             "action": {
                 "type": "run_command",
                 "command": "/effect clear @s minecraft:night_vision"
             }
+        },
+        {
+            "label": {
+                "text": "数据包仓库链接",
+                "color": "aqua"
+            },
+            "action": {
+                "type": "open_url",
+                "url": "https://github.com/Mine-diamond/mines_pack"
+            },
+            "tooltip": "https://github.com/Mine-diamond/mines_pack"
         },
         {
             "label": {
@@ -175,17 +178,6 @@
                 "type": "show_dialog",
                 "dialog": "mines_quick_action:get_item"
             }
-        },
-        {
-            "label": {
-                "text": "数据包仓库链接",
-                "color": "aqua"
-            },
-            "action": {
-                "type": "open_url",
-                "url": "https://github.com/Mine-diamond/mines_pack"
-            },
-            "tooltip": "https://github.com/Mine-diamond/mines_pack"
         }
     ]
 }

@@ -1,0 +1,63 @@
+{
+    "type": "minecraft:multi_action",
+    "title": "自定义攻击伤害",
+    "columns": 1,
+    "inputs": [
+        {
+            "key": "attack_damage",
+            "type": "minecraft:text",
+            "label": "攻击伤害",
+            "initial": "1"
+        }
+    ],
+    "actions": [
+        {
+            "label": "§b设置为输入值",
+            "action": {
+                "type": "dynamic/run_command",
+                "template": "/function mines_quick_action:attack_damage_custom/custom_attack_damage {attack_damage:$(attack_damage)}"
+            }
+        },
+        {
+            "label": "无伤害",
+            "tooltip": "不会有任何伤害，即使是持有武器时",
+            "action": {
+                "type": "run_command",
+                "command": "/function mines_quick_action:attack_damage_custom/disable_attack_damage"
+            }
+        },
+        {
+            "label": "重置伤害(§a1§f)",
+            "tooltip": "将伤害重置为默认值",
+            "action": {
+                "type": "run_command",
+                "command": "/function mines_quick_action:attack_damage_custom/reset_attack_damage"
+            }
+        },
+        {
+            "label": "高伤害(§c10§f)",
+            "tooltip": "将空手伤害修改为10，武器依然会影响伤害",
+            "action": {
+                "type": "run_command",
+                "command": "/function mines_quick_action:attack_damage_custom/custom_attack_damage {attack_damage:10}"
+            }
+        },
+        {
+            "label": "超级伤害(§410000000§f)",
+            "tooltip": "将空手伤害修改为10000000，武器依然会影响伤害",
+            "action": {
+                "type": "run_command",
+                "command": "/function mines_quick_action:attack_damage_custom/custom_attack_damage {attack_damage:10000000}"
+            }
+        }
+    ],
+    "exit_action":{
+        "label":{
+            "translate": "gui.back"
+        },
+        "action": {
+            "type": "show_dialog",
+            "dialog": "mines_quick_action:quick"
+        }
+    }
+}

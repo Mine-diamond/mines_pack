@@ -1,0 +1,2 @@
+function mines_quick_action:attack_damage_custom/reset_attack_damage
+attribute @s minecraft:attack_damage modifier add no_damage -1 add_multiplied_total
