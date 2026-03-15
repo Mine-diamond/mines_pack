@@ -31,14 +31,14 @@
             "label": "设置方块交互距离",
             "action": {
                 "type": "show_dialog",
-                "dialog": "mines_quick_action:block_interact_diatant"
+                "dialog": "mines_quick_action:custom_block_interact_distance"
             }
         },
         {
             "label": "设置实体交互距离",
             "action": {
                 "type": "show_dialog",
-                "dialog": "mines_quick_action:entity_interact_distant"
+                "dialog": "mines_quick_action:custom_entity_interact_distance"
             }
         },
         {
