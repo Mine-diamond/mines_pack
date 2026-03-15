@@ -1,1 +1,2 @@
-execute if data storage mines_pack:highlight {EnabledFlags:1b} run effect give @e glowing 1 1 true
+execute if data storage mines_pack:highlight {EnabledFlags:1b} as @e run data merge entity @s {active_effects: [{duration: 10, show_icon: 0b, amplifier: 1b, id: "minecraft:glowing", show_particles: 0b}]}
+schedule function mines_quick_action:highlight/highlight_tick 10t

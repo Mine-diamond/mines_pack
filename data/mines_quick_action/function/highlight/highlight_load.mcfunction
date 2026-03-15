@@ -1,0 +1,1 @@
+function mines_quick_action:highlight/highlight_tick
