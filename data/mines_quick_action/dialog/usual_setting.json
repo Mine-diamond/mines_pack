@@ -9,56 +9,56 @@
             "label": "§c关闭§f时间循环",
             "action": {
                 "type": "run_command",
-                "command": "/gamerule doDaylightCycle false"
+                "command": "/gamerule advance_time false"
             }
         },
         {
             "label": "§b开启§f时间循环",
             "action": {
                 "type": "run_command",
-                "command": "/gamerule doDaylightCycle true"
+                "command": "/gamerule advance_time true"
             }
         },
         {
             "label": "§c关闭§f天气循环",
             "action": {
                 "type": "run_command",
-                "command": "/gamerule doWeatherCycle false"
+                "command": "/gamerule advance_weather false"
             }
         },
         {
             "label": "§b开启§f天气循环",
             "action": {
                 "type": "run_command",
-                "command": "/gamerule doWeatherCycle true"
+                "command": "/gamerule advance_weather true"
             }
         },
         {
             "label": "§c关闭§f生物自然生成",
             "action": {
                 "type": "run_command",
-                "command": "/gamerule doMobSpawning false"
+                "command": "/gamerule spawn_mobs false"
             }
         },
         {
             "label": "§b开启§f生物自然生成",
             "action": {
                 "type": "run_command",
-                "command": "/gamerule doMobSpawning true"
+                "command": "/gamerule spawn_mobs true"
             }
         },
         {
             "label": "§b开启§f死亡不掉落",
             "action": {
                 "type": "run_command",
-                "command": "/gamerule keepInventory true"
+                "command": "/gamerule keep_inventory true"
             }
         },
         {
             "label": "§c关闭§f死亡不掉落",
             "action": {
                 "type": "run_command",
-                "command": "/gamerule keepInventory false"
+                "command": "/gamerule keep_inventory false"
             }
         },
         {
@@ -83,56 +83,56 @@
             "label": "§c关闭§f广播命令方块输出",
             "action": {
                 "type": "run_command",
-                "command": "/gamerule commandBlockOutput false"
+                "command": "/gamerule command_block_output false"
             }
         },
         {
             "label": "§b开启§f广播命令方块输出",
             "action": {
                 "type": "run_command",
-                "command": "/gamerule commandBlockOutput true"
+                "command": "/gamerule command_block_output true"
             }
         },
         {
             "label": "§c关闭§f生物死亡掉落",
             "action": {
                 "type": "run_command",
-                "command": "/gamerule doMobLoot false"
+                "command": "/gamerule mob_drops false"
             }
         },
         {
             "label": "§b开启§f生物死亡掉落",
             "action": {
                 "type": "run_command",
-                "command": "/gamerule doMobLoot true"
+                "command": "/gamerule mob_drops true"
             }
         },
         {
             "label": "§c关闭§f方块挖掘掉落",
             "action": {
                 "type": "run_command",
-                "command": "/gamerule doTileDrops false"
+                "command": "/gamerule block_drops false"
             }
         },
         {
             "label": "§b开启§f方块挖掘掉落",
             "action": {
                 "type": "run_command",
-                "command": "/gamerule doTileDrops true"
+                "command": "/gamerule block_drops true"
             }
         },
         {
             "label": "§c关闭§f进度通知公告",
             "action": {
                 "type": "run_command",
-                "command": "/gamerule announceAdvancements false"
+                "command": "/gamerule show_advancement_messages false"
             }
         },
         {
             "label": "§b开启§f进度通知公告",
             "action": {
                 "type": "run_command",
-                "command": "/gamerule announceAdvancements true"
+                "command": "/gamerule show_advancement_messages true"
             }
         }
     ],

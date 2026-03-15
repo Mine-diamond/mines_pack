@@ -1,4 +1,4 @@
-gamerule doDaylightCycle false
-gamerule doWeatherCycle false
-gamerule doMobSpawning false
-gamerule keepInventory true
+gamerule advance_time false
+gamerule advance_weather false
+gamerule spawn_mobs false
+gamerule keep_inventory true

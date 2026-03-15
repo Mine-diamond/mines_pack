@@ -26,21 +26,21 @@
             "label": "随机刻速度设置为§a0",
             "action": {
                 "type": "minecraft:run_command",
-                "command": "gamerule randomTickSpeed 0"
+                "command": "gamerule random_tick_speed 0"
             }
         },
         {
             "label": "随机刻速度设置为§a3§f(默认)",
             "action": {
                 "type": "minecraft:run_command",
-                "command": "gamerule randomTickSpeed 3"
+                "command": "gamerule random_tick_speed 3"
             }
         },
         {
             "label": "随机刻速度设置为§a200",
             "action": {
                 "type": "minecraft:run_command",
-                "command": "gamerule randomTickSpeed 200"
+                "command": "gamerule random_tick_speed 200"
             }
         }
     ],
