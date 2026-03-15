@@ -1,0 +1,40 @@
+{
+    "type": "minecraft:multi_action",
+    "title": "获取命名牌",
+    "columns": 2,
+    "external_title": "获取命名牌",
+    "inputs": [
+        {
+            "key": "name",
+            "type": "minecraft:text",
+            "label": "名称"
+        }
+    ],
+    "actions": [
+        {
+            "label": "获取一个命名牌",
+            "width": 70,
+            "action": {
+                "type": "dynamic/run_command",
+                "template": "/give @s name_tag[custom_name=\"$(name)\"] 1"
+            }
+        },
+        {
+            "label": "获取一组命名牌",
+            "width": 70,
+            "action": {
+                "type": "dynamic/run_command",
+                "template": "/give @s name_tag[custom_name=\"$(name)\"] 64"
+            }
+        }
+    ],
+    "exit_action":{
+        "label":{
+            "translate": "gui.back"
+        },
+        "action": {
+            "type": "show_dialog",
+            "dialog": "mines_quick_action:get_item"
+        }
+    }
+}

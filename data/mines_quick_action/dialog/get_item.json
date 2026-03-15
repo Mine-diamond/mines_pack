@@ -26,10 +26,24 @@
                 "type": "show_dialog",
                 "dialog": "mines_quick_action:get_magic_item"
             }
+        },
+        {
+            "label": {
+                "text": "获取命名牌"
+            },
+            "action": {
+                "type": "show_dialog",
+                "dialog": "mines_quick_action:get_name_tag"
+            }
         }
     ],
-    "on_cancel": {
-        "action": "show_dialog",
-        "dialog": "mines_quick_action:quick"
+    "exit_action":{
+        "label":{
+            "translate": "gui.back"
+        },
+        "action": {
+            "type": "show_dialog",
+            "dialog": "mines_quick_action:quick"
+        }
     }
 }
