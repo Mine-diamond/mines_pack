@@ -1,19 +1,10 @@
 {
     "type": "minecraft:multi_action",
-    "button_width": 310,
     "columns": 3,
-    "external_title": "快捷操作",
+    "external_title": {"text": "快捷操作", "color": "gold", "bold": true},
     "title": "快捷操作",
-    "body": [
-    {
-      "type": "plain_message",
-      "contents": {
-        "text": "超多快捷操作",
-        "color": "white",
-        "bold": true
-      }
-    }
-  ],
+    "after_action": "none",
+    "pause": false,
     "actions": [
         {
             "label": "清理掉落物",
@@ -196,7 +187,5 @@
             },
             "tooltip": "https://github.com/Mine-diamond/mines_pack"
         }
-    ],
-    "after_action": "none",
-    "pause": false
+    ]
 }
