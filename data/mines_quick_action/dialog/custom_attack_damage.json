@@ -23,15 +23,15 @@
             "tooltip": "不会有任何伤害，即使是持有武器时",
             "action": {
                 "type": "run_command",
-                "command": "/function mines_quick_action:attack_damage_custom/disable_attack_damage"
+                "command": "/trigger mines.custom_attack_damahe_trig set 1"
             }
         },
         {
-            "label": "重置伤害(§a1§f)",
+            "label": "默认伤害(§a1§f)",
             "tooltip": "将伤害重置为默认值",
             "action": {
                 "type": "run_command",
-                "command": "/function mines_quick_action:attack_damage_custom/reset_attack_damage"
+                "command": "/trigger mines.custom_attack_damahe_trig set 2"
             }
         },
         {
@@ -39,7 +39,7 @@
             "tooltip": "将空手伤害修改为10，武器依然会影响伤害",
             "action": {
                 "type": "run_command",
-                "command": "/function mines_quick_action:attack_damage_custom/custom_attack_damage {attack_damage:10}"
+                "command": "/trigger mines.custom_attack_damahe_trig set 3"
             }
         },
         {
@@ -47,7 +47,7 @@
             "tooltip": "将空手伤害修改为10000000，武器依然会影响伤害",
             "action": {
                 "type": "run_command",
-                "command": "/function mines_quick_action:attack_damage_custom/custom_attack_damage {attack_damage:10000000}"
+                "command": "/trigger mines.custom_attack_damahe_trig set 4"
             }
         }
     ],
