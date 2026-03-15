@@ -121,7 +121,7 @@
             }
         },
         {
-            "label": "提示死亡位置",
+            "label": "设置死亡操作",
             "action": {
                 "type": "show_dialog",
                 "dialog": "mines_quick_action:death_operate"

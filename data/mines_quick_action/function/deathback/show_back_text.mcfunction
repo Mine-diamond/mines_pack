@@ -1,0 +1,2 @@
+tellraw @s [{"text":"你的死亡位置是: "},{text:"",color:"green","click_event":{"action":"run_command","command":"trigger mines.death_tp_back set 1"},"hover_event":{"action":"show_text","value":[{text:"点击传送"}]}, extra:[{text:"["},{"score":{"objective":"mines.death_x_pos","name":"@s"}},{"text":", "},{"score":{"objective":"mines.death_y_pos","name":"@s"}},{"text":", "},{"score":{"objective":"mines.death_z_pos","name":"@s"}},{text:"]"}]}]
+

@@ -1,14 +1,11 @@
-scoreboard objectives add mines.ifDeath deathCount
-scoreboard objectives add mines.DeathXPos dummy
-scoreboard objectives add mines.DeathYPos dummy
-scoreboard objectives add mines.DeathZPos dummy
+scoreboard objectives add mines.if_death deathCount
+scoreboard objectives add mines.death_x_pos dummy
+scoreboard objectives add mines.death_y_pos dummy
+scoreboard objectives add mines.death_z_pos dummy
+scoreboard objectives add mines.death_yaw dummy
+scoreboard objectives add mines.death_pitch dummy
 
-scoreboard objectives add mines.CurrentXPos dummy
-scoreboard objectives add mines.CurrentYPos dummy
-scoreboard objectives add mines.CurrentZPos dummy
+scoreboard objectives add mines.current_yaw dummy
+scoreboard objectives add mines.current_pitch dummy
 
-scoreboard objectives add mines.OringinSpawnX dummy
-scoreboard objectives add mines.OringinSpawnY dummy
-scoreboard objectives add mines.OringinSpawnZ dummy
-
-scoreboard objectives add mines.deathOperate dummy
+scoreboard objectives add mines.death_ops dummy

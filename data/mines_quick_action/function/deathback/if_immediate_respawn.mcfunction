@@ -1,1 +1,0 @@
-return run gamerule immediate_respawn

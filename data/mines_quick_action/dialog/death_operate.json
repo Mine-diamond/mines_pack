@@ -1,44 +1,38 @@
 {
-    "type": "minecraft:confirmation",
-    "title": "死亡位置提示",
-    "inputs": [
+    "type": "minecraft:multi_action",
+    "title": "死亡操作",
+    "columns": 1,
+    "actions": [
         {
-            "type": "minecraft:single_option",
-            "key": "value",
-            "label": "行为",
-            "options": [
-                {
-                    "id": "0",
-                    "display": "无行为"
-                },
-                {
-                    "id": "1",
-                    "display": "死亡时提示死亡位置"
-                },
-                {
-                    "id": "2",
-                    "display": {
-                        "text": "死亡时重生在死亡位置§c(有bug)",
-                        "hover_event": {
-                            "action": "show_text",
-                            "value": "有bug"
-                        }
-                    }
-                }
-            ]
+            "label": "无行为",
+            "action": {
+                "type": "minecraft:run_command",
+                "command": "trigger mines.death_ops_trig set 1"
+            }
+        },
+        {
+            "label": "提示死亡位置",
+            "action": {
+                "type": "minecraft:run_command",
+                "command": "trigger mines.death_ops_trig set 2"
+            }
+        },
+        {
+            "label": {
+                "text": "重生在死亡位置§c(有bug)"
+            },
+            "action": {
+                "type": "minecraft:run_command",
+                "command": "trigger mines.death_ops_trig set 3"
+            }
         }
     ],
-    "yes": {
-        "label": {"translate": "gui.ok"},
-            "action": {
-                "type": "minecraft:dynamic/run_command",
-                "template": "function mines_quick_action:deathback/death_operate_setting {value:$(value)}"
-            }
-    },
-    "no": {
-        "label": {"translate":"gui.cancel"},
+    "exit_action": {
+        "label": {
+            "translate": "gui.back"
+        },
         "action": {
-            "type": "show_dialog",
+            "type": "minecraft:show_dialog",
             "dialog": "mines_quick_action:quick"
         }
     },
