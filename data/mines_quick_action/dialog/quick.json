@@ -78,13 +78,6 @@
             "tooltip": "启用后，你将不受伤害\n但是不防负面效果，比如黑暗和缓慢"
         },
         {
-            "label": "高亮实体",
-            "action": {
-                "type": "run_command",
-                "command": "/function mines_quick_action:highlight/highlight_show"
-            }
-        },
-        {
             "label": "赶路模式",
             "action": {
                 "type": "run_command",
@@ -93,17 +86,17 @@
             "tooltip": "启用后,你的速度更快,不用跳跃就能爬上10格的高度,同时在水中也不会减速"
         },
         {
+            "label": "开启时间显示",
+            "action": {
+                "type": "run_command",
+                "command": "/execute as @s run function mines_quick_action:time/time_show"
+            }
+        },
+        {
             "label": "取消玩家无敌",
             "action": {
                 "type": "run_command",
                 "command": "/execute as @s run function mines_quick_action:unclassified_quick_actions/disable_invulnerability"
-            }
-        },
-        {
-            "label": "取消高亮实体",
-            "action": {
-                "type": "run_command",
-                "command": "/function mines_quick_action:highlight/highlight_hide"
             }
         },
         {
@@ -114,10 +107,10 @@
             }
         },
         {
-            "label": "开启时间显示",
+            "label": "关闭时间显示",
             "action": {
                 "type": "run_command",
-                "command": "/execute as @s run function mines_quick_action:time/time_show"
+                "command": "/execute as @s run function mines_quick_action:time/time_hide"
             }
         },
         {
@@ -135,10 +128,10 @@
             }
         },
         {
-            "label": "关闭时间显示",
+            "label": "高亮实体",
             "action": {
-                "type": "run_command",
-                "command": "/execute as @s run function mines_quick_action:time/time_hide"
+                "type": "show_dialog",
+                "dialog": "mines_quick_action:highlight_entity"
             }
         },
         {
@@ -147,17 +140,6 @@
                 "type": "run_command",
                 "command": "/effect clear @s minecraft:night_vision"
             }
-        },
-        {
-            "label": {
-                "text": "数据包仓库链接",
-                "color": "aqua"
-            },
-            "action": {
-                "type": "open_url",
-                "url": "https://github.com/Mine-diamond/mines_pack"
-            },
-            "tooltip": "https://github.com/Mine-diamond/mines_pack"
         },
         {
             "label": {
@@ -178,6 +160,17 @@
                 "type": "show_dialog",
                 "dialog": "mines_quick_action:get_item"
             }
+        },
+        {
+            "label": {
+                "text": "数据包仓库链接",
+                "color": "aqua"
+            },
+            "action": {
+                "type": "open_url",
+                "url": "https://github.com/Mine-diamond/mines_pack"
+            },
+            "tooltip": "https://github.com/Mine-diamond/mines_pack"
         }
     ]
 }

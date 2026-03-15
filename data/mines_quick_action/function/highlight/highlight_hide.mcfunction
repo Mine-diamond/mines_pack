@@ -1,1 +1,0 @@
-data modify storage mines_pack:highlight EnabledFlags set value 0B

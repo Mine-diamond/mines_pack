@@ -1,2 +1,0 @@
-data modify storage mines_pack:highlight EnabledFlags set value 1B
-function mines_quick_action:highlight/highlight_tick

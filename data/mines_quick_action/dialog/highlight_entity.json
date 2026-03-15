@@ -1,0 +1,37 @@
+{
+    "type": "minecraft:confirmation",
+    "title": "高亮实体",
+    "inputs": [
+        {
+            "key": "item",
+            "type": "minecraft:boolean",
+            "label": "掉落物"
+        },
+        {
+            "key": "entity",
+            "type": "minecraft:boolean",
+            "label": "实体"
+        },
+        {
+            "key": "player",
+            "type": "minecraft:boolean",
+            "label": "玩家"
+        }
+    ],
+    "yes": {
+            "label": "确定",
+            "action": {
+                "type": "dynamic/run_command",
+                "template": "/function mines_quick_action:highlight/highight_set {item:$(item), entity:$(entity), player:$(player)}"
+            }
+        },
+    "no": {
+        "label": {
+            "translate": "gui.cancel"
+        },
+        "action": {
+            "type": "show_dialog",
+            "dialog": "mines_quick_action:quick"
+        }
+    }
+}
