@@ -73,7 +73,7 @@
             "label": "玩家无敌",
             "action": {
                 "type": "run_command",
-                "command": "/execute as @s run function mines_quick_action:unclassified_quick_actions/enable_invulnerability"
+                "command": "/trigger mines.meun set 1"
             },
             "tooltip": "启用后，你将不受伤害\n但是不防负面效果，比如黑暗和缓慢"
         },
@@ -81,7 +81,7 @@
             "label": "赶路模式",
             "action": {
                 "type": "run_command",
-                "command": "/execute as @s run function mines_quick_action:unclassified_quick_actions/enter_run_mode"
+                "command": "/trigger mines.meun set 3"
             },
             "tooltip": "启用后,你的速度更快,不用跳跃就能爬上10格的高度,同时在水中也不会减速"
         },
@@ -89,35 +89,35 @@
             "label": "开启时间显示",
             "action": {
                 "type": "run_command",
-                "command": "/execute as @s run function mines_quick_action:time/time_show"
+                "command": "/trigger mines.meun set 5"
             }
         },
         {
             "label": "取消玩家无敌",
             "action": {
                 "type": "run_command",
-                "command": "/execute as @s run function mines_quick_action:unclassified_quick_actions/disable_invulnerability"
+                "command": "/trigger mines.meun set 2"
             }
         },
         {
             "label": "取消赶路模式",
             "action": {
                 "type": "run_command",
-                "command": "/execute as @s run function mines_quick_action:unclassified_quick_actions/exit_run_mode"
+                "command": "/trigger mines.meun set 4"
             }
         },
         {
             "label": "关闭时间显示",
             "action": {
                 "type": "run_command",
-                "command": "/execute as @s run function mines_quick_action:time/time_hide"
+                "command": "/trigger mines.meun set 6"
             }
         },
         {
             "label": "启用夜视",
             "action": {
                 "type": "run_command",
-                "command": "/effect give @s minecraft:night_vision infinite 1 true"
+                "command": "/trigger mines.meun set 7"
             }
         },
         {
@@ -138,7 +138,7 @@
             "label": "禁用夜视",
             "action": {
                 "type": "run_command",
-                "command": "/effect clear @s minecraft:night_vision"
+                "command": "/trigger mines.meun set 8"
             }
         },
         {
