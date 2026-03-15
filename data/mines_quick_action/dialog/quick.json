@@ -73,7 +73,7 @@
             "label": "玩家无敌",
             "action": {
                 "type": "run_command",
-                "command": "/execute as @s run function mines_quick_action:invulnerable"
+                "command": "/execute as @s run function mines_quick_action:unclassified_quick_actions/enable_invulnerability"
             },
             "tooltip": "启用后，你将不受伤害\n但是不防负面效果，比如黑暗和缓慢"
         },
@@ -81,7 +81,7 @@
             "label": "一击必杀",
             "action": {
                 "type": "run_command",
-                "command": "/execute as @s run function mines_quick_action:one_click_kill"
+                "command": "/execute as @s run function mines_quick_action:unclassified_quick_actions/enable_one_click_kill"
             },
             "tooltip": "启用后，你的一击能打出100000点伤害\n远程攻击伤害不变"
         },
@@ -89,7 +89,7 @@
             "label": "赶路模式",
             "action": {
                 "type": "run_command",
-                "command": "/execute as @s run function mines_quick_action:world_run_mode"
+                "command": "/execute as @s run function mines_quick_action:unclassified_quick_actions/enter_run_mode"
             },
             "tooltip": "启用后,你的速度更快,不用跳跃就能爬上10格的高度,同时在水中也不会减速"
         },
@@ -97,21 +97,21 @@
             "label": "取消玩家无敌",
             "action": {
                 "type": "run_command",
-                "command": "/execute as @s run function mines_quick_action:un_invulnerable"
+                "command": "/execute as @s run function mines_quick_action:unclassified_quick_actions/disable_invulnerability"
             }
         },
         {
             "label": "取消一击必杀",
             "action": {
                 "type": "run_command",
-                "command": "/execute as @s run function mines_quick_action:cancel_one_click_kill"
+                "command": "/execute as @s run function mines_quick_action:unclassified_quick_actions/disable_one_click_kill"
             }
         },
         {
             "label": "取消赶路模式",
             "action": {
                 "type": "run_command",
-                "command": "/execute as @s run function mines_quick_action:cancel_world_run_mode"
+                "command": "/execute as @s run function mines_quick_action:unclassified_quick_actions/exit_run_mode"
             }
         },
         {

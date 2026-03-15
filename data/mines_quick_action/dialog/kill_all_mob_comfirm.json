@@ -37,7 +37,7 @@
         },
         "action": {
             "type": "dynamic/run_command",
-            "template": "function mines_quick_action:kill_all_mob {value:$(value)}"
+            "template": "function mines_quick_action:unclassified_quick_actions/kill_all_mob {value:$(value)}"
         }
     },
     "no": {

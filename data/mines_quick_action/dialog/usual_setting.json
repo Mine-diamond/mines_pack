@@ -1,6 +1,5 @@
 {
     "type": "minecraft:multi_action",
-    "button_width": 310,
     "columns": 2,
     "external_title": "常见操作",
     "title": "常见操作",
@@ -75,7 +74,7 @@
             },
             "action": {
                 "type": "run_command",
-                "command": "/function mines_quick_action:usual_setting"
+                "command": "/function mines_quick_action:unclassified_quick_actions/set_common_gamerules_to_preferred_states"
             },
             "tooltip": "-§c关闭§f时间循环\n-§c关闭§f天气循环\n-§c关闭§f生物自然生成\n-§b开启§f死亡不掉落"
         },
