@@ -70,7 +70,7 @@
             }
         },
         {
-            "label": "玩家无敌",
+            "label": "无敌模式",
             "action": {
                 "type": "run_command",
                 "command": "/trigger mines.meun set 1"
@@ -93,7 +93,7 @@
             }
         },
         {
-            "label": "取消玩家无敌",
+            "label": "取消无敌模式",
             "action": {
                 "type": "run_command",
                 "command": "/trigger mines.meun set 2"

@@ -19,7 +19,7 @@
             }
         },
         {
-            "label": "无伤害",
+            "label": "无伤害(§a0§f)",
             "tooltip": "不会有任何伤害，即使是持有武器时",
             "action": {
                 "type": "run_command",
@@ -57,7 +57,7 @@
         },
         "action": {
             "type": "show_dialog",
-            "dialog": "mines_quick_action:quick"
+            "dialog": "mines_quick_action:main_menu"
         }
     }
 }

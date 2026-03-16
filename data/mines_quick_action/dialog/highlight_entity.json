@@ -31,7 +31,7 @@
         },
         "action": {
             "type": "show_dialog",
-            "dialog": "mines_quick_action:quick"
+            "dialog": "mines_quick_action:main_menu"
         }
     }
 }
