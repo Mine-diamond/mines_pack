@@ -1,1 +1,0 @@
-tellraw @s [{"text":"abc","hover_event":{action:"show_item",id:"minecraft:iron_sword",count:5,components:{enchantments:{fire_aspect:5}}}}]
