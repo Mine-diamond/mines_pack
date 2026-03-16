@@ -2,12 +2,6 @@
     "type": "minecraft:multi_action",
     "title": "快捷获取各种物品",
     "columns": 4,
-    "body": [
-        {
-            "type": "minecraft:plain_message",
-            "contents": "还没完成喵~"
-        }
-    ],
     "actions": [
         {
             "label": {
@@ -15,7 +9,7 @@
             },
             "action": {
                 "type": "show_dialog",
-                "dialog": "mines_quick_action:get_netherite_item"
+                "dialog": "mines_quick_action:get_item/get_netherite_item"
             }
         },
         {
@@ -24,7 +18,7 @@
             },
             "action": {
                 "type": "show_dialog",
-                "dialog": "mines_quick_action:get_magic_item"
+                "dialog": "mines_quick_action:get_item/get_magic_item"
             }
         },
         {
@@ -33,7 +27,7 @@
             },
             "action": {
                 "type": "show_dialog",
-                "dialog": "mines_quick_action:get_name_tag"
+                "dialog": "mines_quick_action:get_item/get_name_tag"
             }
         }
     ],

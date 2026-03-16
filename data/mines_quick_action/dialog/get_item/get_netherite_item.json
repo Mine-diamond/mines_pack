@@ -7,14 +7,14 @@
             "label": "获取白板装备",
             "action": {
                 "type": "show_dialog",
-                "dialog": "mines_quick_action:get_unenchanted_netherite_item"
+                "dialog": "mines_quick_action:get_item/get_unenchanted_netherite_item"
             }
         },
         {
             "label": "获取附魔装备",
             "action": {
                 "type": "show_dialog",
-                "dialog": "mines_quick_action:get_enchanted_netherite_item"
+                "dialog": "mines_quick_action:get_item/get_enchanted_netherite_item"
             }
         }
     ],
@@ -26,7 +26,7 @@
         },
         "action": {
             "type": "show_dialog",
-            "dialog": "mines_quick_action:get_item"
+            "dialog": "mines_quick_action:get_item/get_item"
         }
     }
 }

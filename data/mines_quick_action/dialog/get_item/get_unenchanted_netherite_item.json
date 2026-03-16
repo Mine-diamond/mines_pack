@@ -333,7 +333,7 @@
         },
         "action": {
             "type": "show_dialog",
-            "dialog": "mines_quick_action:get_netherite_item"
+            "dialog": "mines_quick_action:get_item/get_netherite_item"
         }
     }
 

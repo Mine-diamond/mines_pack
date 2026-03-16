@@ -158,7 +158,7 @@
             },
             "action": {
                 "type": "show_dialog",
-                "dialog": "mines_quick_action:get_item"
+                "dialog": "mines_quick_action:get_item/get_item"
             }
         },
         {
