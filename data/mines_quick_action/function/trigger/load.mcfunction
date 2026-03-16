@@ -13,3 +13,15 @@ scoreboard players enable @a mines.death_tp_back
 scoreboard objectives add mines.custom_attack_damahe_trig trigger
 scoreboard objectives modify mines.custom_attack_damahe_trig displayname "自定义攻击伤害设置项"
 scoreboard players enable @a mines.custom_attack_damahe_trig
+
+scoreboard objectives add mines.custom_items_trig trigger
+scoreboard objectives modify mines.custom_items_trig displayname "自定义物品获取项"
+scoreboard players enable @a mines.custom_items_trig
+
+scoreboard objectives add mines.netherite_item_trig trigger
+scoreboard objectives modify mines.netherite_item_trig displayname "下界合金物品获取项"
+scoreboard players enable @a mines.netherite_item_trig
+
+scoreboard objectives add mines.logic dummy
+scoreboard players set #true mines.logic 1
+scoreboard players set #false mines.logic 0

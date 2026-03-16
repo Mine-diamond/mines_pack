@@ -9,3 +9,9 @@ scoreboard players enable @a mines.death_tp_back
 
 execute as @a[scores={mines.custom_attack_damahe_trig=1..}] run function mines_quick_action:trigger/dispatch_custom_attack_damage
 scoreboard players enable @a mines.custom_attack_damahe_trig
+
+execute as @a[scores={mines.custom_items_trig=1..}] run function mines_quick_action:trigger/dispatch_custom_items
+scoreboard players enable @a mines.custom_items_trig
+
+execute as @a[scores={mines.netherite_item_trig=1..}] run function mines_quick_action:trigger/dispatch_give_netherite_item
+scoreboard players enable @a mines.netherite_item_trig

@@ -1,0 +1,494 @@
+{
+    "type": "multi_action",
+    "title": "获取满附魔下界合金装备",
+    "body": [
+        {
+            "type": "minecraft:item",
+            "item": {
+                "id": "minecraft:netherite_helmet",
+                "components": {"minecraft:enchantments":{"minecraft:protection":4,"minecraft:respiration":3,"minecraft:aqua_affinity":1,"minecraft:unbreaking":3,"minecraft:mending":1}}
+            },
+            "description": [
+                {
+                    "text": "下界合金头盔 "
+                },
+                {
+                    "text": "[获取]",
+                    "underlined": true,
+                    "color": "#55e2a8",
+                    "click_event": {
+                        "action": "run_command",
+                        "command": "trigger mines.netherite_item_trig set 13"
+                    }
+                },
+                " ",
+                {
+                    "text": "[快速装备]",
+                    "underlined": true,
+                    "color": "#ad9ef9",
+                    "click_event": {
+                        "action": "run_command",
+                        "command": "trigger mines.netherite_item_trig set 14"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "minecraft:item",
+            "item": {
+                "id": "minecraft:netherite_chestplate",
+                "components": {"minecraft:enchantments":{"minecraft:protection":4,"minecraft:unbreaking":3,"minecraft:mending":1}}
+            },
+            "description": [
+                {
+                    "text": "下界合金胸甲 "
+                },
+                {
+                    "text": "[获取]",
+                    "underlined": true,
+                    "color": "#55e2a8",
+                    "click_event": {
+                        "action": "run_command",
+                        "command": "trigger mines.netherite_item_trig set 23"
+                    }
+                },
+                " ",
+                {
+                    "text": "[快速装备]",
+                    "underlined": true,
+                    "color": "#ad9ef9",
+                    "click_event": {
+                        "action": "run_command",
+                        "command": "trigger mines.netherite_item_trig set 24"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "minecraft:item",
+            "item": {
+                "id": "minecraft:netherite_leggings",
+                "components": {"minecraft:enchantments":{"minecraft:protection":4,"minecraft:unbreaking":3,"minecraft:mending":1}}
+            },
+            "description": [
+                {
+                    "text": "下界合金护腿 "
+                },
+                {
+                    "text": "[获取]",
+                    "underlined": true,
+                    "color": "#55e2a8",
+                    "click_event": {
+                        "action": "run_command",
+                        "command": "trigger mines.netherite_item_trig set 33"
+                    }
+                },
+                " ",
+                {
+                    "text": "[快速装备]",
+                    "underlined": true,
+                    "color": "#ad9ef9",
+                    "click_event": {
+                        "action": "run_command",
+                        "command": "trigger mines.netherite_item_trig set 34"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "minecraft:item",
+            "item": {
+                "id": "minecraft:netherite_boots",
+                "components": {"minecraft:enchantments":{"minecraft:protection":4,"minecraft:feather_falling":4,"minecraft:unbreaking":3,"minecraft:mending":1}}
+            },
+            "description": [
+                {
+                    "text": "下界合金靴子 "
+                },
+                {
+                    "text": "[获取]",
+                    "underlined": true,
+                    "color": "#55e2a8",
+                    "click_event": {
+                        "action": "run_command",
+                        "command": "trigger mines.netherite_item_trig set 43"
+                    }
+                },
+                " ",
+                {
+                    "text": "[快速装备]",
+                    "underlined": true,
+                    "color": "#ad9ef9",
+                    "click_event": {
+                        "action": "run_command",
+                        "command": "trigger mines.netherite_item_trig set 44"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "minecraft:item",
+            "item": {
+                "id": "minecraft:netherite_sword",
+                "components": {"minecraft:enchantments":{"minecraft:sharpness":4,"minecraft:sweeping_edge":3,"minecraft:fire_aspect":2,"minecraft:looting":3,"minecraft:unbreaking":3,"minecraft:mending":1}}
+            },
+            "description": [
+                {
+                    "text": "下界合金剑 "
+                },
+                {
+                    "text": "[获取]",
+                    "underlined": true,
+                    "color": "#55e2a8",
+                    "click_event": {
+                        "action": "run_command",
+                        "command": "trigger mines.netherite_item_trig set 53"
+                    }
+                },
+                " ",
+                {
+                    "text": "[置于主手]",
+                    "underlined": true,
+                    "color": "#ad9ef9",
+                    "click_event": {
+                        "action": "run_command",
+                        "command": "trigger mines.netherite_item_trig set 54"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "minecraft:item",
+            "item": {
+                "id": "minecraft:netherite_axe",
+                "components": {"minecraft:enchantments":{"minecraft:sharpness":5,"minecraft:fortune":3,"minecraft:efficiency":5,"minecraft:unbreaking":3,"minecraft:mending":1}}
+            },
+            "description": [
+                {
+                    "text": "下界合金斧(时运) "
+                },
+                {
+                    "text": "[获取]",
+                    "underlined": true,
+                    "color": "#55e2a8",
+                    "click_event": {
+                        "action": "run_command",
+                        "command": "trigger mines.netherite_item_trig set 63"
+                    }
+                },
+                " ",
+                {
+                    "text": "[置于主手]",
+                    "underlined": true,
+                    "color": "#ad9ef9",
+                    "click_event": {
+                        "action": "run_command",
+                        "command": "trigger mines.netherite_item_trig set 64"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "minecraft:item",
+            "item": {
+                "id": "minecraft:netherite_axe",
+                "components": {"minecraft:enchantments":{"minecraft:sharpness":5,"minecraft:silk_touch":1,"minecraft:efficiency":5,"minecraft:unbreaking":3,"minecraft:mending":1}}
+            },
+            "description": [
+                {
+                    "text": "下界合金斧(精准采集) "
+                },
+                {
+                    "text": "[获取]",
+                    "underlined": true,
+                    "color": "#55e2a8",
+                    "click_event": {
+                        "action": "run_command",
+                        "command": "trigger mines.netherite_item_trig set 65"
+                    }
+                },
+                " ",
+                {
+                    "text": "[置于主手]",
+                    "underlined": true,
+                    "color": "#ad9ef9",
+                    "click_event": {
+                        "action": "run_command",
+                        "command": "trigger mines.netherite_item_trig set 66"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "minecraft:item",
+            "item": {
+                "id": "minecraft:netherite_spear",
+                "components": {"minecraft:enchantments":{"minecraft:lunge":3,"minecraft:sharpness":5,"minecraft:fire_aspect":2,"minecraft:looting":3,"minecraft:unbreaking":3,"minecraft:mending":1}}
+            },
+            "description": [
+                {
+                    "text": "下界合金矛 "
+                },
+                {
+                    "text": "[获取]",
+                    "underlined": true,
+                    "color": "#55e2a8",
+                    "click_event": {
+                        "action": "run_command",
+                        "command": "trigger mines.netherite_item_trig set 73"
+                    }
+                },
+                " ",
+                {
+                    "text": "[置于主手]",
+                    "underlined": true,
+                    "color": "#ad9ef9",
+                    "click_event": {
+                        "action": "run_command",
+                        "command": "trigger mines.netherite_item_trig set 74"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "minecraft:item",
+            "item": {
+                "id": "minecraft:netherite_pickaxe",
+                "components": {"minecraft:enchantments":{"minecraft:fortune":3,"minecraft:efficiency":5,"minecraft:unbreaking":3,"minecraft:mending":1}}
+            },
+            "description": [
+                {
+                    "text": "下界合金镐(时运) "
+                },
+                {
+                    "text": "[获取]",
+                    "underlined": true,
+                    "color": "#55e2a8",
+                    "click_event": {
+                        "action": "run_command",
+                        "command": "trigger mines.netherite_item_trig set 83"
+                    }
+                },
+                " ",
+                {
+                    "text": "[置于主手]",
+                    "underlined": true,
+                    "color": "#ad9ef9",
+                    "click_event": {
+                        "action": "run_command",
+                        "command": "trigger mines.netherite_item_trig set 84"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "minecraft:item",
+            "item": {
+                "id": "minecraft:netherite_pickaxe",
+                "components": {"minecraft:enchantments":{"minecraft:silk_touch":1,"minecraft:efficiency":5,"minecraft:unbreaking":3,"minecraft:mending":1}}
+            },
+            "description": [
+                {
+                    "text": "下界合金镐(精准采集) "
+                },
+                {
+                    "text": "[获取]",
+                    "underlined": true,
+                    "color": "#55e2a8",
+                    "click_event": {
+                        "action": "run_command",
+                        "command": "trigger mines.netherite_item_trig set 85"
+                    }
+                },
+                " ",
+                {
+                    "text": "[置于主手]",
+                    "underlined": true,
+                    "color": "#ad9ef9",
+                    "click_event": {
+                        "action": "run_command",
+                        "command": "trigger mines.netherite_item_trig set 86"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "minecraft:item",
+            "item": {
+                "id": "minecraft:netherite_shovel",
+                "components": {"minecraft:enchantments":{"minecraft:fortune":3,"minecraft:efficiency":5,"minecraft:unbreaking":3,"minecraft:mending":1}}
+            },
+            "description": [
+                {
+                    "text": "下界合金锹(时运) "
+                },
+                {
+                    "text": "[获取]",
+                    "underlined": true,
+                    "color": "#55e2a8",
+                    "click_event": {
+                        "action": "run_command",
+                        "command": "trigger mines.netherite_item_trig set 93"
+                    }
+                },
+                " ",
+                {
+                    "text": "[置于主手]",
+                    "underlined": true,
+                    "color": "#ad9ef9",
+                    "click_event": {
+                        "action": "run_command",
+                        "command": "trigger mines.netherite_item_trig set 94"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "minecraft:item",
+            "item": {
+                "id": "minecraft:netherite_shovel",
+                "components": {"minecraft:enchantments":{"minecraft:silk_touch":1,"minecraft:efficiency":5,"minecraft:unbreaking":3,"minecraft:mending":1}}
+            },
+            "description": [
+                {
+                    "text": "下界合金锹(精准采集) "
+                },
+                {
+                    "text": "[获取]",
+                    "underlined": true,
+                    "color": "#55e2a8",
+                    "click_event": {
+                        "action": "run_command",
+                        "command": "trigger mines.netherite_item_trig set 95"
+                    }
+                },
+                " ",
+                {
+                    "text": "[置于主手]",
+                    "underlined": true,
+                    "color": "#ad9ef9",
+                    "click_event": {
+                        "action": "run_command",
+                        "command": "trigger mines.netherite_item_trig set 96"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "minecraft:item",
+            "item": {
+                "id": "minecraft:netherite_hoe",
+                "components": {"minecraft:enchantments":{"minecraft:fortune":3,"minecraft:efficiency":5,"minecraft:unbreaking":3,"minecraft:mending":1}}
+            },
+            "description": [
+                {
+                    "text": "下界合金锄(时运) "
+                },
+                {
+                    "text": "[获取]",
+                    "underlined": true,
+                    "color": "#55e2a8",
+                    "click_event": {
+                        "action": "run_command",
+                        "command": "trigger mines.netherite_item_trig set 103"
+                    }
+                },
+                " ",
+                {
+                    "text": "[置于主手]",
+                    "underlined": true,
+                    "color": "#ad9ef9",
+                    "click_event": {
+                        "action": "run_command",
+                        "command": "trigger mines.netherite_item_trig set 104"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "minecraft:item",
+            "item": {
+                "id": "minecraft:netherite_hoe",
+                "components": {"minecraft:enchantments":{"minecraft:silk_touch":1,"minecraft:efficiency":5,"minecraft:unbreaking":3,"minecraft:mending":1}}
+            },
+            "description": [
+                {
+                    "text": "下界合金锄(精准采集) "
+                },
+                {
+                    "text": "[获取]",
+                    "underlined": true,
+                    "color": "#55e2a8",
+                    "click_event": {
+                        "action": "run_command",
+                        "command": "trigger mines.netherite_item_trig set 105"
+                    }
+                },
+                " ",
+                {
+                    "text": "[置于主手]",
+                    "underlined": true,
+                    "color": "#ad9ef9",
+                    "click_event": {
+                        "action": "run_command",
+                        "command": "trigger mines.netherite_item_trig set 106"
+                    }
+                }
+            ]
+        }
+    ],
+    "actions": [
+        {
+            "label": {
+                "text":"一键获取(时运)",
+                "color": "#55e2a8"
+            },
+            "action": {
+                "type": "run_command",
+                "command": "/trigger mines.netherite_item_trig set 1003"
+            }
+        },
+        {
+            "label": {
+                "text": "一键装备(时运)",
+                "color": "#ad9ef9"
+            },
+            "action": {
+                "type": "run_command",
+                "command": "/trigger mines.netherite_item_trig set 1004"
+            }
+        },
+        {
+            "label": {
+                "text":"一键获取(精准采集)",
+                "color": "#55e2a8"
+            },
+            "action": {
+                "type": "run_command",
+                "command": "/trigger mines.netherite_item_trig set 1005"
+            }
+        },
+        {
+            "label": {
+                "text": "一键装备(精准采集)",
+                "color": "#ad9ef9"
+            },
+            "action": {
+                "type": "run_command",
+                "command": "/trigger mines.netherite_item_trig set 1006"
+            }
+        }
+    ],
+    "pause": false,
+    "after_action": "none",
+    "exit_action": {
+        "label":{
+            "translate": "gui.back"
+        },
+        "action": {
+            "type": "show_dialog",
+            "dialog": "mines_quick_action:get_netherite_item"
+        }
+    }
+
+}

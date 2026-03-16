@@ -1,0 +1,340 @@
+{
+    "type": "multi_action",
+    "title": "获取白板下界合金装备",
+    "body": [
+        {
+            "type": "minecraft:item",
+            "item": {
+                "id": "minecraft:netherite_helmet"
+            },
+            "description": [
+                {
+                    "text": "下界合金头盔 "
+                },
+                {
+                    "text": "[获取]",
+                    "underlined": true,
+                    "color": "#55e2a8",
+                    "click_event": {
+                        "action": "run_command",
+                        "command": "trigger mines.netherite_item_trig set 11"
+                    }
+                },
+                " ",
+                {
+                    "text": "[快速装备]",
+                    "underlined": true,
+                    "color": "#ad9ef9",
+                    "click_event": {
+                        "action": "run_command",
+                        "command": "trigger mines.netherite_item_trig set 12"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "minecraft:item",
+            "item": {
+                "id": "minecraft:netherite_chestplate"
+            },
+            "description": [
+                {
+                    "text": "下界合金胸甲 "
+                },
+                {
+                    "text": "[获取]",
+                    "underlined": true,
+                    "color": "#55e2a8",
+                    "click_event": {
+                        "action": "run_command",
+                        "command": "trigger mines.netherite_item_trig set 21"
+                    }
+                },
+                " ",
+                {
+                    "text": "[快速装备]",
+                    "underlined": true,
+                    "color": "#ad9ef9",
+                    "click_event": {
+                        "action": "run_command",
+                        "command": "trigger mines.netherite_item_trig set 22"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "minecraft:item",
+            "item": {
+                "id": "minecraft:netherite_leggings"
+            },
+            "description": [
+                {
+                    "text": "下界合金护腿 "
+                },
+                {
+                    "text": "[获取]",
+                    "underlined": true,
+                    "color": "#55e2a8",
+                    "click_event": {
+                        "action": "run_command",
+                        "command": "trigger mines.netherite_item_trig set 31"
+                    }
+                },
+                " ",
+                {
+                    "text": "[快速装备]",
+                    "underlined": true,
+                    "color": "#ad9ef9",
+                    "click_event": {
+                        "action": "run_command",
+                        "command": "trigger mines.netherite_item_trig set 32"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "minecraft:item",
+            "item": {
+                "id": "minecraft:netherite_boots"
+            },
+            "description": [
+                {
+                    "text": "下界合金靴子 "
+                },
+                {
+                    "text": "[获取]",
+                    "underlined": true,
+                    "color": "#55e2a8",
+                    "click_event": {
+                        "action": "run_command",
+                        "command": "trigger mines.netherite_item_trig set 41"
+                    }
+                },
+                " ",
+                {
+                    "text": "[快速装备]",
+                    "underlined": true,
+                    "color": "#ad9ef9",
+                    "click_event": {
+                        "action": "run_command",
+                        "command": "trigger mines.netherite_item_trig set 42"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "minecraft:item",
+            "item": {
+                "id": "minecraft:netherite_sword"
+            },
+            "description": [
+                {
+                    "text": "下界合金剑 "
+                },
+                {
+                    "text": "[获取]",
+                    "underlined": true,
+                    "color": "#55e2a8",
+                    "click_event": {
+                        "action": "run_command",
+                        "command": "trigger mines.netherite_item_trig set 51"
+                    }
+                },
+                " ",
+                {
+                    "text": "[置于主手]",
+                    "underlined": true,
+                    "color": "#ad9ef9",
+                    "click_event": {
+                        "action": "run_command",
+                        "command": "trigger mines.netherite_item_trig set 52"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "minecraft:item",
+            "item": {
+                "id": "minecraft:netherite_axe"
+            },
+            "description": [
+                {
+                    "text": "下界合金斧头 "
+                },
+                {
+                    "text": "[获取]",
+                    "underlined": true,
+                    "color": "#55e2a8",
+                    "click_event": {
+                        "action": "run_command",
+                        "command": "trigger mines.netherite_item_trig set 61"
+                    }
+                },
+                " ",
+                {
+                    "text": "[置于主手]",
+                    "underlined": true,
+                    "color": "#ad9ef9",
+                    "click_event": {
+                        "action": "run_command",
+                        "command": "trigger mines.netherite_item_trig set 62"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "minecraft:item",
+            "item": {
+                "id": "minecraft:netherite_spear"
+            },
+            "description": [
+                {
+                    "text": "下界合金矛 "
+                },
+                {
+                    "text": "[获取]",
+                    "underlined": true,
+                    "color": "#55e2a8",
+                    "click_event": {
+                        "action": "run_command",
+                        "command": "trigger mines.netherite_item_trig set 71"
+                    }
+                },
+                " ",
+                {
+                    "text": "[置于主手]",
+                    "underlined": true,
+                    "color": "#ad9ef9",
+                    "click_event": {
+                        "action": "run_command",
+                        "command": "trigger mines.netherite_item_trig set 72"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "minecraft:item",
+            "item": {
+                "id": "minecraft:netherite_pickaxe"
+            },
+            "description": [
+                {
+                    "text": "下界合金镐 "
+                },
+                {
+                    "text": "[获取]",
+                    "underlined": true,
+                    "color": "#55e2a8",
+                    "click_event": {
+                        "action": "run_command",
+                        "command": "trigger mines.netherite_item_trig set 81"
+                    }
+                },
+                " ",
+                {
+                    "text": "[置于主手]",
+                    "underlined": true,
+                    "color": "#ad9ef9",
+                    "click_event": {
+                        "action": "run_command",
+                        "command": "trigger mines.netherite_item_trig set 82"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "minecraft:item",
+            "item": {
+                "id": "minecraft:netherite_shovel"
+            },
+            "description": [
+                {
+                    "text": "下界合金锹 "
+                },
+                {
+                    "text": "[获取]",
+                    "underlined": true,
+                    "color": "#55e2a8",
+                    "click_event": {
+                        "action": "run_command",
+                        "command": "trigger mines.netherite_item_trig set 91"
+                    }
+                },
+                " ",
+                {
+                    "text": "[置于主手]",
+                    "underlined": true,
+                    "color": "#ad9ef9",
+                    "click_event": {
+                        "action": "run_command",
+                        "command": "trigger mines.netherite_item_trig set 92"
+                    }
+                }
+            ]
+        },
+        {
+            "type": "minecraft:item",
+            "item": {
+                "id": "minecraft:netherite_hoe"
+            },
+            "description": [
+                {
+                    "text": "下界合金锄 "
+                },
+                {
+                    "text": "[获取]",
+                    "underlined": true,
+                    "color": "#55e2a8",
+                    "click_event": {
+                        "action": "run_command",
+                        "command": "trigger mines.netherite_item_trig set 101"
+                    }
+                },
+                " ",
+                {
+                    "text": "[置于主手]",
+                    "underlined": true,
+                    "color": "#ad9ef9",
+                    "click_event": {
+                        "action": "run_command",
+                        "command": "trigger mines.netherite_item_trig set 102"
+                    }
+                }
+            ]
+        }
+    ],
+    "actions": [
+        {
+            "label": {
+                "text":"一键获取",
+                "color": "#55e2a8"
+            },
+            "action": {
+                "type": "run_command",
+                "command": "/trigger mines.netherite_item_trig set 1001"
+            }
+        },
+        {
+            "label": {
+                "text": "一键装备",
+                "color": "#ad9ef9"
+            },
+            "action": {
+                "type": "run_command",
+                "command": "/trigger mines.netherite_item_trig set 1002"
+            }
+        }
+    ],
+    "pause": false,
+    "after_action": "none",
+    "exit_action": {
+        "label":{
+            "translate": "gui.back"
+        },
+        "action": {
+            "type": "show_dialog",
+            "dialog": "mines_quick_action:get_netherite_item"
+        }
+    }
+
+}
