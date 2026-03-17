@@ -1,0 +1,1 @@
+$execute if entity @s[type=$(entity_temp_id)] run data modify storage mines_pack:entity_projection_result entity_id set value "$(entity_temp_id)"

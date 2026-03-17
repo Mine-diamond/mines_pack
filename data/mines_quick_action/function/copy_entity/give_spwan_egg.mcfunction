@@ -1,0 +1,5 @@
+$execute if data storage mines_pack:entity_projection_result {entity_name:""} run give @s $(entity_pure_id)_spawn_egg[entity_data=$(entity_data),item_name=[{"text":"被带走的",italic:false},{"translate":"entity.minecraft.$(entity_pure_id)"}]]
+$execute unless data storage mines_pack:entity_projection_result {entity_name:""} run give @s $(entity_pure_id)_spawn_egg[entity_data=$(entity_data),item_name=[{"text":"被带走的",italic:false},{"text":"$(entity_name)",italic:true}]]
+
+$execute if data storage mines_pack:entity_projection_result {entity_name:""} run tellraw @s [{"text":"你带走了"},{"translate":"entity.minecraft.$(entity_pure_id)"}]
+execute unless data storage mines_pack:entity_projection_result {entity_name:""} run tellraw @s [{"text":"你带走了"},{"storage":"mines_pack:entity_projection_result",nbt:"entity_name"}]
