@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:multi_action",
+    "title": "快捷面板",
+    "external_title": {"text": "快捷面板", "color": "gold", "bold": true},
+    "after_action": "none",
+    "pause": false,
+    "actions": [
+        {
+            "label": "设置游戏规则",
+            "action": {
+                "type": "run_command",
+                "command": "trigger mqp.dialog.game_rule set 1"
+            }
+        },
+        {
+            "label": "快捷开关",
+            "action": {
+                "type": "run_command",
+                "command": "trigger mqp.dialog.simple_feature set 1"
+            }
+        }
+    ]
+}

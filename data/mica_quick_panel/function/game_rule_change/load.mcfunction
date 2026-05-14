@@ -1,0 +1,1 @@
+scoreboard objectives add mqp.game_rule.game_rule_state dummy

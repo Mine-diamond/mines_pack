@@ -1,0 +1,3 @@
+function mica_quick_panel:trigger/dialog/load
+function mica_quick_panel:trigger/game_rule/load
+function mica_quick_panel:trigger/simple_feature/load
