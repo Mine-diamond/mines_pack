@@ -9,3 +9,12 @@ scoreboard players enable @a mqp.game_rule.random_tick_speed
 execute as @a[scores={mqp.dialog.simple_feature=1..}] run function mica_quick_panel:dialog/simple_feature_dialog/open_simple_feature_dialog
 scoreboard players set @a[scores={mqp.dialog.simple_feature=1..}] mqp.dialog.simple_feature 0
 scoreboard players enable @a mqp.dialog.simple_feature
+
+execute as @a[scores={mqp.dialog.time_setting=1..}] run function mica_quick_panel:dialog/time_setting_dialog/open_time_setting_dialog
+scoreboard players set @a[scores={mqp.dialog.time_setting=1..}] mqp.dialog.time_setting 0
+scoreboard players enable @a mqp.dialog.time_setting
+
+
+execute as @a[scores={mqp.dialog.moon_phase=1..}] run function mica_quick_panel:dialog/time_setting_dialog/open_moon_phase_setting_dialog
+scoreboard players set @a[scores={mqp.dialog.moon_phase=1..}] mqp.dialog.moon_phase 0
+scoreboard players enable @a mqp.dialog.moon_phase

@@ -3,6 +3,7 @@
     "title": "快捷面板",
     "external_title": {"text": "快捷面板", "color": "gold", "bold": true},
     "after_action": "none",
+    "columns": 3,
     "pause": false,
     "actions": [
         {
@@ -17,6 +18,13 @@
             "action": {
                 "type": "run_command",
                 "command": "trigger mqp.dialog.simple_feature set 1"
+            }
+        },
+        {
+            "label": "修改时间",
+            "action": {
+                "type": "run_command",
+                "command": "trigger mqp.dialog.time_setting set 1"
             }
         }
     ]

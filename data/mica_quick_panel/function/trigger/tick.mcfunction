@@ -1,3 +1,4 @@
 function mica_quick_panel:trigger/dialog/tick
 function mica_quick_panel:trigger/game_rule/tick
 function mica_quick_panel:trigger/simple_feature/tick
+function mica_quick_panel:trigger/time_setting/tick
