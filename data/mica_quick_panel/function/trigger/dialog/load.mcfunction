@@ -17,3 +17,7 @@ scoreboard players enable @a mqp.dialog.time_setting
 scoreboard objectives add mqp.dialog.moon_phase trigger
 scoreboard objectives modify mqp.dialog.moon_phase displayname "设置月相"
 scoreboard players enable @a mqp.dialog.moon_phase
+
+scoreboard objectives add mqp.dialog.highlight trigger
+scoreboard objectives modify mqp.dialog.highlight displayname "高亮设置面板"
+scoreboard players enable @a mqp.dialog.highlight

@@ -16,6 +16,7 @@
         "mica_quick_panel:core/load",
         "mica_quick_panel:game_rule_change/load",
         "mica_quick_panel:simple_feature/load",
-        "mica_quick_panel:time_setting/load"
+        "mica_quick_panel:time_setting/load",
+        "mica_quick_panel:highlight/load"
     ]
 }

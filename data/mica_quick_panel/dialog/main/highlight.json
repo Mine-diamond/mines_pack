@@ -1,0 +1,36 @@
+{
+    "type": "notice",
+    "title": "高亮设置",
+    "pause": false,
+    "after_action": "none",
+    "body": [
+        {
+            "type": "minecraft:plain_message",
+            "contents": [
+                {
+                    "text": "实体",
+                    "click_event": {
+                        "action": "run_command",
+                        "command": "trigger mqp.trigger.highlight.entity_enabled_flags"
+                    }
+                },
+                "  ",
+                {
+                    "text": "掉落物",
+                    "click_event": {
+                        "action": "run_command",
+                        "command": "trigger mqp.trigger.highlight.item_enabled_flags"
+                    }
+                },
+                "  ",
+                {
+                    "text": "玩家",
+                    "click_event": {
+                        "action": "run_command",
+                        "command": "trigger mqp.trigger.highlight.player_enabled_flags"
+                    }
+                }
+            ]
+        }
+    ]
+}

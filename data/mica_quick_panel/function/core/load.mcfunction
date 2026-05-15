@@ -7,3 +7,5 @@ scoreboard players set #300 mqp.constant.number 300
 scoreboard players set #24000 mqp.constant.number 24000
 
 scoreboard objectives add mqp.calc dummy
+
+scoreboard objectives add mqp.temp dummy

@@ -18,3 +18,7 @@ scoreboard players enable @a mqp.dialog.time_setting
 execute as @a[scores={mqp.dialog.moon_phase=1..}] run function mica_quick_panel:dialog/time_setting_dialog/open_moon_phase_setting_dialog
 scoreboard players set @a[scores={mqp.dialog.moon_phase=1..}] mqp.dialog.moon_phase 0
 scoreboard players enable @a mqp.dialog.moon_phase
+
+execute as @a[scores={mqp.dialog.highlight=1..}] run function mica_quick_panel:dialog/highlight_dialog/open_highlight_dialog
+scoreboard players set @a[scores={mqp.dialog.highlight=1..}] mqp.dialog.highlight 0
+scoreboard players enable @a mqp.dialog.highlight

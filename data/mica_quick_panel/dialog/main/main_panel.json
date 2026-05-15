@@ -26,6 +26,13 @@
                 "type": "run_command",
                 "command": "trigger mqp.dialog.time_setting set 1"
             }
+        },
+        {
+            "label": "高亮设置",
+            "action": {
+                "type": "run_command",
+                "command": "trigger mqp.dialog.highlight set 1"
+            }
         }
     ]
 }
