@@ -22,3 +22,7 @@ scoreboard players enable @a mqp.dialog.moon_phase
 execute as @a[scores={mqp.dialog.highlight=1..}] run function mica_quick_panel:dialog/highlight_dialog/open_highlight_dialog
 scoreboard players set @a[scores={mqp.dialog.highlight=1..}] mqp.dialog.highlight 0
 scoreboard players enable @a mqp.dialog.highlight
+
+execute as @a[scores={mqp.dialog.kill_all_mob=1..}] run function mica_quick_panel:dialog/kill_all_mob_dialog/open_kill_all_mob_dialog
+scoreboard players set @a[scores={mqp.dialog.kill_all_mob=1..}] mqp.dialog.kill_all_mob 0
+scoreboard players enable @a mqp.dialog.kill_all_mob

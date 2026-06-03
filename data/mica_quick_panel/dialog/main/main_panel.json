@@ -7,6 +7,20 @@
     "pause": false,
     "actions": [
         {
+            "label": "清理掉落物",
+            "action": {
+                "type": "run_command",
+                "command": "/kill @e[type=item]"
+            }
+        },
+        {
+            "label": "清理非玩家实体",
+            "action": {
+                "type": "run_command",
+                "command": "trigger mqp.dialog.kill_all_mob set 1"
+            }
+        },
+        {
             "label": "设置游戏规则",
             "action": {
                 "type": "run_command",
@@ -32,6 +46,13 @@
             "action": {
                 "type": "run_command",
                 "command": "trigger mqp.dialog.highlight set 1"
+            }
+        },
+        {
+            "label": "关于",
+            "action": {
+                "type": "show_dialog",
+                "dialog": "mica_quick_panel:about/about"
             }
         }
     ]

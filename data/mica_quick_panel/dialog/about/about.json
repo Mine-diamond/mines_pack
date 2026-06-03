@@ -1,0 +1,36 @@
+{
+    "type": "minecraft:multi_action",
+    "title": "关于",
+    "after_action": "none",
+    "pause": false,
+    "body": [
+        {
+            "type": "minecraft:plain_message",
+            "contents": "mineDiamond出品"
+        },
+        {
+            "type": "minecraft:item",
+            "item": {
+                "id": "player_head",
+                "components": {"profile": "mine__diamond"}
+            }
+        }
+    ],
+    "actions": [
+        {
+            "label": {"text": "GitHub 链接", "color": "#48a7de"},
+            "action": {
+                "type": "open_url",
+                "url": "https://github.com/Mine-diamond/mines_pack"
+            },
+            "tooltip": "https://github.com/Mine-diamond/mines_pack"
+        }
+    ],
+    "exit_action": {
+        "label": {"translate": "gui.back"},
+        "action": {
+            "type": "show_dialog",
+            "dialog": "mica_quick_panel:main/main_panel"
+        }
+    }
+}

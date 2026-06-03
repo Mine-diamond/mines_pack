@@ -1,0 +1,21 @@
+{
+    "type": "minecraft:multi_action",
+    "title": "a test",
+    "columns": 2,
+    "actions": [
+        {
+            "label": "生物掉落物:开启"
+        },
+        {
+            "label": "模式:仅掉落物"
+        },
+        {
+            "label": "清除"
+        }
+    ],
+    "after_action": "none",
+    "pause": false,
+    "exit_action": {
+        "label": "退出"
+    }
+}

@@ -1,0 +1,1 @@
+execute unless data storage mqp:kill_all_mob kill_type run data modify storage mqp:kill_all_mob kill_type set value 0
