@@ -23,5 +23,5 @@ scoreboard objectives modify mqp.dialog.highlight displayname "高亮设置面�
 scoreboard players enable @a mqp.dialog.highlight
 
 scoreboard objectives add mqp.dialog.kill_all_mob trigger
-scoreboard objectives modify mqp.dialog.kill_all_mob displayname "清理实体确面板"
+scoreboard objectives modify mqp.dialog.kill_all_mob displayname "清理实体确认面板"
 scoreboard players enable @a mqp.dialog.kill_all_mob
