@@ -4,3 +4,4 @@ function mica_quick_panel:trigger/simple_feature/tick
 function mica_quick_panel:trigger/time_setting/tick
 function mica_quick_panel:trigger/highlight/tick
 function mica_quick_panel:trigger/kill_all_mob/tick
+function mica_quick_panel:trigger/interaction_setting/tick

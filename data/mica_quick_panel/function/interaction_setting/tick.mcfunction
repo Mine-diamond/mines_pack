@@ -1,0 +1,2 @@
+execute as @a[predicate=mica_quick_panel:interaction_setting/need_reduced_interaction_distance] run attribute @s block_interaction_range modifier add mqp:remove_create_distance -0.5 add_value
+execute as @a[predicate=!mica_quick_panel:interaction_setting/need_reduced_interaction_distance] run attribute @s block_interaction_range modifier remove mqp:remove_create_distance

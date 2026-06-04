@@ -18,6 +18,7 @@
         "mica_quick_panel:simple_feature/load",
         "mica_quick_panel:time_setting/load",
         "mica_quick_panel:highlight/load",
-        "mica_quick_panel:kill_all_mob/load"
+        "mica_quick_panel:kill_all_mob/load",
+        "mica_quick_panel:interaction_setting/load"
     ]
 }

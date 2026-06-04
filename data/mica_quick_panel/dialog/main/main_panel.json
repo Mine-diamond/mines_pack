@@ -49,6 +49,13 @@
             }
         },
         {
+            "label": "方块交互距离设置",
+            "action": {
+                "type": "run_command",
+                "command": "trigger mqp.dialog.block_interaction_setting set 1"
+            }
+        },
+        {
             "label": "关于",
             "action": {
                 "type": "show_dialog",

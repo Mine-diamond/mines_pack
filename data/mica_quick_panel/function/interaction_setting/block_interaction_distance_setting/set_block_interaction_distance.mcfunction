@@ -1,0 +1,3 @@
+$attribute @s block_interaction_range base set $(block_interaction_range)
+
+function mica_quick_panel:dialog/interaction_setting_dialog/open_block_interaction_setting_dialog

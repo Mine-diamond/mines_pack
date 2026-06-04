@@ -25,3 +25,7 @@ scoreboard players enable @a mqp.dialog.highlight
 scoreboard objectives add mqp.dialog.kill_all_mob trigger
 scoreboard objectives modify mqp.dialog.kill_all_mob displayname "清理实体确认面板"
 scoreboard players enable @a mqp.dialog.kill_all_mob
+
+scoreboard objectives add mqp.dialog.block_interaction_setting trigger
+scoreboard objectives modify mqp.dialog.block_interaction_setting displayname "方块交互距离设置面板"
+scoreboard players enable @a mqp.dialog.block_interaction_setting
