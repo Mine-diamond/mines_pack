@@ -81,7 +81,6 @@ def load_yaml() -> list:
 def save_yaml(modules: list):
     """将 modules 写回 triggers.yaml, 格式干净可读"""
     lines = [
-        "# yaml-language-server: $schema=triggers.schema.json",
         "# 由 trigger_core 写入\n",
         "modules:",
     ]
@@ -286,7 +285,6 @@ def discover_modules() -> list:
 
 def format_discover_yaml(modules: list) -> str:
     lines = [
-        "# yaml-language-server: $schema=triggers.schema.json",
         "# 自动生成的 trigger 配置文件 (--discover)",
         "",
         "modules:",

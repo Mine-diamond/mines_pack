@@ -1,4 +1,3 @@
-# yaml-language-server: $schema=triggers.schema.json
 # 由 trigger_core 写入
 
 modules:
