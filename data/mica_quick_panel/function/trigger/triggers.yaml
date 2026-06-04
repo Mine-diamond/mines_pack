@@ -36,6 +36,10 @@ modules:
         display: "方块交互距离设置面板"
         actions:
           - mica_quick_panel:dialog/interaction_setting_dialog/open_block_interaction_setting_dialog
+      - name: mqp.dialog.entity_interaction_setting
+        display: "实体交互距离设置面板"
+        actions:
+          - mica_quick_panel:dialog/interaction_setting_dialog/open_entity_interaction_setting_dialog
   - dir: game_rule
     triggers:
       - name: mqp.game_rule.change
@@ -140,3 +144,8 @@ modules:
         actions:
           - mica_quick_panel:interaction_setting/block_interaction_distance_setting/switch_force_mode
           - mica_quick_panel:dialog/interaction_setting_dialog/open_block_interaction_setting_dialog
+      - name: mqp.trigger.interaction_setting.entity_switch_force_mode
+        display: "切换实体交互距离强制模式"
+        actions:
+          - mica_quick_panel:interaction_setting/entity_interaction_distance_setting/switch_force_mode
+          - mica_quick_panel:dialog/interaction_setting_dialog/open_entity_interaction_setting_dialog

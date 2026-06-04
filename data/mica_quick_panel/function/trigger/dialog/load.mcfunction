@@ -29,3 +29,7 @@ scoreboard players enable @a mqp.dialog.kill_all_mob
 scoreboard objectives add mqp.dialog.block_interaction_setting trigger
 scoreboard objectives modify mqp.dialog.block_interaction_setting displayname "方块交互距离设置面板"
 scoreboard players enable @a mqp.dialog.block_interaction_setting
+
+scoreboard objectives add mqp.dialog.entity_interaction_setting trigger
+scoreboard objectives modify mqp.dialog.entity_interaction_setting displayname "实体交互距离设置面板"
+scoreboard players enable @a mqp.dialog.entity_interaction_setting

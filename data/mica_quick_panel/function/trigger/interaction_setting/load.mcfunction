@@ -1,3 +1,7 @@
 scoreboard objectives add mqp.trigger.interaction_setting.block_switch_force_mode trigger
 scoreboard objectives modify mqp.trigger.interaction_setting.block_switch_force_mode displayname "切换方块交互距离强制模式"
 scoreboard players enable @a mqp.trigger.interaction_setting.block_switch_force_mode
+
+scoreboard objectives add mqp.trigger.interaction_setting.entity_switch_force_mode trigger
+scoreboard objectives modify mqp.trigger.interaction_setting.entity_switch_force_mode displayname "切换实体交互距离强制模式"
+scoreboard players enable @a mqp.trigger.interaction_setting.entity_switch_force_mode

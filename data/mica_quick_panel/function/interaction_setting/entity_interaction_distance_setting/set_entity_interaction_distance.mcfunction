@@ -1,0 +1,3 @@
+$attribute @s entity_interaction_range base set $(entity_interaction_range)
+
+function mica_quick_panel:dialog/interaction_setting_dialog/open_entity_interaction_setting_dialog
