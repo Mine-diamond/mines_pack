@@ -1,2 +1,2 @@
-execute store result storage mqp:dialog.game_rule random_tick_speed_prepare.input int 1 run scoreboard players get @s mqp.game_rule.set_random_tick_speed
-function mica_quick_panel:game_rule_change/set_random_tick_speed with storage mqp:dialog.game_rule random_tick_speed_prepare
+execute store result storage mqp:dialog random_tick_dialog_prepare.input int 1 run scoreboard players get @s mqp.game_rule.set_random_tick_speed
+function mica_quick_panel:game_rule_change/set_random_tick_speed with storage mqp:dialog random_tick_dialog_prepare
