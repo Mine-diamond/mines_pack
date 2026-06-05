@@ -36,7 +36,7 @@ $dialog show @s { \
             "label": "设置随机刻速度", \
             "action": { \
                 "type": "run_command", \
-                "command": "trigger mqp.game_rule.random_tick_speed set 1" \
+                "command": "trigger mqp.dialog.game_rule.random_tick_speed set 1" \
             } \
         }, \
         { \
