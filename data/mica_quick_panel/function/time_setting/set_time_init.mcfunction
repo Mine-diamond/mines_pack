@@ -1,4 +1,4 @@
-execute store result score #temp mqp.calc run time query day
+execute store result score #temp mqp.calc run time query minecraft:day repetition
 scoreboard players operation #temp mqp.calc *= #24000 mqp.constant.number
 scoreboard players operation #temp mqp.calc += @s mqp.trigger.time_setting
 
