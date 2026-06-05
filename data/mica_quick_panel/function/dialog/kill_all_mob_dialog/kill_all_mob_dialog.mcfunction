@@ -37,7 +37,7 @@ $dialog show @s { \
             } \
         }, \
         { \
-            "label": "§c清除", \
+            "label": "§c§l清除", \
             "action": { \
                 "type": "run_command", \
                 "command": "trigger mqp.trigger.kill_all_mob.kill_all_mob" \
@@ -46,7 +46,7 @@ $dialog show @s { \
     ], \
     "exit_action": { \
         "label": { \
-            "translate": "gui.cancel" \
+            "translate": "gui.back" \
         }, \
         "action": { \
             "type": "show_dialog", \
