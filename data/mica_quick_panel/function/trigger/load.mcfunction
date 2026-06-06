@@ -5,3 +5,4 @@ function mica_quick_panel:trigger/time_setting/load
 function mica_quick_panel:trigger/highlight/load
 function mica_quick_panel:trigger/kill_all_mob/load
 function mica_quick_panel:trigger/interaction_setting/load
+function mica_quick_panel:trigger/easter_egg/load

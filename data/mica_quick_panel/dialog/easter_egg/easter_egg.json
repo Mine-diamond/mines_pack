@@ -1,0 +1,15 @@
+{
+    "type": "notice",
+    "title": "彩蛋",
+    "pause": false,
+    "body": [
+        {
+            "type": "minecraft:plain_message",
+            "contents": "恭喜你发现了一个彩蛋！"
+        },
+        {
+            "type": "minecraft:plain_message",
+            "contents": "不过呢，这里好像什么都没有呢，也许过一会再来就有了呢..."
+        }
+    ]
+}

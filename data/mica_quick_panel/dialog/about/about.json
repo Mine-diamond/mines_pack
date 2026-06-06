@@ -1,24 +1,36 @@
 {
     "type": "minecraft:multi_action",
-    "title": "关于",
+    "title": "关于 快捷面板",
     "after_action": "none",
     "pause": false,
     "body": [
         {
             "type": "minecraft:plain_message",
-            "contents": "mineDiamond出品"
+            "contents": "作者随便写的"
         },
         {
-            "type": "minecraft:item",
-            "item": {
-                "id": "player_head",
-                "components": {"profile": "mine__diamond"}
-            }
+            "type": "minecraft:plain_message",
+            "contents": [
+                "",
+                {
+                    "object": "player",
+                    "player": "mine__diamond",
+                    "fallback": "",
+                    "click_event": {
+                        "action": "run_command",
+                        "command": "trigger mqp.trigger.easter_egg.count"
+                    }
+                },
+                " ",
+                {
+                    "text": "mineDiamond 出品"
+                }
+            ]
         }
     ],
     "actions": [
         {
-            "label": {"text": "GitHub 链接", "color": "#48a7de"},
+            "label": {"text": "数据包仓库链接", "color": "#48a7de"},
             "action": {
                 "type": "open_url",
                 "url": "https://github.com/Mine-diamond/mines_pack"

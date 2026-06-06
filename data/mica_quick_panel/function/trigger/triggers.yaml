@@ -148,3 +148,9 @@ modules:
         actions:
           - mica_quick_panel:interaction_setting/entity_interaction_distance_setting/switch_force_mode
           - mica_quick_panel:dialog/interaction_setting_dialog/open_entity_interaction_setting_dialog
+  - dir: easter_egg
+    triggers:
+      - name: mqp.trigger.easter_egg.count
+        display: "egg"
+        actions:
+          - mica_quick_panel:easter_egg/add_click_count

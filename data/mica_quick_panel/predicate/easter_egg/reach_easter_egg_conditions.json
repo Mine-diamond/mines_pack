@@ -1,0 +1,27 @@
+{
+    "condition": "all_of",
+    "terms": [
+        {
+            "condition": "value_check",
+            "range": {
+                "min": 1
+            },
+            "value": {
+                "type": "score",
+                "score": "mqp.easter_egg.timer",
+                "target": "this"
+            }
+        },
+        {
+            "condition": "value_check",
+            "range": {
+                "min": 8
+            },
+            "value": {
+                "type": "score",
+                "score": "mqp.easter_egg.click_count",
+                "target": "this"
+            }
+        }
+    ]
+}
