@@ -154,3 +154,18 @@ modules:
         display: "egg"
         actions:
           - mica_quick_panel:easter_egg/add_click_count
+  - dir: take_entity
+    triggers:
+      - name: mqp.trigger.take_entity.take_entity
+        display: "带走生物"
+        init: -1
+        range: "0.."
+        reset: -1
+        actions:
+          - mica_quick_panel:take_entity/execute
+  - dir: item
+    triggers:
+      - name: mqp.trigger.item.entity_compression_staff.get
+        display: "获取生物压缩之杖"
+        actions:
+          - mica_quick_panel:item/entity_compression_staff/give_prepare

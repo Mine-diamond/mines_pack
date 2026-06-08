@@ -1,0 +1,78 @@
+{
+    "type": "multi_action",
+    "title": "带走生物",
+    "body": [
+        {
+            "type": "minecraft:plain_message",
+            "contents": {
+                "text": "将你面向的生物变成刷怪蛋保存起来,其实体信息将会全部保留",
+                "color": "#97cedf"
+            },
+            "width": 300
+        },
+        {
+            "type": "minecraft:plain_message",
+            "contents": [
+                "",
+                {
+                    "text": "注意:\n\n 1. 仅支持有刷怪蛋的生物,比如不支持带走盔甲架\n2. 通过右键同类型实体来放置生物§f, (比如你手上拿着猪刷怪蛋右键猪来放置猪), 那么新生成的实体的自定义数据会被删除, 这是刷怪蛋本身的"
+                },
+                {
+                    "text": "机制",
+                    "underlined": true,
+                    "click_event": {
+                        "action": "open_url",
+                        "url": "https://zh.minecraft.wiki/w/%E5%88%B7%E6%80%AA%E8%9B%8B#%E5%B9%BC%E5%B9%B4%E7%94%9F%E7%89%A9"
+                    },
+                    "hover_event": {
+                        "action": "show_text",
+                        "value": "https://zh.minecraft.wiki/w/刷怪蛋#幼年生物"
+                    }
+                },
+                {
+                    "text": "\n3. 如果选择不清除实体, 且实体处于骑乘状态, 则会使实体脱离骑乘状态, 这是一个bug, 但不打算修复"
+                }
+            ],
+            "width": 330
+        },
+        {
+            "type": "minecraft:plain_message",
+            "contents": "请面向生物下部"
+        }
+    ],
+    "inputs": [
+        {
+            "type": "minecraft:number_range",
+            "key": "range",
+            "start": 1,
+            "end": 80,
+            "step": 1,
+            "label": "检测范围",
+            "initial": 8
+        },
+        {
+            "key": "remove_entity",
+            "type": "boolean",
+            "label": "清除实体",
+            "initial": true,
+            "on_false": "0",
+            "on_true": "1"
+        }
+    ],
+    "actions": [
+        {
+            "label": "带走生物",
+            "action": {
+                "type": "dynamic/run_command",
+                "template": "trigger mqp.trigger.take_entity.take_entity set $(range)$(remove_entity)"
+            }
+        }
+    ],
+    "exit_action":{ 
+        "label":{"translate": "gui.back"}, 
+        "action": { 
+            "type": "show_dialog", 
+            "dialog": "mica_quick_panel:main/main_panel" 
+        } 
+    } 
+}

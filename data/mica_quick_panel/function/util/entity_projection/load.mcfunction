@@ -1,0 +1,1 @@
+scoreboard objectives add mqp.util.entity_projection dummy

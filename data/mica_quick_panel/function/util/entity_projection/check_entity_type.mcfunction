@@ -1,0 +1,2 @@
+$execute if data storage mqp:util.entity_projection {inverse_selection:0} if entity @s[type=$(entity_type_tag)] run tag @s add mqp.entity_projection.target
+$execute if data storage mqp:util.entity_projection {inverse_selection:1} unless entity @s[type=$(entity_type_tag)] run tag @s add mqp.entity_projection.target

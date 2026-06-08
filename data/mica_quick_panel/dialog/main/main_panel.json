@@ -63,6 +63,20 @@
             }
         },
         {
+            "label": "带走生物",
+            "action": {
+                "type": "show_dialog",
+                "dialog": "mica_quick_panel:take_entity/take_entity_dialog"
+            }
+        },
+        {
+            "label": "获取物品",
+            "action": {
+                "type": "show_dialog",
+                "dialog": "mica_quick_panel:item/give_item"
+            }
+        },
+        {
             "label": "关于",
             "action": {
                 "type": "show_dialog",

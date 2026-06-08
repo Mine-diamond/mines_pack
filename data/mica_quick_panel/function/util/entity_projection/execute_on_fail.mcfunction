@@ -1,0 +1,1 @@
+$function $(execute_on_fail_function)

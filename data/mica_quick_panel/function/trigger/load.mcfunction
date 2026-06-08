@@ -6,3 +6,5 @@ function mica_quick_panel:trigger/highlight/load
 function mica_quick_panel:trigger/kill_all_mob/load
 function mica_quick_panel:trigger/interaction_setting/load
 function mica_quick_panel:trigger/easter_egg/load
+function mica_quick_panel:trigger/take_entity/load
+function mica_quick_panel:trigger/item/load
