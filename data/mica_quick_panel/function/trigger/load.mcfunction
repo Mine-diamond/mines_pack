@@ -8,3 +8,4 @@ function mica_quick_panel:trigger/interaction_setting/load
 function mica_quick_panel:trigger/easter_egg/load
 function mica_quick_panel:trigger/take_entity/load
 function mica_quick_panel:trigger/item/load
+function mica_quick_panel:trigger/util/load

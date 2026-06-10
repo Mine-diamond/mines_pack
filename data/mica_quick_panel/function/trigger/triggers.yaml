@@ -39,6 +39,14 @@ modules:
         display: "实体交互距离设置面板"
         actions:
           - mica_quick_panel:dialog/interaction_setting_dialog/open_entity_interaction_setting_dialog
+      - name: mqp.dialog.rename_name_tag_common
+        display: "重命名命名牌常规面板"
+        actions:
+          - mica_quick_panel:dialog/raname_name_tag/open_rename_name_tag_common_dialog
+      - name: mqp.dialog.rename_name_tag_json
+        display: "重命名命名牌json面板"
+        actions:
+          - mica_quick_panel:dialog/raname_name_tag/open_rename_name_tag_json_dialog
   - dir: game_rule
     triggers:
       - name: mqp.game_rule.change
@@ -169,3 +177,13 @@ modules:
         display: "获取生物压缩之杖"
         actions:
           - mica_quick_panel:item/entity_compression_staff/give_prepare
+      - name: mqp.trigger.item.advanced_name_tag.get
+        display: "获取高级命名牌"
+        actions:
+          - mica_quick_panel:item/advanced_name_tag/give
+  - dir: util
+    triggers:
+      - name: mqp.trigger.util.close_dialog
+        display: "关闭dialog"
+        actions:
+          - mica_quick_panel:util/dialog/close_dialog

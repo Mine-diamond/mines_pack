@@ -1,0 +1,1 @@
+execute as @a[nbt={SelectedItem:{id:"minecraft:name_tag",components:{"minecraft:custom_data":{id:"advanced_name_tag"}}}}] if predicate mica_quick_panel:util/is_sneaking run trigger mqp.dialog.rename_name_tag_common

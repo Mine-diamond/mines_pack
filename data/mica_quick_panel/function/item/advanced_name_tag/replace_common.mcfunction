@@ -1,0 +1,1 @@
+$item replace entity @s weapon.mainhand with minecraft:name_tag[minecraft:custom_name="$(name)",custom_data={id:"advanced_name_tag"},lore=["高级命名牌","按住shift以编辑命名牌名称"]]

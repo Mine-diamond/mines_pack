@@ -11,6 +11,13 @@
                 "type": "show_dialog",
                 "dialog": "mica_quick_panel:item/give_entity_compression_staff"
             }
+        },
+        {
+            "label": "高级命名牌",
+            "action": {
+                "type": "run_command",
+                "command": "trigger mqp.trigger.item.advanced_name_tag.get"
+            }
         }
     ],
     "exit_action":{ 

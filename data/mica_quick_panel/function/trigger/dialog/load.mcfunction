@@ -33,3 +33,11 @@ scoreboard players enable @a mqp.dialog.block_interaction_setting
 scoreboard objectives add mqp.dialog.entity_interaction_setting trigger
 scoreboard objectives modify mqp.dialog.entity_interaction_setting displayname "实体交互距离设置面板"
 scoreboard players enable @a mqp.dialog.entity_interaction_setting
+
+scoreboard objectives add mqp.dialog.rename_name_tag_common trigger
+scoreboard objectives modify mqp.dialog.rename_name_tag_common displayname "重命名命名牌常规面板"
+scoreboard players enable @a mqp.dialog.rename_name_tag_common
+
+scoreboard objectives add mqp.dialog.rename_name_tag_json trigger
+scoreboard objectives modify mqp.dialog.rename_name_tag_json displayname "重命名命名牌json面板"
+scoreboard players enable @a mqp.dialog.rename_name_tag_json

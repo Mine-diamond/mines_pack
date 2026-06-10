@@ -1,0 +1,1 @@
+$data modify storage mqp:item.advanced_name_tag preview set value '$(preview_prepare_one)$(name)$(preview_prepare_two)'

@@ -1,0 +1,3 @@
+$execute store result score #temp mqp.temp run function mica_quick_panel:util/text_component/is_valid_text_component {text:'$(name)'}
+$execute if score #temp mqp.temp matches 1 run data merge storage mqp:item.advanced_name_tag {preview:'$(preview_json_part_one)$(name)$(preview_json_part_two)'}
+$execute unless score #temp mqp.temp matches 1 run data merge storage mqp:item.advanced_name_tag {preview:'$(preview_json_part_one)$(json_error_text)$(preview_json_part_two)'}

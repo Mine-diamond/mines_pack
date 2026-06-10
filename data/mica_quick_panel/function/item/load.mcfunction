@@ -1,0 +1,1 @@
+function mica_quick_panel:item/advanced_name_tag/load
