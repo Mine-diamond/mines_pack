@@ -181,6 +181,10 @@ modules:
         display: "获取高级命名牌"
         actions:
           - mica_quick_panel:item/advanced_name_tag/give
+      - name: mqp.trigger.item.netherite.get
+        display: "获得下界合金物品"
+        actions:
+          - mica_quick_panel:item/netherite/give_netherite_item
   - dir: util
     triggers:
       - name: mqp.trigger.util.close_dialog

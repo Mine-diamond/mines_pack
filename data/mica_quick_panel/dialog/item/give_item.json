@@ -18,6 +18,13 @@
                 "type": "run_command",
                 "command": "trigger mqp.trigger.item.advanced_name_tag.get"
             }
+        },
+        {
+            "label": "下界合金装备",
+            "action": {
+                "type": "show_dialog",
+                "dialog": "mica_quick_panel:item/netherite_blank"
+            }
         }
     ],
     "exit_action":{ 
