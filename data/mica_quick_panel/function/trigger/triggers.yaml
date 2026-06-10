@@ -42,11 +42,11 @@ modules:
       - name: mqp.dialog.rename_name_tag_common
         display: "重命名命名牌常规面板"
         actions:
-          - mica_quick_panel:dialog/raname_name_tag/open_rename_name_tag_common_dialog
+          - mica_quick_panel:dialog/raname_name_tag_dialog/open_rename_name_tag_common_dialog
       - name: mqp.dialog.rename_name_tag_json
         display: "重命名命名牌json面板"
         actions:
-          - mica_quick_panel:dialog/raname_name_tag/open_rename_name_tag_json_dialog
+          - mica_quick_panel:dialog/raname_name_tag_dialog/open_rename_name_tag_json_dialog
   - dir: game_rule
     triggers:
       - name: mqp.game_rule.change

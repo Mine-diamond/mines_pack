@@ -3,4 +3,4 @@ function mica_quick_panel:item/advanced_name_tag/set_common_preview_text with st
 
 $data modify storage mqp:item.advanced_name_tag raw set value "$(name)"
 
-function mica_quick_panel:dialog/raname_name_tag/open_rename_name_tag_common_dialog
+function mica_quick_panel:dialog/raname_name_tag_dialog/open_rename_name_tag_common_dialog

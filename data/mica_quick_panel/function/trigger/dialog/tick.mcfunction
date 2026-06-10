@@ -34,10 +34,10 @@ execute as @a[scores={mqp.dialog.entity_interaction_setting=1..}] run function m
 scoreboard players set @a[scores={mqp.dialog.entity_interaction_setting=1..}] mqp.dialog.entity_interaction_setting 0
 scoreboard players enable @a mqp.dialog.entity_interaction_setting
 
-execute as @a[scores={mqp.dialog.rename_name_tag_common=1..}] run function mica_quick_panel:dialog/raname_name_tag/open_rename_name_tag_common_dialog
+execute as @a[scores={mqp.dialog.rename_name_tag_common=1..}] run function mica_quick_panel:dialog/raname_name_tag_dialog/open_rename_name_tag_common_dialog
 scoreboard players set @a[scores={mqp.dialog.rename_name_tag_common=1..}] mqp.dialog.rename_name_tag_common 0
 scoreboard players enable @a mqp.dialog.rename_name_tag_common
 
-execute as @a[scores={mqp.dialog.rename_name_tag_json=1..}] run function mica_quick_panel:dialog/raname_name_tag/open_rename_name_tag_json_dialog
+execute as @a[scores={mqp.dialog.rename_name_tag_json=1..}] run function mica_quick_panel:dialog/raname_name_tag_dialog/open_rename_name_tag_json_dialog
 scoreboard players set @a[scores={mqp.dialog.rename_name_tag_json=1..}] mqp.dialog.rename_name_tag_json 0
 scoreboard players enable @a mqp.dialog.rename_name_tag_json
