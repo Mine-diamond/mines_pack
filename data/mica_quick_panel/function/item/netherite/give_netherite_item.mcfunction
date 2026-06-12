@@ -1,9 +1,9 @@
-execute if score @s mqp.trigger.item.netherite.get matches 1001 run function mines_quick_action:netherite_item/get_unenchanted_netherite_item
-execute if score @s mqp.trigger.item.netherite.get matches 1002 run function mines_quick_action:netherite_item/equip_unenchanted_netherite_item
-execute if score @s mqp.trigger.item.netherite.get matches 1003 run function mines_quick_action:netherite_item/get_enchanted_netherite_item {add_fortune:1}
-execute if score @s mqp.trigger.item.netherite.get matches 1004 run function mines_quick_action:netherite_item/equip_enchanted_netherite_item {add_fortune:1}
-execute if score @s mqp.trigger.item.netherite.get matches 1005 run function mines_quick_action:netherite_item/get_enchanted_netherite_item {add_fortune:0}
-execute if score @s mqp.trigger.item.netherite.get matches 1006 run function mines_quick_action:netherite_item/equip_enchanted_netherite_item {add_fortune:0}
+execute if score @s mqp.trigger.item.netherite.get matches 1001 run function mica_quick_panel:item/netherite/unenchanted/get_item
+execute if score @s mqp.trigger.item.netherite.get matches 1002 run function mica_quick_panel:item/netherite/unenchanted/equip_item
+execute if score @s mqp.trigger.item.netherite.get matches 1003 run function mica_quick_panel:item/netherite/enchanted/get_item {add_fortune:1}
+execute if score @s mqp.trigger.item.netherite.get matches 1004 run function mica_quick_panel:item/netherite/enchanted/equip_item {add_fortune:1}
+execute if score @s mqp.trigger.item.netherite.get matches 1005 run function mica_quick_panel:item/netherite/enchanted/get_item {add_fortune:0}
+execute if score @s mqp.trigger.item.netherite.get matches 1006 run function mica_quick_panel:item/netherite/enchanted/equip_item {add_fortune:0}
 
 execute if score @s mqp.trigger.item.netherite.get matches 11 run give @s minecraft:netherite_helmet
 execute if score @s mqp.trigger.item.netherite.get matches 12 run item replace entity @s armor.head with minecraft:netherite_helmet

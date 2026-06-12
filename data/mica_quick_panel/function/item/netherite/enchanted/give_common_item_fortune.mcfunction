@@ -1,0 +1,4 @@
+give @s minecraft:netherite_axe[minecraft:enchantments={"minecraft:sharpness":5,"minecraft:fortune":3,"minecraft:efficiency":5,"minecraft:unbreaking":3,"minecraft:mending":1}]
+give @s minecraft:netherite_pickaxe[minecraft:enchantments={"minecraft:fortune":3,"minecraft:efficiency":5,"minecraft:unbreaking":3,"minecraft:mending":1}]
+give @s minecraft:netherite_shovel[minecraft:enchantments={"minecraft:fortune":3,"minecraft:efficiency":5,"minecraft:unbreaking":3,"minecraft:mending":1}]
+give @s minecraft:netherite_hoe[minecraft:enchantments={"minecraft:fortune":3,"minecraft:efficiency":5,"minecraft:unbreaking":3,"minecraft:mending":1}]
