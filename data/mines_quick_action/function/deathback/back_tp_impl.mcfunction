@@ -1,1 +1,0 @@
-$tp @s $(x_pos) $(y_pos) $(z_pos) $(yaw) $(pitch)

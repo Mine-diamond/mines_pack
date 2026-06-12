@@ -1,2 +1,0 @@
-$data modify storage mines_pack:entity_projection_result entity_temp_id set from storage mines_pack:entity_id id_list[$(current_index)]
-$execute as @e[nbt={UUID:$(entity_uuid)}] run function mines_quick_action:copy_entity/inspection_entity_id with storage mines_pack:entity_projection_result

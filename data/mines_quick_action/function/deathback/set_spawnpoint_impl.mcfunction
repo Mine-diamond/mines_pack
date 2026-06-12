@@ -1,1 +1,0 @@
-$spawnpoint @s $(x) $(y) $(z) $(yaw) $(pitch)

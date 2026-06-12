@@ -1,1 +1,0 @@
-scoreboard players set #max_step mines.projection 60

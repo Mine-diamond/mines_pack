@@ -1,1 +1,0 @@
-$data modify storage mines_pack:entity_projection_result entity_pure_id set from storage mines_pack:entity_id_pure id_list[$(current_index)]

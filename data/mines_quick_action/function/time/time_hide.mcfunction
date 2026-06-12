@@ -1,1 +1,0 @@
-scoreboard players set #dummyPlayerTimeDiaplay mines.worldtime 0

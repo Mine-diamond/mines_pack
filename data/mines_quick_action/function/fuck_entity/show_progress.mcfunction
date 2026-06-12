@@ -1,1 +1,0 @@
-$title @s actionbar "$(progress_line)"

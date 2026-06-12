@@ -1,1 +1,0 @@
-scoreboard objectives add mines.projection_block dummy

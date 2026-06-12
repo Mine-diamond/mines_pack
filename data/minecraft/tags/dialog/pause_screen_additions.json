@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "mica_quick_panel:main/main_panel",
-    "mines_quick_action:main_menu"
+    "mica_quick_panel:main/main_panel"
   ]
 }
