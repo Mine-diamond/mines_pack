@@ -1,1 +1,2 @@
 function mica_quick_panel:util/entity_projection/load
+function mica_quick_panel:util/block_projection/load

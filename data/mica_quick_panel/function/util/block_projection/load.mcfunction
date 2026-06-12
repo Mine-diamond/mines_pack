@@ -1,0 +1,1 @@
+scoreboard objectives add mqp.util.block_projection dummy

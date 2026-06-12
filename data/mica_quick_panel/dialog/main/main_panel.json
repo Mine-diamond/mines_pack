@@ -70,6 +70,13 @@
             }
         },
         {
+            "label": "传动目光方向",
+            "action": {
+                "type": "show_dialog",
+                "dialog": "mica_quick_panel:teleport_to_look_at/teleport_to_look_at_dialog"
+            }
+        },
+        {
             "label": "获取物品",
             "action": {
                 "type": "show_dialog",

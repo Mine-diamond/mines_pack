@@ -9,3 +9,4 @@ function mica_quick_panel:trigger/easter_egg/tick
 function mica_quick_panel:trigger/take_entity/tick
 function mica_quick_panel:trigger/item/tick
 function mica_quick_panel:trigger/util/tick
+function mica_quick_panel:trigger/teleport_to_look_at/tick

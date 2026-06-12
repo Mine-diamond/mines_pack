@@ -1,0 +1,20 @@
+{
+  "criteria": {
+    "generic:player_consumed_item": {
+      "trigger": "using_item",
+      "conditions": {
+        "item": {
+          "predicates": {
+            "minecraft:custom_data": {
+              "custom_item": true,
+              "id": "mqp:gaze_shift_staff"
+            }
+          }
+        }
+      }
+    }
+  },
+  "rewards": {
+    "function": "mica_quick_panel:item/gaze_shift_staff/execute"
+  }
+}

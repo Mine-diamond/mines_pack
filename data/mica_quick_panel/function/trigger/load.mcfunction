@@ -9,3 +9,4 @@ function mica_quick_panel:trigger/easter_egg/load
 function mica_quick_panel:trigger/take_entity/load
 function mica_quick_panel:trigger/item/load
 function mica_quick_panel:trigger/util/load
+function mica_quick_panel:trigger/teleport_to_look_at/load

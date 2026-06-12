@@ -1,0 +1,2 @@
+$execute if data storage mqp:util.block_projection {inverse_selection:0} if block ~ ~ ~ $(block_type_tag) run data merge storage mqp:util.block_projection {success:1}
+$execute if data storage mqp:util.block_projection {inverse_selection:1} unless block ~ ~ ~ $(block_type_tag) run data merge storage mqp:util.block_projection {success:1}

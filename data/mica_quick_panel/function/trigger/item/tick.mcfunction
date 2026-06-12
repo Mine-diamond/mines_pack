@@ -9,3 +9,7 @@ scoreboard players enable @a mqp.trigger.item.advanced_name_tag.get
 execute as @a[scores={mqp.trigger.item.netherite.get=1..}] run function mica_quick_panel:item/netherite/give_netherite_item
 scoreboard players set @a[scores={mqp.trigger.item.netherite.get=1..}] mqp.trigger.item.netherite.get 0
 scoreboard players enable @a mqp.trigger.item.netherite.get
+
+execute as @a[scores={mqp.trigger.item.gaze_shift_staff.get=1..}] run function mica_quick_panel:item/gaze_shift_staff/give_prepare
+scoreboard players set @a[scores={mqp.trigger.item.gaze_shift_staff.get=1..}] mqp.trigger.item.gaze_shift_staff.get 0
+scoreboard players enable @a mqp.trigger.item.gaze_shift_staff.get

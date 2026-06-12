@@ -1,0 +1,30 @@
+{
+    "type": "minecraft:confirmation",
+    "pause": false,
+    "title": "获取目光跃迁之杖",
+    "inputs": [
+        {
+            "type": "minecraft:number_range",
+            "key": "range",
+            "start": 1,
+            "end": 200,
+            "step": 1,
+            "label": "检测范围",
+            "initial": 50
+        }
+    ],
+    "yes": {
+        "label": "获取",
+        "action": {
+            "type": "dynamic/run_command",
+            "template": "trigger mqp.trigger.item.gaze_shift_staff.get set $(range)"
+        }
+    },
+    "no": {
+        "label": {"translate": "gui.cancel"},
+        "action": {
+            "type": "show_dialog",
+            "dialog": "mica_quick_panel:item/give_item"
+        }
+    }
+}

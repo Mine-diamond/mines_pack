@@ -13,6 +13,13 @@
             }
         },
         {
+            "label": "目光跃迁之杖",
+            "action": {
+                "type": "show_dialog",
+                "dialog": "mica_quick_panel:item/give_gaze_shift_staff"
+            }
+        },
+        {
             "label": "高级命名牌",
             "action": {
                 "type": "run_command",
