@@ -22,10 +22,6 @@ execute as @a[scores={mqp.dialog.highlight=1..}] run function mica_quick_panel:d
 scoreboard players set @a[scores={mqp.dialog.highlight=1..}] mqp.dialog.highlight 0
 scoreboard players enable @a mqp.dialog.highlight
 
-execute as @a[scores={mqp.dialog.kill_all_mob=1..}] run function mica_quick_panel:dialog/kill_all_mob_dialog/open_kill_all_mob_dialog
-scoreboard players set @a[scores={mqp.dialog.kill_all_mob=1..}] mqp.dialog.kill_all_mob 0
-scoreboard players enable @a mqp.dialog.kill_all_mob
-
 execute as @a[scores={mqp.dialog.block_interaction_setting=1..}] run function mica_quick_panel:dialog/interaction_setting_dialog/open_block_interaction_setting_dialog
 scoreboard players set @a[scores={mqp.dialog.block_interaction_setting=1..}] mqp.dialog.block_interaction_setting 0
 scoreboard players enable @a mqp.dialog.block_interaction_setting
@@ -41,3 +37,7 @@ scoreboard players enable @a mqp.dialog.rename_name_tag_common
 execute as @a[scores={mqp.dialog.rename_name_tag_json=1..}] run function mica_quick_panel:dialog/raname_name_tag_dialog/open_rename_name_tag_json_dialog
 scoreboard players set @a[scores={mqp.dialog.rename_name_tag_json=1..}] mqp.dialog.rename_name_tag_json 0
 scoreboard players enable @a mqp.dialog.rename_name_tag_json
+
+execute as @a[scores={mqp.dialog.clear_entity=1..}] run function mica_quick_panel:dialog/clear_entity_dialog/open_clear_entity_dialog
+scoreboard players set @a[scores={mqp.dialog.clear_entity=1..}] mqp.dialog.clear_entity 0
+scoreboard players enable @a mqp.dialog.clear_entity

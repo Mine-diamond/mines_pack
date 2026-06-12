@@ -17,7 +17,7 @@
             "label": "清理非玩家实体",
             "action": {
                 "type": "run_command",
-                "command": "trigger mqp.dialog.kill_all_mob set 1"
+                "command": "trigger mqp.dialog.clear_entity set 1"
             }
         },
         {

@@ -7,7 +7,7 @@
           "predicates": {
             "minecraft:custom_data": {
               "custom_item": true,
-              "id": "mqp:pick_up_entity"
+              "id": "mqp:entity_compression_staff"
             }
           }
         }

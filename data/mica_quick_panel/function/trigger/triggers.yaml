@@ -27,10 +27,6 @@ modules:
         display: "高亮设置面板"
         actions:
           - mica_quick_panel:dialog/highlight_dialog/open_highlight_dialog
-      - name: mqp.dialog.kill_all_mob
-        display: "清理实体确认面板"
-        actions:
-          - mica_quick_panel:dialog/kill_all_mob_dialog/open_kill_all_mob_dialog
       - name: mqp.dialog.block_interaction_setting
         display: "方块交互距离设置面板"
         actions:
@@ -47,6 +43,10 @@ modules:
         display: "重命名命名牌json面板"
         actions:
           - mica_quick_panel:dialog/raname_name_tag_dialog/open_rename_name_tag_json_dialog
+      - name: mqp.dialog.clear_entity
+        display: "清理实体面板"
+        actions:
+          - mica_quick_panel:dialog/clear_entity_dialog/open_clear_entity_dialog
   - dir: game_rule
     triggers:
       - name: mqp.game_rule.change
@@ -127,23 +127,6 @@ modules:
         actions:
           - mica_quick_panel:highlight/switch_item_highlight
           - mica_quick_panel:dialog/highlight_dialog/open_highlight_dialog
-  - dir: kill_all_mob
-    triggers:
-      - name: mqp.trigger.kill_all_mob.close_mob_loot
-        display: "切换击杀生物是否掉落物品"
-        actions:
-          - mica_quick_panel:kill_all_mob/switch_gen_drops
-          - mica_quick_panel:dialog/kill_all_mob_dialog/open_kill_all_mob_dialog
-      - name: mqp.trigger.kill_all_mob.kill_type
-        display: "切换清除类型"
-        actions:
-          - mica_quick_panel:kill_all_mob/switch_kill_type
-          - mica_quick_panel:dialog/kill_all_mob_dialog/open_kill_all_mob_dialog
-      - name: mqp.trigger.kill_all_mob.kill_all_mob
-        display: "清除生物"
-        actions:
-          - mica_quick_panel:kill_all_mob/kill_all_mob
-          - mica_quick_panel:dialog/kill_all_mob_dialog/open_kill_all_mob_dialog
   - dir: interaction_setting
     triggers:
       - name: mqp.trigger.interaction_setting.block_switch_force_mode
@@ -201,3 +184,20 @@ modules:
         display: "传送到目视方块"
         actions:
           - mica_quick_panel:teleport_to_look_at/start_from_trigger
+  - dir: clear_entity
+    triggers:
+      - name: mqp.trigger.clear_entity.switch_mob_loot
+        display: "切换击杀生物是否掉落物品"
+        actions:
+          - mica_quick_panel:clear_entity/switch_gen_drops
+          - mica_quick_panel:dialog/clear_entity_dialog/open_clear_entity_dialog
+      - name: mqp.trigger.clear_entity.switch_kill_type
+        display: "切换清除类型"
+        actions:
+          - mica_quick_panel:clear_entity/switch_kill_type
+          - mica_quick_panel:dialog/clear_entity_dialog/open_clear_entity_dialog
+      - name: mqp.trigger.clear_entity.clear_entity
+        display: "清除生物"
+        actions:
+          - mica_quick_panel:clear_entity/clear_entity
+          - mica_quick_panel:dialog/clear_entity_dialog/open_clear_entity_dialog

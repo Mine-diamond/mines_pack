@@ -1,0 +1,2 @@
+execute unless data storage mqp:clear_entity kill_type run data merge storage mqp:clear_entity {kill_type:0}
+execute unless data storage mqp:clear_entity close_mob_loot run data merge storage mqp:clear_entity {close_mob_loot:0}

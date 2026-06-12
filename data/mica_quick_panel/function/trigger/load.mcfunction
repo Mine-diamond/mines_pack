@@ -3,10 +3,10 @@ function mica_quick_panel:trigger/game_rule/load
 function mica_quick_panel:trigger/simple_feature/load
 function mica_quick_panel:trigger/time_setting/load
 function mica_quick_panel:trigger/highlight/load
-function mica_quick_panel:trigger/kill_all_mob/load
 function mica_quick_panel:trigger/interaction_setting/load
 function mica_quick_panel:trigger/easter_egg/load
 function mica_quick_panel:trigger/take_entity/load
 function mica_quick_panel:trigger/item/load
 function mica_quick_panel:trigger/util/load
 function mica_quick_panel:trigger/teleport_to_look_at/load
+function mica_quick_panel:trigger/clear_entity/load

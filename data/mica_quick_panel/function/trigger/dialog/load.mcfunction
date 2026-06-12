@@ -22,10 +22,6 @@ scoreboard objectives add mqp.dialog.highlight trigger
 scoreboard objectives modify mqp.dialog.highlight displayname "高亮设置面板"
 scoreboard players enable @a mqp.dialog.highlight
 
-scoreboard objectives add mqp.dialog.kill_all_mob trigger
-scoreboard objectives modify mqp.dialog.kill_all_mob displayname "清理实体确认面板"
-scoreboard players enable @a mqp.dialog.kill_all_mob
-
 scoreboard objectives add mqp.dialog.block_interaction_setting trigger
 scoreboard objectives modify mqp.dialog.block_interaction_setting displayname "方块交互距离设置面板"
 scoreboard players enable @a mqp.dialog.block_interaction_setting
@@ -41,3 +37,7 @@ scoreboard players enable @a mqp.dialog.rename_name_tag_common
 scoreboard objectives add mqp.dialog.rename_name_tag_json trigger
 scoreboard objectives modify mqp.dialog.rename_name_tag_json displayname "重命名命名牌json面板"
 scoreboard players enable @a mqp.dialog.rename_name_tag_json
+
+scoreboard objectives add mqp.dialog.clear_entity trigger
+scoreboard objectives modify mqp.dialog.clear_entity displayname "清理实体面板"
+scoreboard players enable @a mqp.dialog.clear_entity

@@ -26,21 +26,21 @@ $dialog show @s { \
             "label": "产生掉落物:$(switch_mob_loot)", \
             "action": { \
                 "type": "run_command", \
-                "command": "trigger mqp.trigger.kill_all_mob.close_mob_loot" \
+                "command": "trigger mqp.trigger.clear_entity.switch_mob_loot" \
             } \
         }, \
         { \
             "label": "清除类型:$(switch_kill_type)", \
             "action": { \
                 "type": "run_command", \
-                "command": "trigger mqp.trigger.kill_all_mob.kill_type" \
+                "command": "trigger mqp.trigger.clear_entity.switch_kill_type" \
             } \
         }, \
         { \
             "label": "§c§l清除", \
             "action": { \
                 "type": "run_command", \
-                "command": "trigger mqp.trigger.kill_all_mob.kill_all_mob" \
+                "command": "trigger mqp.trigger.clear_entity.clear_entity" \
             } \
         } \
     ], \
