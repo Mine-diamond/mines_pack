@@ -5,6 +5,7 @@ scoreboard players set #2 mqp.constant.number 2
 scoreboard players set #5 mqp.constant.number 5
 scoreboard players set #8 mqp.constant.number 8
 scoreboard players set #10 mqp.constant.number 10
+scoreboard players set #100 mqp.constant.number 100
 scoreboard players set #300 mqp.constant.number 300
 scoreboard players set #24000 mqp.constant.number 24000
 

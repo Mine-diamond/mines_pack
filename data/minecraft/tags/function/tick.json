@@ -2,6 +2,7 @@
     "values": [
         "mica_quick_panel:trigger/tick",
         "mica_quick_panel:interaction_setting/tick",
-        "mica_quick_panel:item/tick"
+        "mica_quick_panel:item/tick",
+        "mqp_actionbar:tick"
     ]
 }

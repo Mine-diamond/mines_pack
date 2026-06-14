@@ -10,6 +10,7 @@
         "mica_quick_panel:interaction_setting/load",
         "mica_quick_panel:easter_egg/load",
         "mica_quick_panel:util/load",
-        "mica_quick_panel:item/load"
+        "mica_quick_panel:item/load",
+        "mqp_actionbar:load"
     ]
 }
