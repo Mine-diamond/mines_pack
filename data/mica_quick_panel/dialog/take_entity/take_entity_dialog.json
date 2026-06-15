@@ -65,14 +65,17 @@
             "action": {
                 "type": "dynamic/run_command",
                 "template": "trigger mqp.trigger.take_entity.take_entity set $(range)$(remove_entity)"
-            }
+            },
+            "width": 120
         }
     ],
-    "exit_action":{ 
-        "label":{"translate": "gui.back"}, 
-        "action": { 
-            "type": "show_dialog", 
-            "dialog": "mica_quick_panel:main/main_panel" 
-        } 
-    } 
+    "exit_action": {
+        "label": {
+            "translate": "gui.back"
+        },
+        "action": {
+            "type": "show_dialog",
+            "dialog": "mica_quick_panel:main/main_panel"
+        }
+    }
 }

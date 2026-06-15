@@ -425,7 +425,8 @@
             "action": {
                 "type": "run_command",
                 "command": "/trigger mqp.trigger.item.netherite.get set 1005"
-            }
+            },
+            "width": 120
         },
         {
             "label": {
@@ -435,7 +436,8 @@
             "action": {
                 "type": "run_command",
                 "command": "/trigger mqp.trigger.item.netherite.get set 1006"
-            }
+            },
+            "width": 120
         }
     ],
     "pause": false,

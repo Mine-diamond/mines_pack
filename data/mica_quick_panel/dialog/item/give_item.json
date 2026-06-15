@@ -10,35 +10,41 @@
             "action": {
                 "type": "show_dialog",
                 "dialog": "mica_quick_panel:item/give_entity_compression_staff"
-            }
+            },
+            "width": 120
         },
         {
             "label": "目光跃迁之杖",
             "action": {
                 "type": "show_dialog",
                 "dialog": "mica_quick_panel:item/give_gaze_shift_staff"
-            }
+            },
+            "width": 120
         },
         {
             "label": "高级命名牌",
             "action": {
                 "type": "run_command",
                 "command": "trigger mqp.trigger.item.advanced_name_tag.get"
-            }
+            },
+            "width": 120
         },
         {
             "label": "下界合金装备",
             "action": {
                 "type": "show_dialog",
                 "dialog": "mica_quick_panel:item/netherite_blank"
-            }
+            },
+            "width": 120
         }
     ],
-    "exit_action":{ 
-        "label":{"translate": "gui.back"}, 
-        "action": { 
-            "type": "show_dialog", 
-            "dialog": "mica_quick_panel:main/main_panel" 
-        } 
-    } 
+    "exit_action": {
+        "label": {
+            "translate": "gui.back"
+        },
+        "action": {
+            "type": "show_dialog",
+            "dialog": "mica_quick_panel:main/main_panel"
+        }
+    }
 }

@@ -30,16 +30,22 @@
     ],
     "actions": [
         {
-            "label": {"text": "数据包仓库链接", "color": "#48a7de"},
+            "label": {
+                "text": "数据包仓库链接",
+                "color": "#48a7de"
+            },
             "action": {
                 "type": "open_url",
                 "url": "https://github.com/Mine-diamond/mines_pack"
             },
-            "tooltip": "https://github.com/Mine-diamond/mines_pack"
+            "tooltip": "https://github.com/Mine-diamond/mines_pack",
+            "width": 120
         }
     ],
     "exit_action": {
-        "label": {"translate": "gui.back"},
+        "label": {
+            "translate": "gui.back"
+        },
         "action": {
             "type": "show_dialog",
             "dialog": "mica_quick_panel:main/main_panel"

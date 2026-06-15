@@ -4,13 +4,16 @@
     "columns": 2,
     "actions": [
         {
-            "label": "生物掉落物:开启"
+            "label": "生物掉落物:开启",
+            "width": 120
         },
         {
-            "label": "模式:仅掉落物"
+            "label": "模式:仅掉落物",
+            "width": 120
         },
         {
-            "label": "清除"
+            "label": "清除",
+            "width": 120
         }
     ],
     "after_action": "none",

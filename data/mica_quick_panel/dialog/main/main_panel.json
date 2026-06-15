@@ -110,5 +110,12 @@
                 "dialog": "mica_quick_panel:about/about"
             }
         }
-    ]
+    ],
+    "exit_action": {
+        "label": "退出",
+        "action": {
+            "type": "run_command",
+            "command": "trigger mqp.trigger.util.close_dialog"
+        }
+    }
 }

@@ -7,6 +7,7 @@ $dialog show @s { \
     "actions": [ \
         { \
             "label": "实体:$(switch_entity)", \
+            "width": 120, \
             "action": { \
                 "type": "run_command", \
                 "command": "trigger mqp.trigger.highlight.entity_enabled_flags" \
@@ -14,6 +15,7 @@ $dialog show @s { \
         }, \
         { \
             "label": "掉落物:$(switch_item)", \
+            "width": 120, \
             "action": { \
                 "type": "run_command", \
                 "command": "trigger mqp.trigger.highlight.item_enabled_flags" \
@@ -21,6 +23,7 @@ $dialog show @s { \
         }, \
         { \
             "label": "玩家:$(switch_player)", \
+            "width": 120, \
             "action": { \
                 "type": "run_command", \
                 "command": "trigger mqp.trigger.highlight.player_enabled_flags" \

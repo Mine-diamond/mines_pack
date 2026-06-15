@@ -7,6 +7,7 @@ $dialog show @s { \
     "actions":[ \
         { \
             "label": "夜视模式:$(switch_night_version)", \
+            "width": 120, \
             "action": { \
                 "type": "run_command", \
                 "command": "trigger mqp.simple_feature.night_version set 1" \
@@ -14,6 +15,7 @@ $dialog show @s { \
         }, \
         { \
             "label": "无敌模式:$(switch_invulnerable_mode)", \
+            "width": 120, \
             "action": { \
                 "type": "run_command", \
                 "command": "trigger mqp.trigger.simple_feature.invulnerable_mode set 1" \
@@ -21,6 +23,7 @@ $dialog show @s { \
         }, \
         { \
             "label": "赶路模式:$(switch_run_mode)", \
+            "width": 120, \
             "action": { \
                 "type": "run_command", \
                 "command": "trigger mqp.trigger.simple_feature.run_mode set 1" \

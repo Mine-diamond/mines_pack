@@ -24,6 +24,7 @@ $dialog show @s { \
     "actions": [ \
         { \
             "label": "产生掉落物:$(switch_mob_loot)", \
+            "width": 120, \
             "action": { \
                 "type": "run_command", \
                 "command": "trigger mqp.trigger.clear_entity.switch_mob_loot" \
@@ -31,6 +32,7 @@ $dialog show @s { \
         }, \
         { \
             "label": "清除类型:$(switch_kill_type)", \
+            "width": 120, \
             "action": { \
                 "type": "run_command", \
                 "command": "trigger mqp.trigger.clear_entity.switch_kill_type" \
@@ -38,6 +40,7 @@ $dialog show @s { \
         }, \
         { \
             "label": "§c§l清除", \
+            "width": 120, \
             "action": { \
                 "type": "run_command", \
                 "command": "trigger mqp.trigger.clear_entity.clear_entity" \

@@ -7,34 +7,42 @@ $dialog show @s { \
     "actions": [ \
         { \
             "label": "$(color_0)满月", \
+            "width": 120, \
             "action": { "type": "run_command", "command": "trigger mqp.trigger.moon_phase set 0" } \
         }, \
         { \
             "label": "$(color_1)亏凸月", \
+            "width": 120, \
             "action": { "type": "run_command", "command": "trigger mqp.trigger.moon_phase set 1" } \
         }, \
         { \
             "label": "$(color_2)下弦月", \
+            "width": 120, \
             "action": { "type": "run_command", "command": "trigger mqp.trigger.moon_phase set 2" } \
         }, \
         { \
             "label": "$(color_3)残月", \
+            "width": 120, \
             "action": { "type": "run_command", "command": "trigger mqp.trigger.moon_phase set 3" } \
         }, \
         { \
             "label": "$(color_4)新月", \
+            "width": 120, \
             "action": { "type": "run_command", "command": "trigger mqp.trigger.moon_phase set 4" } \
         }, \
         { \
             "label": "$(color_5)娥眉月", \
+            "width": 120, \
             "action": { "type": "run_command", "command": "trigger mqp.trigger.moon_phase set 5" } \
         }, \
         { \
             "label": "$(color_6)上弦月", \
+            "width": 120, \
             "action": { "type": "run_command", "command": "trigger mqp.trigger.moon_phase set 6" } \
         }, \
         { \
             "label": "$(color_7)盈凸月", \
+            "width": 120, \
             "action": { "type": "run_command", "command": "trigger mqp.trigger.moon_phase set 7" } \
         } \
     ], \

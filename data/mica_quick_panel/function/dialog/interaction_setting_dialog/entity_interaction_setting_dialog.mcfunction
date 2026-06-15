@@ -19,6 +19,7 @@ $dialog show @s { \
     "actions": [ \
         { \
             "label": "§b设置为当前交互距离", \
+            "width": 120, \
             "action": { \
                 "type": "dynamic/run_command", \
                 "template": "function mica_quick_panel:interaction_setting/entity_interaction_distance_setting/set_entity_interaction_distance {entity_interaction_range:$(entity_interaction_range)}" \
@@ -26,6 +27,7 @@ $dialog show @s { \
         }, \
         { \
             "label": "强制模式:$(switch_force_mode)", \
+            "width": 120, \
             "action": { \
                 "type": "run_command", \
                 "command": "trigger mqp.trigger.interaction_setting.entity_switch_force_mode" \
@@ -34,6 +36,7 @@ $dialog show @s { \
         }, \
         { \
             "label": "无(§a0§f)", \
+            "width": 120, \
             "action": { \
                 "type": "run_command", \
                 "command": "function mica_quick_panel:interaction_setting/entity_interaction_distance_setting/set_entity_interaction_distance {entity_interaction_range:0}" \
@@ -41,6 +44,7 @@ $dialog show @s { \
         }, \
         { \
             "label": "默认(§a3§f)", \
+            "width": 120, \
             "action": { \
                 "type": "run_command", \
                 "command": "function mica_quick_panel:interaction_setting/entity_interaction_distance_setting/set_entity_interaction_distance {entity_interaction_range:3}" \
@@ -48,6 +52,7 @@ $dialog show @s { \
         }, \
         { \
             "label": "长(§a12§f)", \
+            "width": 120, \
             "action": { \
                 "type": "run_command", \
                 "command": "function mica_quick_panel:interaction_setting/entity_interaction_distance_setting/set_entity_interaction_distance {entity_interaction_range:12}" \
@@ -55,6 +60,7 @@ $dialog show @s { \
         }, \
         { \
             "label": "最大(§a64§f)", \
+            "width": 120, \
             "action": { \
                 "type": "run_command", \
                 "command": "function mica_quick_panel:interaction_setting/entity_interaction_distance_setting/set_entity_interaction_distance {entity_interaction_range:64}" \

@@ -31,6 +31,7 @@ $dialog show @s { \
     "actions": [ \
         { \
             "label": "§b设置为当前时间", \
+            "width": 120, \
             "action": { \
                 "type": "dynamic/run_command", \
                 "template": "trigger mqp.trigger.time_setting set $(time)" \
@@ -38,6 +39,7 @@ $dialog show @s { \
         }, \
         { \
             "label": "月相设置", \
+            "width": 120, \
             "action": { \
                 "type": "run_command", \
                 "command": "trigger mqp.dialog.moon_phase" \
@@ -45,6 +47,7 @@ $dialog show @s { \
         }, \
         { \
             "label": "清晨", \
+            "width": 120, \
             "action": { \
                 "type": "run_command", \
                 "command": "trigger mqp.trigger.time_setting set 0" \
@@ -52,6 +55,7 @@ $dialog show @s { \
         }, \
         { \
             "label": "中午", \
+            "width": 120, \
             "action": { \
                 "type": "run_command", \
                 "command": "trigger mqp.trigger.time_setting set 6000" \
@@ -59,6 +63,7 @@ $dialog show @s { \
         }, \
         { \
             "label": "傍晚", \
+            "width": 120, \
             "action": { \
                 "type": "run_command", \
                 "command": "trigger mqp.trigger.time_setting set 12000" \
@@ -66,6 +71,7 @@ $dialog show @s { \
         }, \
         { \
             "label": "半夜", \
+            "width": 120, \
             "action": { \
                 "type": "run_command", \
                 "command": "trigger mqp.trigger.time_setting set 18000" \

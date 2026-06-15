@@ -19,6 +19,7 @@ $dialog show @s { \
     "actions": [ \
         { \
             "label": "设置为当前交互距离", \
+            "width": 120, \
             "action": { \
                 "type": "dynamic/run_command", \
                 "template": "trigger mqp.trigger.show_distance_to_block.set_detect_distance set $(detect_range)" \
@@ -26,6 +27,7 @@ $dialog show @s { \
         }, \
         { \
             "label": "显示方块距离:$(switch_enable)", \
+            "width": 120, \
             "action": { \
                 "type": "run_command", \
                 "command": "trigger mqp.trigger.show_distance_to_block.switch_enable" \

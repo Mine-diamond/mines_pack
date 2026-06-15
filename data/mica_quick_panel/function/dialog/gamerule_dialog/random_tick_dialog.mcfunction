@@ -19,6 +19,7 @@ $dialog show @s { \
     "actions": [ \
         { \
             "label": "设置为随机刻速度", \
+            "width": 120, \
             "action": { \
                 "type": "dynamic/run_command", \
                 "template": "trigger mqp.game_rule.set_random_tick_speed set $(input)" \
@@ -26,6 +27,7 @@ $dialog show @s { \
         }, \
         { \
             "label": "随机刻速度设置为§a0", \
+            "width": 120, \
             "action": { \
                 "type": "minecraft:run_command", \
                 "command": "trigger mqp.game_rule.set_random_tick_speed set 0" \
@@ -33,6 +35,7 @@ $dialog show @s { \
         }, \
         { \
             "label": "随机刻速度设置为§a3§f(默认)", \
+            "width": 120, \
             "action": { \
                 "type": "minecraft:run_command", \
                 "command": "trigger mqp.game_rule.set_random_tick_speed set 3" \
@@ -40,6 +43,7 @@ $dialog show @s { \
         }, \
         { \
             "label": "随机刻速度设置为§a200", \
+            "width": 120, \
             "action": { \
                 "type": "minecraft:run_command", \
                 "command": "trigger mqp.game_rule.set_random_tick_speed set 200" \

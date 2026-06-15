@@ -6,6 +6,7 @@ $dialog show @s { \
     "actions": [ \
         { \
             "label": "时间循环:$(switch_advance_time)", \
+            "width": 120, \
             "action": { \
                 "type": "run_command", \
                 "command": "/trigger mqp.game_rule.change set 1" \
@@ -13,6 +14,7 @@ $dialog show @s { \
         }, \
         { \
             "label": "天气循环:$(switch_advance_weather)", \
+            "width": 120, \
             "action": { \
                 "type": "run_command", \
                 "command": "/trigger mqp.game_rule.change set 2" \
@@ -20,6 +22,7 @@ $dialog show @s { \
         }, \
         { \
             "label": "生物自然生成:$(switch_spawn_mobs)", \
+            "width": 120, \
             "action": { \
                 "type": "run_command", \
                 "command": "/trigger mqp.game_rule.change set 3" \
@@ -27,6 +30,7 @@ $dialog show @s { \
         }, \
         { \
             "label": "死亡不掉落:$(switch_keep_inventory)", \
+            "width": 120, \
             "action": { \
                 "type": "run_command", \
                 "command": "/trigger mqp.game_rule.change set 4" \
@@ -34,6 +38,7 @@ $dialog show @s { \
         }, \
         { \
             "label": "设置随机刻速度", \
+            "width": 120, \
             "action": { \
                 "type": "run_command", \
                 "command": "trigger mqp.dialog.game_rule.random_tick_speed set 1" \
@@ -44,6 +49,7 @@ $dialog show @s { \
                 "text": "一键配置", \
                 "color": "green" \
             }, \
+            "width": 120, \
             "action": { \
                 "type": "run_command", \
                 "command": "/trigger mqp.game_rule.set_to_preferred set 1" \
@@ -52,6 +58,7 @@ $dialog show @s { \
         }, \
         { \
             "label": "广播命令方块输出:$(switch_command_block_output)", \
+            "width": 120, \
             "action": { \
                 "type": "run_command", \
                 "command": "/trigger mqp.game_rule.change set 5" \
@@ -59,6 +66,7 @@ $dialog show @s { \
         }, \
         { \
             "label": "生物死亡掉落:$(switch_mob_drops)", \
+            "width": 120, \
             "action": { \
                 "type": "run_command", \
                 "command": "/trigger mqp.game_rule.change set 6" \
@@ -66,6 +74,7 @@ $dialog show @s { \
         }, \
         { \
             "label": "方块挖掘掉落:$(switch_block_drops)", \
+            "width": 120, \
             "action": { \
                 "type": "run_command", \
                 "command": "/trigger mqp.game_rule.change set 7" \
@@ -73,6 +82,7 @@ $dialog show @s { \
         }, \
         { \
             "label": "进度通知公告:$(switch_show_advancement_messages)", \
+            "width": 120, \
             "action": { \
                 "type": "run_command", \
                 "command": "/trigger mqp.game_rule.change set 8" \
