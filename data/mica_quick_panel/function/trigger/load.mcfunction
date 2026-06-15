@@ -10,3 +10,4 @@ function mica_quick_panel:trigger/item/load
 function mica_quick_panel:trigger/util/load
 function mica_quick_panel:trigger/teleport_to_look_at/load
 function mica_quick_panel:trigger/clear_entity/load
+function mica_quick_panel:trigger/show_distance_to_block/load

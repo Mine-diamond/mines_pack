@@ -41,3 +41,7 @@ scoreboard players enable @a mqp.dialog.rename_name_tag_json
 scoreboard objectives add mqp.dialog.clear_entity trigger
 scoreboard objectives modify mqp.dialog.clear_entity displayname "清理实体面板"
 scoreboard players enable @a mqp.dialog.clear_entity
+
+scoreboard objectives add mqp.dialog.show_distance_to_block trigger
+scoreboard objectives modify mqp.dialog.show_distance_to_block displayname "显示距方块的距离面板"
+scoreboard players enable @a mqp.dialog.show_distance_to_block

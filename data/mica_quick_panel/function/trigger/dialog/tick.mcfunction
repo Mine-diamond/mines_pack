@@ -41,3 +41,7 @@ scoreboard players enable @a mqp.dialog.rename_name_tag_json
 execute as @a[scores={mqp.dialog.clear_entity=1..}] run function mica_quick_panel:dialog/clear_entity_dialog/open_clear_entity_dialog
 scoreboard players set @a[scores={mqp.dialog.clear_entity=1..}] mqp.dialog.clear_entity 0
 scoreboard players enable @a mqp.dialog.clear_entity
+
+execute as @a[scores={mqp.dialog.show_distance_to_block=1..}] run function mica_quick_panel:dialog/show_distance_to_block_dialog/open_show_distance_to_block_dialog
+scoreboard players set @a[scores={mqp.dialog.show_distance_to_block=1..}] mqp.dialog.show_distance_to_block 0
+scoreboard players enable @a mqp.dialog.show_distance_to_block

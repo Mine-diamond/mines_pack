@@ -10,3 +10,4 @@ function mica_quick_panel:trigger/item/tick
 function mica_quick_panel:trigger/util/tick
 function mica_quick_panel:trigger/teleport_to_look_at/tick
 function mica_quick_panel:trigger/clear_entity/tick
+function mica_quick_panel:trigger/show_distance_to_block/tick

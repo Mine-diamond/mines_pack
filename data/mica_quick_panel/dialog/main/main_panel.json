@@ -77,6 +77,13 @@
             }
         },
         {
+            "label": "显示方块距离",
+            "action": {
+                "type": "run_command",
+                "command": "trigger mqp.dialog.show_distance_to_block set 1"
+            }
+        },
+        {
             "label": "获取物品",
             "action": {
                 "type": "show_dialog",

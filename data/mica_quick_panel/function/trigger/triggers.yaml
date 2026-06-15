@@ -47,6 +47,10 @@ modules:
         display: "清理实体面板"
         actions:
           - mica_quick_panel:dialog/clear_entity_dialog/open_clear_entity_dialog
+      - name: mqp.dialog.show_distance_to_block
+        display: "显示距方块的距离面板"
+        actions:
+          - mica_quick_panel:dialog/show_distance_to_block_dialog/open_show_distance_to_block_dialog
   - dir: game_rule
     triggers:
       - name: mqp.game_rule.change
@@ -201,3 +205,18 @@ modules:
         actions:
           - mica_quick_panel:clear_entity/clear_entity
           - mica_quick_panel:dialog/clear_entity_dialog/open_clear_entity_dialog
+  - dir: show_distance_to_block
+    triggers:
+      - name: mqp.trigger.show_distance_to_block.switch_enable
+        display: "切换显示据方块距离"
+        actions:
+          - mica_quick_panel:show_distance_to_block/switch_enable
+          - mica_quick_panel:dialog/show_distance_to_block_dialog/open_show_distance_to_block_dialog
+      - name: mqp.trigger.show_distance_to_block.set_detect_distance
+        display: "设置显示方块距离检测范围"
+        init: -1
+        range: "0.."
+        reset: -1
+        actions:
+          - mica_quick_panel:show_distance_to_block/set_detect_distance
+          - mica_quick_panel:dialog/show_distance_to_block_dialog/open_show_distance_to_block_dialog
