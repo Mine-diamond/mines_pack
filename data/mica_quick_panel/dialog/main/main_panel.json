@@ -8,6 +8,7 @@
     "actions": [
         {
             "label": "清理掉落物",
+            "width": 120,
             "action": {
                 "type": "run_command",
                 "command": "/kill @e[type=item]"
@@ -15,6 +16,7 @@
         },
         {
             "label": "清理非玩家实体",
+            "width": 120,
             "action": {
                 "type": "run_command",
                 "command": "trigger mqp.dialog.clear_entity set 1"
@@ -22,6 +24,7 @@
         },
         {
             "label": "设置游戏规则",
+            "width": 120,
             "action": {
                 "type": "run_command",
                 "command": "trigger mqp.dialog.game_rule set 1"
@@ -29,13 +32,23 @@
         },
         {
             "label": "快捷开关",
+            "width": 120,
             "action": {
                 "type": "run_command",
                 "command": "trigger mqp.dialog.simple_feature set 1"
             }
         },
         {
+            "label": "获取物品",
+            "width": 120,
+            "action": {
+                "type": "show_dialog",
+                "dialog": "mica_quick_panel:item/give_item"
+            }
+        },
+        {
             "label": "修改时间",
+            "width": 120,
             "action": {
                 "type": "run_command",
                 "command": "trigger mqp.dialog.time_setting set 1"
@@ -43,6 +56,7 @@
         },
         {
             "label": "高亮设置",
+            "width": 120,
             "action": {
                 "type": "run_command",
                 "command": "trigger mqp.dialog.highlight set 1"
@@ -50,6 +64,7 @@
         },
         {
             "label": "方块交互距离设置",
+            "width": 120,
             "action": {
                 "type": "run_command",
                 "command": "trigger mqp.dialog.block_interaction_setting set 1"
@@ -57,6 +72,7 @@
         },
         {
             "label": "实体交互距离设置",
+            "width": 120,
             "action": {
                 "type": "run_command",
                 "command": "trigger mqp.dialog.entity_interaction_setting set 1"
@@ -64,6 +80,7 @@
         },
         {
             "label": "带走生物",
+            "width": 120,
             "action": {
                 "type": "show_dialog",
                 "dialog": "mica_quick_panel:take_entity/take_entity_dialog"
@@ -71,6 +88,7 @@
         },
         {
             "label": "传动目光方向",
+            "width": 120,
             "action": {
                 "type": "show_dialog",
                 "dialog": "mica_quick_panel:teleport_to_look_at/teleport_to_look_at_dialog"
@@ -78,20 +96,15 @@
         },
         {
             "label": "显示方块距离",
+            "width": 120,
             "action": {
                 "type": "run_command",
                 "command": "trigger mqp.dialog.show_distance_to_block set 1"
             }
         },
         {
-            "label": "获取物品",
-            "action": {
-                "type": "show_dialog",
-                "dialog": "mica_quick_panel:item/give_item"
-            }
-        },
-        {
             "label": "关于",
+            "width": 120,
             "action": {
                 "type": "show_dialog",
                 "dialog": "mica_quick_panel:about/about"
