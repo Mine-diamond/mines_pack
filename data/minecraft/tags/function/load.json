@@ -12,6 +12,7 @@
         "mica_quick_panel:util/load",
         "mica_quick_panel:item/load",
         "mica_quick_panel:show_distance_to_block/load",
-        "mqp_actionbar:load"
+        "mqp_actionbar:load",
+        "mqp_wp:load"
     ]
 }

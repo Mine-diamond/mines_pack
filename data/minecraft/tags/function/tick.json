@@ -4,6 +4,7 @@
         "mica_quick_panel:interaction_setting/tick",
         "mica_quick_panel:item/tick",
         "mica_quick_panel:show_distance_to_block/tick",
-        "mqp_actionbar:tick"
+        "mqp_actionbar:tick",
+        "mqp_wp:tick"
     ]
 }
