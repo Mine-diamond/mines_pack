@@ -45,3 +45,11 @@ scoreboard players enable @a mqp.dialog.clear_entity
 scoreboard objectives add mqp.dialog.show_distance_to_block trigger
 scoreboard objectives modify mqp.dialog.show_distance_to_block displayname "显示距方块的距离面板"
 scoreboard players enable @a mqp.dialog.show_distance_to_block
+
+scoreboard objectives add mqp.dialog.way_point trigger
+scoreboard objectives modify mqp.dialog.way_point displayname "路径点面板"
+scoreboard players enable @a mqp.dialog.way_point
+
+scoreboard objectives add mqp.dialog.way_point_edit trigger
+scoreboard objectives modify mqp.dialog.way_point_edit displayname "路径点编辑面板"
+scoreboard players enable @a mqp.dialog.way_point_edit

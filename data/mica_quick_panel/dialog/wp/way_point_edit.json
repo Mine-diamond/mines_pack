@@ -1,0 +1,130 @@
+{
+  "type": "minecraft:confirmation",
+  "title": "编辑路径点",
+  "after_action": "none",
+  "pause": false,
+  "body": [
+    {
+      "type": "minecraft:plain_message",
+      "contents": "编辑路径点()"
+    }
+  ],
+  "inputs": [
+    {
+      "key": "id",
+      "type": "minecraft:text",
+      "label": {
+        "text": "路径点编号",
+        "color": "yellow"
+      },
+      "initial": "1",
+      "max_length": 10
+    },
+    {
+      "key": "name",
+      "type": "minecraft:text",
+      "label": {
+        "text": "名称",
+        "color": "yellow"
+      },
+      "initial": "",
+      "max_length": 128
+    },
+    {
+        "key": "dim_id",
+        "type": "minecraft:single_option",
+        "label": {
+            "text": "维度",
+            "color": "yellow"
+        },
+        "options": [
+            {
+                "id": "1",
+                "display": "主世界",
+                "initial": true
+            },
+            {
+                "id": "2",
+                "display": "下界"
+            },
+            {
+                "id": "3",
+                "display": "末地"
+            }
+        ]
+    },
+    {
+      "key": "custom_dim",
+      "type": "minecraft:text",
+      "label": {
+        "text": "输入维度ID(覆盖上方选择)",
+        "color": "yellow"
+      },
+      "max_length": 128
+    },
+    {
+      "key": "x",
+      "type": "minecraft:text",
+      "label": {
+        "text": "X坐标, 整数",
+        "color": "yellow"
+      },
+      "initial": "0",
+      "max_length": 16
+    },
+    {
+      "key": "y",
+      "type": "minecraft:text",
+      "label": {
+        "text": "Y坐标, 整数",
+        "color": "yellow"
+      },
+      "initial": "64",
+      "max_length": 16
+    },
+    {
+      "key": "z",
+      "type": "minecraft:text",
+      "label": {
+        "text": "Z坐标, 整数",
+        "color": "yellow"
+      },
+      "initial": "0",
+      "max_length": 16
+    },
+    {
+      "key": "yaw",
+      "type": "minecraft:text",
+      "label": {
+        "text": "Yaw(偏转角)",
+        "color": "yellow"
+      },
+      "initial": "0.0f",
+      "max_length": 32
+    },
+    {
+      "key": "pitch",
+      "type": "minecraft:text",
+      "label": {
+        "text": "Pitch(俯仰角)",
+        "color": "yellow"
+      },
+      "initial": "0.0f",
+      "max_length": 32
+    }
+  ],
+  "yes": {
+    "label": "§b应用修改",
+      "action": {
+        "type": "minecraft:dynamic/run_command",
+        "template": "function mica_quick_panel:way_point/set_info {id:$(id),name:\"$(name)\",dim_id:$(dim_id),custom_dim:\"$(custom_dim)\",x:$(x),y:$(y),z:$(z),yaw:$(yaw),pitch:$(pitch)}"
+      }
+  },
+  "no": {
+    "label": {"translate": "gui.back"},
+    "action": {
+      "type": "run_command",
+      "command": "trigger mqp.dialog.way_point"
+    }
+  }
+}

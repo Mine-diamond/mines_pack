@@ -1,0 +1,81 @@
+{
+    "type": "minecraft:multi_action",
+    "title": "路径点",
+    "after_action": "none",
+    "pause": false,
+    "columns": 6,
+    "actions": [
+        {
+            "label": "名称1",
+            "width": 100
+        },
+        {
+            "label": "传送",
+            "width": 50,
+            "action": {
+                "type": "run_command",
+                "command": "trigger wp_tp set 1"
+            }
+        },
+        {
+            "label": "编辑",
+            "width": 50,
+            "action": {
+                "type": "show_dialog",
+                "dialog": "mica_quick_panel:wp/way_point_edit"
+            }
+        },
+        {
+            "label": "删除",
+            "width": 50
+        },
+        {
+            "label": "上移",
+            "width": 50
+        },
+        {
+            "label": "下移",
+            "width": 50
+        },
+        {
+            "label": "名称1",
+            "width": 100
+        },
+        {
+            "label": "传送",
+            "width": 50,
+            "action": {
+                "type": "run_command",
+                "command": "trigger wp_tp set 2"
+            }
+        },
+        {
+            "label": "编辑",
+            "width": 50,
+            "action": {
+                "type": "show_dialog",
+                "dialog": "mica_quick_panel:wp/way_point_edit"
+            }
+        },
+        {
+            "label": "删除",
+            "width": 50
+        },
+        {
+            "label": "上移",
+            "width": 50
+        },
+        {
+            "label": "下移",
+            "width": 50
+        },
+        {
+            "label": "添加新路径点",
+            "width": 300,
+            "action": {
+                "type": "run_command",
+                "command": "trigger mqp.trigger.way_point.new"
+            }
+        }
+    ]
+}

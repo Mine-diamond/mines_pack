@@ -1,4 +1,4 @@
-$data modify storage mqp_wp:data waypoints[$(idx)].yaw set from storage mqp_wp:args yaw
-$data modify storage mqp_wp:data waypoints[$(idx)].pitch set from storage mqp_wp:args pitch
+$execute store result storage mqp_wp:data waypoints[$(idx)].yaw float 1 run data get storage mqp_wp:args input.yaw 1
+$execute store result storage mqp_wp:data waypoints[$(idx)].pitch float 1 run data get storage mqp_wp:args input.pitch 1
 
 $tellraw @s [{"text":"[MQP-WP] 已修改路径点 ","color":"green"},{"text":"$(id)","color":"yellow"},{"text":" 的角度","color":"green"}]

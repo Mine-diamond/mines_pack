@@ -1,0 +1,1 @@
+$data merge storage mqp:way_point.dialog {wp_info:{name:"路径点 $(number) "}}

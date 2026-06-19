@@ -51,6 +51,14 @@ modules:
         display: "显示距方块的距离面板"
         actions:
           - mica_quick_panel:dialog/show_distance_to_block_dialog/open_show_distance_to_block_dialog
+      - name: mqp.dialog.way_point
+        display: "路径点面板"
+        actions:
+          - mica_quick_panel:dialog/way_point_dialog/open_way_point_dialog
+      - name: mqp.dialog.way_point_edit
+        display: "路径点编辑面板"
+        actions:
+          - mica_quick_panel:dialog/way_point_dialog/open_way_point_edit_dialog
   - dir: game_rule
     triggers:
       - name: mqp.game_rule.change
@@ -220,3 +228,29 @@ modules:
         actions:
           - mica_quick_panel:show_distance_to_block/set_detect_distance
           - mica_quick_panel:dialog/show_distance_to_block_dialog/open_show_distance_to_block_dialog
+  - dir: way_point
+    triggers:
+      - name: mqp.trigger.way_point.tp
+        display: "路径点:tp"
+        actions:
+          - mica_quick_panel:way_point/trigger/tp
+      - name: mqp.trigger.way_point.new
+        display: "路径点:新建"
+        actions:
+          - mica_quick_panel:way_point/trigger/new
+          - mica_quick_panel:dialog/way_point_dialog/open_way_point_dialog
+      - name: mqp.trigger.way_point.del
+        display: "路径点:删除"
+        actions:
+          - mica_quick_panel:way_point/trigger/del
+          - mica_quick_panel:dialog/way_point_dialog/open_way_point_dialog
+      - name: mqp.trigger.way_point.up
+        display: "路径点:上移"
+        actions:
+          - mica_quick_panel:way_point/trigger/up
+          - mica_quick_panel:dialog/way_point_dialog/open_way_point_dialog
+      - name: mqp.trigger.way_point.down
+        display: "路径点:下移"
+        actions:
+          - mica_quick_panel:way_point/trigger/down
+          - mica_quick_panel:dialog/way_point_dialog/open_way_point_dialog

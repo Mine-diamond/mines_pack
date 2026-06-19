@@ -45,3 +45,11 @@ scoreboard players enable @a mqp.dialog.clear_entity
 execute as @a[scores={mqp.dialog.show_distance_to_block=1..}] run function mica_quick_panel:dialog/show_distance_to_block_dialog/open_show_distance_to_block_dialog
 scoreboard players set @a[scores={mqp.dialog.show_distance_to_block=1..}] mqp.dialog.show_distance_to_block 0
 scoreboard players enable @a mqp.dialog.show_distance_to_block
+
+execute as @a[scores={mqp.dialog.way_point=1..}] run function mica_quick_panel:dialog/way_point_dialog/open_way_point_dialog
+scoreboard players set @a[scores={mqp.dialog.way_point=1..}] mqp.dialog.way_point 0
+scoreboard players enable @a mqp.dialog.way_point
+
+execute as @a[scores={mqp.dialog.way_point_edit=1..}] run function mica_quick_panel:dialog/way_point_dialog/open_way_point_edit_dialog
+scoreboard players set @a[scores={mqp.dialog.way_point_edit=1..}] mqp.dialog.way_point_edit 0
+scoreboard players enable @a mqp.dialog.way_point_edit

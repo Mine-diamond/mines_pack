@@ -103,6 +103,14 @@
             }
         },
         {
+            "label": "路径点",
+            "width": 120,
+            "action": {
+                "type": "run_command",
+                "command": "trigger mqp.dialog.way_point set 1"
+            }
+        },
+        {
             "label": "关于",
             "width": 120,
             "action": {

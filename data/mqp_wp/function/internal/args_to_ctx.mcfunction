@@ -1,4 +1,7 @@
-execute store result score #id wp_calc run data get storage mqp_wp:args id 1
+scoreboard players set #id wp_calc 0
+scoreboard players set #idx wp_calc 0
+
+execute store result score #id wp_calc run data get storage mqp_wp:args input.id 1
 
 scoreboard players operation #idx wp_calc = #id wp_calc
 scoreboard players remove #idx wp_calc 1
