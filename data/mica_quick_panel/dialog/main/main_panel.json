@@ -19,7 +19,7 @@
             "width": 120,
             "action": {
                 "type": "run_command",
-                "command": "trigger mqp.dialog.clear_entity set 1"
+                "command": "trigger mqp.dialog.clear_entity"
             }
         },
         {
@@ -27,7 +27,7 @@
             "width": 120,
             "action": {
                 "type": "run_command",
-                "command": "trigger mqp.dialog.game_rule set 1"
+                "command": "trigger mqp.dialog.game_rule"
             }
         },
         {
@@ -35,7 +35,7 @@
             "width": 120,
             "action": {
                 "type": "run_command",
-                "command": "trigger mqp.dialog.simple_feature set 1"
+                "command": "trigger mqp.dialog.simple_feature"
             }
         },
         {
@@ -51,7 +51,7 @@
             "width": 120,
             "action": {
                 "type": "run_command",
-                "command": "trigger mqp.dialog.time_setting set 1"
+                "command": "trigger mqp.dialog.time_setting"
             }
         },
         {
@@ -59,7 +59,7 @@
             "width": 120,
             "action": {
                 "type": "run_command",
-                "command": "trigger mqp.dialog.highlight set 1"
+                "command": "trigger mqp.dialog.highlight"
             }
         },
         {
@@ -67,7 +67,7 @@
             "width": 120,
             "action": {
                 "type": "run_command",
-                "command": "trigger mqp.dialog.block_interaction_setting set 1"
+                "command": "trigger mqp.dialog.block_interaction_setting"
             }
         },
         {
@@ -75,7 +75,7 @@
             "width": 120,
             "action": {
                 "type": "run_command",
-                "command": "trigger mqp.dialog.entity_interaction_setting set 1"
+                "command": "trigger mqp.dialog.entity_interaction_setting"
             }
         },
         {
@@ -99,7 +99,7 @@
             "width": 120,
             "action": {
                 "type": "run_command",
-                "command": "trigger mqp.dialog.show_distance_to_block set 1"
+                "command": "trigger mqp.dialog.show_distance_to_block"
             }
         },
         {
@@ -107,7 +107,7 @@
             "width": 120,
             "action": {
                 "type": "run_command",
-                "command": "trigger mqp.dialog.way_point set 1"
+                "command": "trigger mqp.dialog.way_point"
             }
         },
         {
