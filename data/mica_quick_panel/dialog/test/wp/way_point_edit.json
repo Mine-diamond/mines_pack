@@ -117,7 +117,7 @@
     "label": "§b应用修改",
       "action": {
         "type": "minecraft:dynamic/run_command",
-        "template": "function mica_quick_panel:way_point/set_info {id:$(id),name:\"$(name)\",dim_id:$(dim_id),custom_dim:\"$(custom_dim)\",x:$(x),y:$(y),z:$(z),yaw:$(yaw),pitch:$(pitch)}"
+        "template": "function mica_quick_panel:module/way_point/set_info {id:$(id),name:\"$(name)\",dim_id:$(dim_id),custom_dim:\"$(custom_dim)\",x:$(x),y:$(y),z:$(z),yaw:$(yaw),pitch:$(pitch)}"
       }
   },
   "no": {

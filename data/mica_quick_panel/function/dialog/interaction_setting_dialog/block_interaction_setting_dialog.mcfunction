@@ -22,7 +22,7 @@ $dialog show @s { \
             "width": 120, \
             "action": { \
                 "type": "dynamic/run_command", \
-                "template": "function mica_quick_panel:interaction_setting/block_interaction_distance_setting/set_block_interaction_distance {block_interaction_range:$(block_interaction_range)}" \
+                "template": "function mica_quick_panel:module/interaction_setting/block_interaction_distance_setting/set_block_interaction_distance {block_interaction_range:$(block_interaction_range)}" \
             } \
         }, \
         { \
@@ -39,7 +39,7 @@ $dialog show @s { \
             "width": 120, \
             "action": { \
                 "type": "run_command", \
-                "command": "function mica_quick_panel:interaction_setting/block_interaction_distance_setting/set_block_interaction_distance {block_interaction_range:0}" \
+                "command": "function mica_quick_panel:module/interaction_setting/block_interaction_distance_setting/set_block_interaction_distance {block_interaction_range:0}" \
             } \
         }, \
         { \
@@ -47,7 +47,7 @@ $dialog show @s { \
             "width": 120, \
             "action": { \
                 "type": "run_command", \
-                "command": "function mica_quick_panel:interaction_setting/block_interaction_distance_setting/set_block_interaction_distance {block_interaction_range:4.5}" \
+                "command": "function mica_quick_panel:module/interaction_setting/block_interaction_distance_setting/set_block_interaction_distance {block_interaction_range:4.5}" \
             } \
         }, \
         { \
@@ -55,7 +55,7 @@ $dialog show @s { \
             "width": 120, \
             "action": { \
                 "type": "run_command", \
-                "command": "function mica_quick_panel:interaction_setting/block_interaction_distance_setting/set_block_interaction_distance {block_interaction_range:15}" \
+                "command": "function mica_quick_panel:module/interaction_setting/block_interaction_distance_setting/set_block_interaction_distance {block_interaction_range:15}" \
             } \
         }, \
         { \
@@ -63,7 +63,7 @@ $dialog show @s { \
             "width": 120, \
             "action": { \
                 "type": "run_command", \
-                "command": "function mica_quick_panel:interaction_setting/block_interaction_distance_setting/set_block_interaction_distance {block_interaction_range:64}" \
+                "command": "function mica_quick_panel:module/interaction_setting/block_interaction_distance_setting/set_block_interaction_distance {block_interaction_range:64}" \
             } \
         } \
     ], \

@@ -107,7 +107,7 @@ $dialog show @s { \
     "label": "§b应用修改", \
       "action": { \
         "type": "minecraft:dynamic/run_command", \
-        "template": "function mica_quick_panel:way_point/set_info {id:$(id),name:\"$(c_name)\",dim_id:$(c_dim_id),custom_dim:\"$(c_custom_dim)\",x:$(c_x),y:$(c_y),z:$(c_z),yaw:$(c_yaw),pitch:$(c_pitch)}" \
+        "template": "function mica_quick_panel:module/way_point/set_info {id:$(id),name:\"$(c_name)\",dim_id:$(c_dim_id),custom_dim:\"$(c_custom_dim)\",x:$(c_x),y:$(c_y),z:$(c_z),yaw:$(c_yaw),pitch:$(c_pitch)}" \
       } \
   }, \
   "no": { \

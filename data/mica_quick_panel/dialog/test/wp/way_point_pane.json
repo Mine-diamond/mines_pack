@@ -22,7 +22,7 @@
             "width": 50,
             "action": {
                 "type": "show_dialog",
-                "dialog": "mica_quick_panel:wp/way_point_edit"
+                "dialog": "mica_quick_panel:test/wp/way_point_edit"
             }
         },
         {
@@ -54,7 +54,7 @@
             "width": 50,
             "action": {
                 "type": "show_dialog",
-                "dialog": "mica_quick_panel:wp/way_point_edit"
+                "dialog": "mica_quick_panel:test/wp/way_point_edit"
             }
         },
         {

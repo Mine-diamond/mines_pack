@@ -64,20 +64,20 @@ modules:
       - name: mqp.game_rule.change
         display: "修改游戏规则"
         mapping_actions:
-          1: mica_quick_panel:game_rule_change/switch_advance_time
-          2: mica_quick_panel:game_rule_change/switch_advance_weather
-          3: mica_quick_panel:game_rule_change/switch_spawn_mobs
-          4: mica_quick_panel:game_rule_change/switch_keep_inventory
-          5: mica_quick_panel:game_rule_change/switch_command_block_output
-          6: mica_quick_panel:game_rule_change/switch_mob_drops
-          7: mica_quick_panel:game_rule_change/switch_block_drops
-          8: mica_quick_panel:game_rule_change/switch_show_advancement_messages
+          1: mica_quick_panel:module/game_rule_change/switch_advance_time
+          2: mica_quick_panel:module/game_rule_change/switch_advance_weather
+          3: mica_quick_panel:module/game_rule_change/switch_spawn_mobs
+          4: mica_quick_panel:module/game_rule_change/switch_keep_inventory
+          5: mica_quick_panel:module/game_rule_change/switch_command_block_output
+          6: mica_quick_panel:module/game_rule_change/switch_mob_drops
+          7: mica_quick_panel:module/game_rule_change/switch_block_drops
+          8: mica_quick_panel:module/game_rule_change/switch_show_advancement_messages
         actions:
           - mica_quick_panel:dialog/gamerule_dialog/open_gamerule_dialog
       - name: mqp.game_rule.set_to_preferred
         display: "设置为首选状态"
         actions:
-          - mica_quick_panel:game_rule_change/set_game_rule_to_preferred_state
+          - mica_quick_panel:module/game_rule_change/set_game_rule_to_preferred_state
           - mica_quick_panel:dialog/gamerule_dialog/open_gamerule_dialog
       - name: mqp.game_rule.set_random_tick_speed
         display: "设置随机刻速度"
@@ -85,24 +85,24 @@ modules:
         range: "0.."
         reset: -1
         actions:
-          - mica_quick_panel:game_rule_change/set_random_tick_speed_init
+          - mica_quick_panel:module/game_rule_change/set_random_tick_speed_init
           - mica_quick_panel:dialog/gamerule_dialog/open_gamerule_dialog
   - dir: simple_feature
     triggers:
       - name: mqp.simple_feature.night_version
         display: "修改夜视效果"
         actions:
-          - mica_quick_panel:simple_feature/night_version/switch_night_version
+          - mica_quick_panel:module/simple_feature/night_version/switch_night_version
           - mica_quick_panel:dialog/simple_feature_dialog/open_simple_feature_dialog
       - name: mqp.trigger.simple_feature.invulnerable_mode
         display: "修改无敌模式"
         actions:
-          - mica_quick_panel:simple_feature/invulnerable_mode/switch_invulnerable_mode
+          - mica_quick_panel:module/simple_feature/invulnerable_mode/switch_invulnerable_mode
           - mica_quick_panel:dialog/simple_feature_dialog/open_simple_feature_dialog
       - name: mqp.trigger.simple_feature.run_mode
         display: "切换赶路模式"
         actions:
-          - mica_quick_panel:simple_feature/run_mode/switch_run_mode
+          - mica_quick_panel:module/simple_feature/run_mode/switch_run_mode
           - mica_quick_panel:dialog/simple_feature_dialog/open_simple_feature_dialog
   - dir: time_setting
     triggers:
@@ -112,7 +112,7 @@ modules:
         range: "0.."
         reset: -1
         actions:
-          - mica_quick_panel:time_setting/set_time_init
+          - mica_quick_panel:module/time_setting/set_time_init
           - mica_quick_panel:dialog/time_setting_dialog/open_time_setting_dialog
       - name: mqp.trigger.moon_phase
         display: "设置月相"
@@ -120,43 +120,43 @@ modules:
         range: "0.."
         reset: -1
         actions:
-          - mica_quick_panel:time_setting/set_moon_phase
+          - mica_quick_panel:module/time_setting/set_moon_phase
           - mica_quick_panel:dialog/time_setting_dialog/open_moon_phase_setting_dialog
   - dir: highlight
     triggers:
       - name: mqp.trigger.highlight.entity_enabled_flags
         display: "切换实体高亮"
         actions:
-          - mica_quick_panel:highlight/switch_entity_highlight
+          - mica_quick_panel:module/highlight/switch_entity_highlight
           - mica_quick_panel:dialog/highlight_dialog/open_highlight_dialog
       - name: mqp.trigger.highlight.player_enabled_flags
         display: "切换玩家高亮"
         actions:
-          - mica_quick_panel:highlight/switch_player_highlight
+          - mica_quick_panel:module/highlight/switch_player_highlight
           - mica_quick_panel:dialog/highlight_dialog/open_highlight_dialog
       - name: mqp.trigger.highlight.item_enabled_flags
         display: "切换物品高亮"
         actions:
-          - mica_quick_panel:highlight/switch_item_highlight
+          - mica_quick_panel:module/highlight/switch_item_highlight
           - mica_quick_panel:dialog/highlight_dialog/open_highlight_dialog
   - dir: interaction_setting
     triggers:
       - name: mqp.trigger.interaction_setting.block_switch_force_mode
         display: "切换方块交互距离强制模式"
         actions:
-          - mica_quick_panel:interaction_setting/block_interaction_distance_setting/switch_force_mode
+          - mica_quick_panel:module/interaction_setting/block_interaction_distance_setting/switch_force_mode
           - mica_quick_panel:dialog/interaction_setting_dialog/open_block_interaction_setting_dialog
       - name: mqp.trigger.interaction_setting.entity_switch_force_mode
         display: "切换实体交互距离强制模式"
         actions:
-          - mica_quick_panel:interaction_setting/entity_interaction_distance_setting/switch_force_mode
+          - mica_quick_panel:module/interaction_setting/entity_interaction_distance_setting/switch_force_mode
           - mica_quick_panel:dialog/interaction_setting_dialog/open_entity_interaction_setting_dialog
   - dir: easter_egg
     triggers:
       - name: mqp.trigger.easter_egg.count
         display: "egg"
         actions:
-          - mica_quick_panel:easter_egg/add_click_count
+          - mica_quick_panel:module/easter_egg/add_click_count
   - dir: take_entity
     triggers:
       - name: mqp.trigger.take_entity.take_entity
@@ -165,25 +165,25 @@ modules:
         range: "0.."
         reset: -1
         actions:
-          - mica_quick_panel:take_entity/execute
+          - mica_quick_panel:module/take_entity/execute
   - dir: item
     triggers:
       - name: mqp.trigger.item.entity_compression_staff.get
         display: "获取生物压缩之杖"
         actions:
-          - mica_quick_panel:item/entity_compression_staff/give_prepare
+          - mica_quick_panel:module/item/entity_compression_staff/give_prepare
       - name: mqp.trigger.item.advanced_name_tag.get
         display: "获取高级命名牌"
         actions:
-          - mica_quick_panel:item/advanced_name_tag/give
+          - mica_quick_panel:module/item/advanced_name_tag/give
       - name: mqp.trigger.item.netherite.get
         display: "获得下界合金物品"
         actions:
-          - mica_quick_panel:item/netherite/give_netherite_item
+          - mica_quick_panel:module/item/netherite/give_netherite_item
       - name: mqp.trigger.item.gaze_shift_staff.get
         display: "获取目光迁越之杖"
         actions:
-          - mica_quick_panel:item/gaze_shift_staff/give_prepare
+          - mica_quick_panel:module/item/gaze_shift_staff/give_prepare
   - dir: util
     triggers:
       - name: mqp.trigger.util.close_dialog
@@ -195,30 +195,30 @@ modules:
       - name: mqp.trigger.teleport_to_look_at.teleport
         display: "传送到目视方块"
         actions:
-          - mica_quick_panel:teleport_to_look_at/start_from_trigger
+          - mica_quick_panel:module/teleport_to_look_at/start_from_trigger
   - dir: clear_entity
     triggers:
       - name: mqp.trigger.clear_entity.switch_mob_loot
         display: "切换击杀生物是否掉落物品"
         actions:
-          - mica_quick_panel:clear_entity/switch_gen_drops
+          - mica_quick_panel:module/clear_entity/switch_gen_drops
           - mica_quick_panel:dialog/clear_entity_dialog/open_clear_entity_dialog
       - name: mqp.trigger.clear_entity.switch_kill_type
         display: "切换清除类型"
         actions:
-          - mica_quick_panel:clear_entity/switch_kill_type
+          - mica_quick_panel:module/clear_entity/switch_kill_type
           - mica_quick_panel:dialog/clear_entity_dialog/open_clear_entity_dialog
       - name: mqp.trigger.clear_entity.clear_entity
         display: "清除生物"
         actions:
-          - mica_quick_panel:clear_entity/clear_entity
+          - mica_quick_panel:module/clear_entity/clear_entity
           - mica_quick_panel:dialog/clear_entity_dialog/open_clear_entity_dialog
   - dir: show_distance_to_block
     triggers:
       - name: mqp.trigger.show_distance_to_block.switch_enable
         display: "切换显示据方块距离"
         actions:
-          - mica_quick_panel:show_distance_to_block/switch_enable
+          - mica_quick_panel:module/show_distance_to_block/switch_enable
           - mica_quick_panel:dialog/show_distance_to_block_dialog/open_show_distance_to_block_dialog
       - name: mqp.trigger.show_distance_to_block.set_detect_distance
         display: "设置显示方块距离检测范围"
@@ -226,31 +226,31 @@ modules:
         range: "0.."
         reset: -1
         actions:
-          - mica_quick_panel:show_distance_to_block/set_detect_distance
+          - mica_quick_panel:module/show_distance_to_block/set_detect_distance
           - mica_quick_panel:dialog/show_distance_to_block_dialog/open_show_distance_to_block_dialog
   - dir: way_point
     triggers:
       - name: mqp.trigger.way_point.tp
         display: "路径点:tp"
         actions:
-          - mica_quick_panel:way_point/trigger/tp
+          - mica_quick_panel:module/way_point/trigger/tp
       - name: mqp.trigger.way_point.new
         display: "路径点:新建"
         actions:
-          - mica_quick_panel:way_point/trigger/new
+          - mica_quick_panel:module/way_point/trigger/new
           - mica_quick_panel:dialog/way_point_dialog/open_way_point_dialog
       - name: mqp.trigger.way_point.del
         display: "路径点:删除"
         actions:
-          - mica_quick_panel:way_point/trigger/del
+          - mica_quick_panel:module/way_point/trigger/del
           - mica_quick_panel:dialog/way_point_dialog/open_way_point_dialog
       - name: mqp.trigger.way_point.up
         display: "路径点:上移"
         actions:
-          - mica_quick_panel:way_point/trigger/up
+          - mica_quick_panel:module/way_point/trigger/up
           - mica_quick_panel:dialog/way_point_dialog/open_way_point_dialog
       - name: mqp.trigger.way_point.down
         display: "路径点:下移"
         actions:
-          - mica_quick_panel:way_point/trigger/down
+          - mica_quick_panel:module/way_point/trigger/down
           - mica_quick_panel:dialog/way_point_dialog/open_way_point_dialog

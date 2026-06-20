@@ -57,7 +57,7 @@ $dialog show @s {  \
             "width": 80,  \
             "action": {  \
                 "type": "dynamic/run_command",  \
-                "template": "function mica_quick_panel:item/advanced_name_tag/replace_common_prepare {name:\"$(name)\"}"  \
+                "template": "function mica_quick_panel:module/item/advanced_name_tag/replace_common_prepare {name:\"$(name)\"}"  \
             }  \
         },  \
         {  \
@@ -65,7 +65,7 @@ $dialog show @s {  \
             "width": 80,  \
             "action": {  \
                 "type": "dynamic/run_command",  \
-                "template": "function mica_quick_panel:item/advanced_name_tag/preview_common {name:\"$(name)\"}"  \
+                "template": "function mica_quick_panel:module/item/advanced_name_tag/preview_common {name:\"$(name)\"}"  \
             }  \
         },  \
         {  \

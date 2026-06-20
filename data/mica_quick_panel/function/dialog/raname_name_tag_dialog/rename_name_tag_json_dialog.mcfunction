@@ -61,7 +61,7 @@ $dialog show @s {  \
             "width": 80,  \
             "action": {  \
                 "type": "dynamic/run_command",  \
-                "template": "function mica_quick_panel:item/advanced_name_tag/replace_json_prepare {name:'$(name)'}"  \
+                "template": "function mica_quick_panel:module/item/advanced_name_tag/replace_json_prepare {name:'$(name)'}"  \
             }  \
         },  \
                 {  \
@@ -69,7 +69,7 @@ $dialog show @s {  \
             "width": 80,  \
             "action": {  \
                 "type": "dynamic/run_command",  \
-                "template": "function mica_quick_panel:item/advanced_name_tag/preview_json {name:\"$(name)\"}"  \
+                "template": "function mica_quick_panel:module/item/advanced_name_tag/preview_json {name:\"$(name)\"}"  \
             }  \
         },  \
         {  \

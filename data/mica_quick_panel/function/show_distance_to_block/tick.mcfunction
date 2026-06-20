@@ -1,1 +1,0 @@
-execute as @a[scores={mqp.show_distance_to_block.enable=1}] at @s run function mica_quick_panel:show_distance_to_block/execute

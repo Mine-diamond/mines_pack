@@ -1,0 +1,1 @@
+function mica_quick_panel:module/highlight/tick_schedule

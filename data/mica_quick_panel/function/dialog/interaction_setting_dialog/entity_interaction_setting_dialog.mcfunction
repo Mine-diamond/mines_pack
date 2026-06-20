@@ -22,7 +22,7 @@ $dialog show @s { \
             "width": 120, \
             "action": { \
                 "type": "dynamic/run_command", \
-                "template": "function mica_quick_panel:interaction_setting/entity_interaction_distance_setting/set_entity_interaction_distance {entity_interaction_range:$(entity_interaction_range)}" \
+                "template": "function mica_quick_panel:module/interaction_setting/entity_interaction_distance_setting/set_entity_interaction_distance {entity_interaction_range:$(entity_interaction_range)}" \
             } \
         }, \
         { \
@@ -39,7 +39,7 @@ $dialog show @s { \
             "width": 120, \
             "action": { \
                 "type": "run_command", \
-                "command": "function mica_quick_panel:interaction_setting/entity_interaction_distance_setting/set_entity_interaction_distance {entity_interaction_range:0}" \
+                "command": "function mica_quick_panel:module/interaction_setting/entity_interaction_distance_setting/set_entity_interaction_distance {entity_interaction_range:0}" \
             } \
         }, \
         { \
@@ -47,7 +47,7 @@ $dialog show @s { \
             "width": 120, \
             "action": { \
                 "type": "run_command", \
-                "command": "function mica_quick_panel:interaction_setting/entity_interaction_distance_setting/set_entity_interaction_distance {entity_interaction_range:3}" \
+                "command": "function mica_quick_panel:module/interaction_setting/entity_interaction_distance_setting/set_entity_interaction_distance {entity_interaction_range:3}" \
             } \
         }, \
         { \
@@ -55,7 +55,7 @@ $dialog show @s { \
             "width": 120, \
             "action": { \
                 "type": "run_command", \
-                "command": "function mica_quick_panel:interaction_setting/entity_interaction_distance_setting/set_entity_interaction_distance {entity_interaction_range:12}" \
+                "command": "function mica_quick_panel:module/interaction_setting/entity_interaction_distance_setting/set_entity_interaction_distance {entity_interaction_range:12}" \
             } \
         }, \
         { \
@@ -63,7 +63,7 @@ $dialog show @s { \
             "width": 120, \
             "action": { \
                 "type": "run_command", \
-                "command": "function mica_quick_panel:interaction_setting/entity_interaction_distance_setting/set_entity_interaction_distance {entity_interaction_range:64}" \
+                "command": "function mica_quick_panel:module/interaction_setting/entity_interaction_distance_setting/set_entity_interaction_distance {entity_interaction_range:64}" \
             } \
         } \
     ], \

@@ -15,6 +15,6 @@
     }
   },
   "rewards": {
-    "function": "mica_quick_panel:item/gaze_shift_staff/execute"
+    "function": "mica_quick_panel:module/item/gaze_shift_staff/execute"
   }
 }

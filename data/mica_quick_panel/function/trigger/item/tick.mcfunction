@@ -1,15 +1,15 @@
-execute as @a[scores={mqp.trigger.item.entity_compression_staff.get=1..}] run function mica_quick_panel:item/entity_compression_staff/give_prepare
+execute as @a[scores={mqp.trigger.item.entity_compression_staff.get=1..}] run function mica_quick_panel:module/item/entity_compression_staff/give_prepare
 scoreboard players set @a[scores={mqp.trigger.item.entity_compression_staff.get=1..}] mqp.trigger.item.entity_compression_staff.get 0
 scoreboard players enable @a mqp.trigger.item.entity_compression_staff.get
 
-execute as @a[scores={mqp.trigger.item.advanced_name_tag.get=1..}] run function mica_quick_panel:item/advanced_name_tag/give
+execute as @a[scores={mqp.trigger.item.advanced_name_tag.get=1..}] run function mica_quick_panel:module/item/advanced_name_tag/give
 scoreboard players set @a[scores={mqp.trigger.item.advanced_name_tag.get=1..}] mqp.trigger.item.advanced_name_tag.get 0
 scoreboard players enable @a mqp.trigger.item.advanced_name_tag.get
 
-execute as @a[scores={mqp.trigger.item.netherite.get=1..}] run function mica_quick_panel:item/netherite/give_netherite_item
+execute as @a[scores={mqp.trigger.item.netherite.get=1..}] run function mica_quick_panel:module/item/netherite/give_netherite_item
 scoreboard players set @a[scores={mqp.trigger.item.netherite.get=1..}] mqp.trigger.item.netherite.get 0
 scoreboard players enable @a mqp.trigger.item.netherite.get
 
-execute as @a[scores={mqp.trigger.item.gaze_shift_staff.get=1..}] run function mica_quick_panel:item/gaze_shift_staff/give_prepare
+execute as @a[scores={mqp.trigger.item.gaze_shift_staff.get=1..}] run function mica_quick_panel:module/item/gaze_shift_staff/give_prepare
 scoreboard players set @a[scores={mqp.trigger.item.gaze_shift_staff.get=1..}] mqp.trigger.item.gaze_shift_staff.get 0
 scoreboard players enable @a mqp.trigger.item.gaze_shift_staff.get
