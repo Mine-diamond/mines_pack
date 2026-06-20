@@ -83,12 +83,16 @@
             "width": 120,
             "action": {
                 "type": "show_dialog",
-                "dialog": "mica_quick_panel:test/take_entity/take_entity_dialog"
+                "dialog": "mica_quick_panel:take_entity/take_entity_dialog"
             }
         },
         {
             "label": "传动目光方向",
-            "width": 120
+            "width": 120,
+            "action": {
+                "type": "show_dialog",
+                "dialog": "mica_quick_panel:teleport_to_look_at/teleport_to_look_at_dialog"
+            }
         },
         {
             "label": "显示方块距离",
