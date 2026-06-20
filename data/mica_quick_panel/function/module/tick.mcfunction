@@ -1,0 +1,3 @@
+function mica_quick_panel:module/interaction_setting/tick
+function mica_quick_panel:module/item/tick
+function mica_quick_panel:module/show_distance_to_block/tick

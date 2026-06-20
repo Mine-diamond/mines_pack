@@ -1,0 +1,10 @@
+function mica_quick_panel:module/game_rule_change/load
+function mica_quick_panel:module/simple_feature/load
+function mica_quick_panel:module/time_setting/load
+function mica_quick_panel:module/highlight/load
+function mica_quick_panel:module/clear_entity/load
+function mica_quick_panel:module/interaction_setting/load
+function mica_quick_panel:module/easter_egg/load
+function mica_quick_panel:module/item/load
+function mica_quick_panel:module/show_distance_to_block/load
+function mica_quick_panel:module/way_point/load

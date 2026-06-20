@@ -1,9 +1,7 @@
 {
     "values": [
         "mica_quick_panel:trigger/tick",
-        "mica_quick_panel:module/interaction_setting/tick",
-        "mica_quick_panel:module/item/tick",
-        "mica_quick_panel:module/show_distance_to_block/tick",
+        "mica_quick_panel:module/tick",
         "mqp_actionbar:tick",
         "mqp_wp:tick"
     ]
