@@ -4,4 +4,4 @@
 # - execute_on_fail_function：步数耗尽且未找到匹配实体时执行的函数路径；函数通过 with storage mqp:util.entity_projection 调用。
 # - entity_type_tag：实体选择器 type 参数，可为单个实体类型或实体类型标签。
 # - inverse_selection：是否反选 entity_type_tag；0 表示匹配 type=$(entity_type_tag)，1 表示排除 type=$(entity_type_tag)。
-return run execute anchored eyes run function mica_quick_panel:util/entity_projection/loop
+return run execute anchored eyes run function mica_quick_panel:util/entity_projection/_loop

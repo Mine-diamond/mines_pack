@@ -5,4 +5,4 @@
 $scoreboard players set #step mqp.util.entity_projection $(step)
 $data merge storage mqp:util.copy_entity {remove_entity:$(remove_entity)}
 
-function mica_quick_panel:util/copy_entity/execute
+function mica_quick_panel:util/copy_entity/_execute

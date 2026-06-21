@@ -5,4 +5,4 @@ execute if data storage mqp:temp {first_char:":"} run return 1
 
 data modify storage mqp:util.copy_entity pure_entity_type set string storage mqp:util.copy_entity pure_entity_type 1
 
-function mica_quick_panel:util/copy_entity/get_pure_type_loop
+function mica_quick_panel:util/copy_entity/_get_pure_type_loop

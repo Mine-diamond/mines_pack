@@ -5,4 +5,4 @@
 scoreboard players set #step mqp.util.block_projection 0
 data merge storage mqp:util.block_projection {success:0,pos:[I;0,0,0],pre_pos:[I;0,0,0],distance:0d,int_distance:0d}
 
-return run execute anchored eyes run function mica_quick_panel:util/block_projection/loop
+return run execute anchored eyes run function mica_quick_panel:util/block_projection/_loop

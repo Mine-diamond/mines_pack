@@ -8,7 +8,7 @@ data modify storage mqp:util.str.replace out set value ""
 data remove storage mqp:util.str.replace result
 
 # 开始循环
-function mica_quick_panel:util/str/replace/loop
+function mica_quick_panel:util/str/replace/_loop
 
 
 # 调用示例
