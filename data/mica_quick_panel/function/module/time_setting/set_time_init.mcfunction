@@ -4,4 +4,4 @@ scoreboard players operation #temp mqp.calc += @s mqp.trigger.time_setting
 
 
 execute store result storage mqp:dialog.time_setting set_time_prepare.time int 1 run scoreboard players get #temp mqp.calc
-function mica_quick_panel:module/time_setting/set_time with storage mqp:dialog.time_setting set_time_prepare
+function mica_quick_panel:module/time_setting/_set_time with storage mqp:dialog.time_setting set_time_prepare

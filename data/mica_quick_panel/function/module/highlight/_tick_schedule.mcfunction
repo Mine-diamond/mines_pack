@@ -6,4 +6,4 @@ execute if data storage mqp:highlight {item_enabled_flags:1} as @e[type=minecraf
 execute if data storage mqp:highlight {item_enabled_flags:0} as @e[type=minecraft:item,tag=mqp.high_light.item] run data merge entity @s {Glowing:0b}
 execute if data storage mqp:highlight {item_enabled_flags:0} as @e[type=minecraft:item,tag=mqp.high_light.item] run tag @s remove mqp.high_light.item
 
-schedule function mica_quick_panel:module/highlight/tick_schedule 10t
+schedule function mica_quick_panel:module/highlight/_tick_schedule 10t

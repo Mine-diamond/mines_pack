@@ -15,4 +15,4 @@ execute store result storage mqp:item.entity_compression_staff give_prepare.remo
 execute store result storage mqp:item.entity_compression_staff give_prepare.step int 1 run scoreboard players get #temp2 mqp.calc
 execute store result storage mqp:item.entity_compression_staff give_prepare.length int 1 run scoreboard players get #temp3 mqp.calc
 
-function mica_quick_panel:module/item/entity_compression_staff/give with storage mqp:item.entity_compression_staff give_prepare
+function mica_quick_panel:module/item/entity_compression_staff/_give with storage mqp:item.entity_compression_staff give_prepare

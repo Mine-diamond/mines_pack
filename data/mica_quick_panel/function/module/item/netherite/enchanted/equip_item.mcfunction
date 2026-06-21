@@ -2,4 +2,4 @@ item replace entity @s armor.head with minecraft:netherite_helmet[minecraft:ench
 item replace entity @s armor.chest with minecraft:netherite_chestplate[minecraft:enchantments={"minecraft:protection":4,"minecraft:unbreaking":3,"minecraft:mending":1}]
 item replace entity @s armor.legs with minecraft:netherite_leggings[minecraft:enchantments={"minecraft:protection":4,"minecraft:unbreaking":3,"minecraft:mending":1}]
 item replace entity @s armor.feet with minecraft:netherite_boots[minecraft:enchantments={"minecraft:protection":4,"minecraft:feather_falling":4,"minecraft:unbreaking":3,"minecraft:mending":1}]
-$function mica_quick_panel:module/item/netherite/enchanted/give_common_item {add_fortune:$(add_fortune)}
+$function mica_quick_panel:module/item/netherite/enchanted/_give_common_item {add_fortune:$(add_fortune)}

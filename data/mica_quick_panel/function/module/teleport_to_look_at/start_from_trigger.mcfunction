@@ -3,4 +3,4 @@ scoreboard players operation #temp mqp.calc *= #5 mqp.constant.number
 
 execute store result storage mqp:teleport_to_look_at max_step int 1 run scoreboard players get #temp mqp.calc
 
-function mica_quick_panel:module/teleport_to_look_at/execute
+function mica_quick_panel:module/teleport_to_look_at/_execute

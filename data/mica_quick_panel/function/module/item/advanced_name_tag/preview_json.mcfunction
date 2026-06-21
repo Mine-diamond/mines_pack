@@ -1,5 +1,5 @@
-$function mica_quick_panel:module/item/advanced_name_tag/replace_char {name:'$(name)'}
-function mica_quick_panel:module/item/advanced_name_tag/set_json_preview_text with storage mqp:item.advanced_name_tag
+$function mica_quick_panel:module/item/advanced_name_tag/_replace_char {name:'$(name)'}
+function mica_quick_panel:module/item/advanced_name_tag/_set_json_preview_text with storage mqp:item.advanced_name_tag
 
 $data modify storage mqp:item.advanced_name_tag raw set value '$(name)'
 

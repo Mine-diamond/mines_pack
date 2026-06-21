@@ -1,0 +1,2 @@
+execute as @a[tag=mqp.easter_egg.timer] run function mica_quick_panel:module/easter_egg/_execute
+execute if entity @a[tag=mqp.easter_egg.timer] run schedule function mica_quick_panel:module/easter_egg/_timer 1t

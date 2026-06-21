@@ -43,4 +43,4 @@ $data merge storage mqp:way_point.dialog {new_row:'{ \
             } \
         }'}
 execute unless data storage mqp:way_point.dialog all_content run data merge storage mqp:way_point.dialog {all_content:""}
-function mica_quick_panel:module/way_point/dialog/concat_str with storage mqp:way_point.dialog
+function mica_quick_panel:module/way_point/dialog/_concat_str with storage mqp:way_point.dialog
