@@ -1,4 +1,4 @@
-function mica_quick_panel:module/game_rule_change/detect
+function mica_quick_panel:module/game_rule/detect
 data modify storage mqp:dialog game_rule_dialog_prepare set value {}
 
 execute if score #advance_time mqp.game_rule.game_rule_state matches 0 run data modify storage mqp:dialog game_rule_dialog_prepare.switch_advance_time set from storage mqp:constant.word off

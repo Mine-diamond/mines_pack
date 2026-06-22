@@ -34,7 +34,7 @@ $dialog show @s { \
             "width": 120, \
             "action": { \
                 "type": "dynamic/run_command", \
-                "template": "trigger mqp.trigger.time_setting set $(time)" \
+                "template": "trigger mqp.trigger.time_setting.time_setting set $(time)" \
             } \
         }, \
         { \
@@ -50,7 +50,7 @@ $dialog show @s { \
             "width": 120, \
             "action": { \
                 "type": "run_command", \
-                "command": "trigger mqp.trigger.time_setting set 0" \
+                "command": "trigger mqp.trigger.time_setting.time_setting set 0" \
             } \
         }, \
         { \
@@ -58,7 +58,7 @@ $dialog show @s { \
             "width": 120, \
             "action": { \
                 "type": "run_command", \
-                "command": "trigger mqp.trigger.time_setting set 6000" \
+                "command": "trigger mqp.trigger.time_setting.time_setting set 6000" \
             } \
         }, \
         { \
@@ -66,7 +66,7 @@ $dialog show @s { \
             "width": 120, \
             "action": { \
                 "type": "run_command", \
-                "command": "trigger mqp.trigger.time_setting set 12000" \
+                "command": "trigger mqp.trigger.time_setting.time_setting set 12000" \
             } \
         }, \
         { \
@@ -74,7 +74,7 @@ $dialog show @s { \
             "width": 120, \
             "action": { \
                 "type": "run_command", \
-                "command": "trigger mqp.trigger.time_setting set 18000" \
+                "command": "trigger mqp.trigger.time_setting.time_setting set 18000" \
             } \
         } \
     ], \

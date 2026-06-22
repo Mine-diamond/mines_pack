@@ -61,35 +61,35 @@ modules:
           - mica_quick_panel:dialog/way_point_dialog/open_way_point_edit_dialog
   - dir: game_rule
     triggers:
-      - name: mqp.game_rule.change
+      - name: mqp.trigger.game_rule.change
         display: "修改游戏规则"
         mapping_actions:
-          1: mica_quick_panel:module/game_rule_change/switch_advance_time
-          2: mica_quick_panel:module/game_rule_change/switch_advance_weather
-          3: mica_quick_panel:module/game_rule_change/switch_spawn_mobs
-          4: mica_quick_panel:module/game_rule_change/switch_keep_inventory
-          5: mica_quick_panel:module/game_rule_change/switch_command_block_output
-          6: mica_quick_panel:module/game_rule_change/switch_mob_drops
-          7: mica_quick_panel:module/game_rule_change/switch_block_drops
-          8: mica_quick_panel:module/game_rule_change/switch_show_advancement_messages
+          1: mica_quick_panel:module/game_rule/switch_advance_time
+          2: mica_quick_panel:module/game_rule/switch_advance_weather
+          3: mica_quick_panel:module/game_rule/switch_spawn_mobs
+          4: mica_quick_panel:module/game_rule/switch_keep_inventory
+          5: mica_quick_panel:module/game_rule/switch_command_block_output
+          6: mica_quick_panel:module/game_rule/switch_mob_drops
+          7: mica_quick_panel:module/game_rule/switch_block_drops
+          8: mica_quick_panel:module/game_rule/switch_show_advancement_messages
         actions:
           - mica_quick_panel:dialog/gamerule_dialog/open_gamerule_dialog
-      - name: mqp.game_rule.set_to_preferred
+      - name: mqp.trigger.game_rule.set_to_preferred
         display: "设置为首选状态"
         actions:
-          - mica_quick_panel:module/game_rule_change/set_game_rule_to_preferred_state
+          - mica_quick_panel:module/game_rule/set_game_rule_to_preferred_state
           - mica_quick_panel:dialog/gamerule_dialog/open_gamerule_dialog
-      - name: mqp.game_rule.set_random_tick_speed
+      - name: mqp.trigger.game_rule.set_random_tick_speed
         display: "设置随机刻速度"
         init: -1
         range: "0.."
         reset: -1
         actions:
-          - mica_quick_panel:module/game_rule_change/set_random_tick_speed_init
+          - mica_quick_panel:module/game_rule/set_random_tick_speed_init
           - mica_quick_panel:dialog/gamerule_dialog/open_gamerule_dialog
   - dir: simple_feature
     triggers:
-      - name: mqp.simple_feature.night_version
+      - name: mqp.trigger.simple_feature.night_version
         display: "修改夜视效果"
         actions:
           - mica_quick_panel:module/simple_feature/night_version/switch_night_version
@@ -106,7 +106,7 @@ modules:
           - mica_quick_panel:dialog/simple_feature_dialog/open_simple_feature_dialog
   - dir: time_setting
     triggers:
-      - name: mqp.trigger.time_setting
+      - name: mqp.trigger.time_setting.time_setting
         display: "设置时间"
         init: -1
         range: "0.."
@@ -114,7 +114,7 @@ modules:
         actions:
           - mica_quick_panel:module/time_setting/set_time_init
           - mica_quick_panel:dialog/time_setting_dialog/open_time_setting_dialog
-      - name: mqp.trigger.moon_phase
+      - name: mqp.trigger.time_setting.moon_phase
         display: "设置月相"
         init: -1
         range: "0.."

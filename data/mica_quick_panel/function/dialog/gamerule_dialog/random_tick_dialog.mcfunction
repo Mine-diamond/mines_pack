@@ -22,7 +22,7 @@ $dialog show @s { \
             "width": 120, \
             "action": { \
                 "type": "dynamic/run_command", \
-                "template": "trigger mqp.game_rule.set_random_tick_speed set $(input)" \
+                "template": "trigger mqp.trigger.game_rule.set_random_tick_speed set $(input)" \
             } \
         }, \
         { \
@@ -30,7 +30,7 @@ $dialog show @s { \
             "width": 120, \
             "action": { \
                 "type": "minecraft:run_command", \
-                "command": "trigger mqp.game_rule.set_random_tick_speed set 0" \
+                "command": "trigger mqp.trigger.game_rule.set_random_tick_speed set 0" \
             } \
         }, \
         { \
@@ -38,7 +38,7 @@ $dialog show @s { \
             "width": 120, \
             "action": { \
                 "type": "minecraft:run_command", \
-                "command": "trigger mqp.game_rule.set_random_tick_speed set 3" \
+                "command": "trigger mqp.trigger.game_rule.set_random_tick_speed set 3" \
             } \
         }, \
         { \
@@ -46,7 +46,7 @@ $dialog show @s { \
             "width": 120, \
             "action": { \
                 "type": "minecraft:run_command", \
-                "command": "trigger mqp.game_rule.set_random_tick_speed set 200" \
+                "command": "trigger mqp.trigger.game_rule.set_random_tick_speed set 200" \
             } \
         } \
     ], \

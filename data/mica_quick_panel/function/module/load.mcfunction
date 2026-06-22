@@ -1,4 +1,4 @@
-function mica_quick_panel:module/game_rule_change/load
+function mica_quick_panel:module/game_rule/load
 function mica_quick_panel:module/simple_feature/load
 function mica_quick_panel:module/time_setting/load
 function mica_quick_panel:module/highlight/load

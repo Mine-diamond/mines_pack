@@ -9,7 +9,7 @@ $dialog show @s { \
             "width": 120, \
             "action": { \
                 "type": "run_command", \
-                "command": "/trigger mqp.game_rule.change set 1" \
+                "command": "/trigger mqp.trigger.game_rule.change set 1" \
             } \
         }, \
         { \
@@ -17,7 +17,7 @@ $dialog show @s { \
             "width": 120, \
             "action": { \
                 "type": "run_command", \
-                "command": "/trigger mqp.game_rule.change set 2" \
+                "command": "/trigger mqp.trigger.game_rule.change set 2" \
             } \
         }, \
         { \
@@ -25,7 +25,7 @@ $dialog show @s { \
             "width": 120, \
             "action": { \
                 "type": "run_command", \
-                "command": "/trigger mqp.game_rule.change set 3" \
+                "command": "/trigger mqp.trigger.game_rule.change set 3" \
             } \
         }, \
         { \
@@ -33,7 +33,7 @@ $dialog show @s { \
             "width": 120, \
             "action": { \
                 "type": "run_command", \
-                "command": "/trigger mqp.game_rule.change set 4" \
+                "command": "/trigger mqp.trigger.game_rule.change set 4" \
             } \
         }, \
         { \
@@ -52,7 +52,7 @@ $dialog show @s { \
             "width": 120, \
             "action": { \
                 "type": "run_command", \
-                "command": "/trigger mqp.game_rule.set_to_preferred set 1" \
+                "command": "/trigger mqp.trigger.game_rule.set_to_preferred set 1" \
             }, \
             "tooltip": "-§c关闭§f时间循环\n-§c关闭§f天气循环\n-§c关闭§f生物自然生成\n-§b开启§f死亡不掉落" \
         }, \
@@ -61,7 +61,7 @@ $dialog show @s { \
             "width": 120, \
             "action": { \
                 "type": "run_command", \
-                "command": "/trigger mqp.game_rule.change set 5" \
+                "command": "/trigger mqp.trigger.game_rule.change set 5" \
             } \
         }, \
         { \
@@ -69,7 +69,7 @@ $dialog show @s { \
             "width": 120, \
             "action": { \
                 "type": "run_command", \
-                "command": "/trigger mqp.game_rule.change set 6" \
+                "command": "/trigger mqp.trigger.game_rule.change set 6" \
             } \
         }, \
         { \
@@ -77,7 +77,7 @@ $dialog show @s { \
             "width": 120, \
             "action": { \
                 "type": "run_command", \
-                "command": "/trigger mqp.game_rule.change set 7" \
+                "command": "/trigger mqp.trigger.game_rule.change set 7" \
             } \
         }, \
         { \
@@ -85,7 +85,7 @@ $dialog show @s { \
             "width": 120, \
             "action": { \
                 "type": "run_command", \
-                "command": "/trigger mqp.game_rule.change set 8" \
+                "command": "/trigger mqp.trigger.game_rule.change set 8" \
             } \
         }, \
     ], \

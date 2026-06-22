@@ -10,7 +10,7 @@ $dialog show @s { \
             "width": 120, \
             "action": { \
                 "type": "run_command", \
-                "command": "trigger mqp.simple_feature.night_version set 1" \
+                "command": "trigger mqp.trigger.simple_feature.night_version set 1" \
             } \
         }, \
         { \
