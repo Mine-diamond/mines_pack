@@ -21,13 +21,18 @@ DEFAULT_RESET = 0
 # ── 模块目录扫描 ──────────────────────────────────────────────
 
 def get_module_dirs() -> list:
-    """扫描 function/ 下的一级子目录（排除 trigger/），返回排序列表"""
+    """扫描 function/ 下的一级子目录和 function/module/ 下的子目录（均排除 trigger/），返回排序列表"""
     dirs = set()
     if not FUNCTION_DIR.exists():
         return []
     for d in FUNCTION_DIR.iterdir():
         if d.is_dir() and d.name != "trigger":
             dirs.add(d.name)
+    module_dir = FUNCTION_DIR / "module"
+    if module_dir.exists():
+        for d in module_dir.iterdir():
+            if d.is_dir():
+                dirs.add(d.name)
     return sorted(dirs)
 
 
@@ -35,11 +40,6 @@ def get_module_dirs() -> list:
 # 已知模块的 name 前缀约定，未知模块使用 mqp.trigger.<dir>.
 NAME_PREFIXES = {
     "dialog": "mqp.dialog.",
-    "game_rule": "mqp.game_rule.",
-    "simple_feature": "mqp.trigger.simple_feature.",
-    "time_setting": "mqp.trigger.",
-    "highlight": "mqp.trigger.highlight.",
-    "kill_all_mob": "mqp.trigger.kill_all_mob.",
 }
 
 

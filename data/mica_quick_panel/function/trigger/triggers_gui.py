@@ -7,7 +7,7 @@ mica_quick_panel Trigger 配置 GUI
 
 import io, sys
 from tkinter import *
-from tkinter import ttk, messagebox
+from tkinter import ttk, messagebox, simpledialog
 
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
 
@@ -54,9 +54,16 @@ class TriggerEditor:
 
         bf = ttk.Frame(left)
         bf.pack(fill=X)
+        bf_top = ttk.Frame(bf)
+        bf_top.pack(fill=X)
         for txt, cmd in [("+ 模块", self._add_module), ("- 模块", self._del_module),
-                         ("+ Trigger", self._add_trigger), ("- Trigger", self._del_trigger)]:
-            ttk.Button(bf, text=txt, command=cmd).pack(side=LEFT, padx=1)
+                         ("↑ 模块", self._move_module_up), ("↓ 模块", self._move_module_down)]:
+            ttk.Button(bf_top, text=txt, command=cmd).pack(side=LEFT, padx=1)
+        bf_bot = ttk.Frame(bf)
+        bf_bot.pack(fill=X)
+        for txt, cmd in [("+ Trigger", self._add_trigger), ("- Trigger", self._del_trigger),
+                         ("↑ Trigger", self._move_trigger_up), ("↓ Trigger", self._move_trigger_down)]:
+            ttk.Button(bf_bot, text=txt, command=cmd).pack(side=LEFT, padx=1)
 
         # ── 右：表单 ──
         right = ttk.Frame(paned)
@@ -117,8 +124,9 @@ class TriggerEditor:
         self._act_lb = Listbox(af, height=4)
         self._act_lb.pack(side=LEFT, fill=BOTH, expand=True)
         self._act_lb.bind("<Double-Button-1>", lambda e: self._edit_action())
-        for txt, cmd in [("添加...", self._add_action), ("编辑", self._edit_action), ("删除", self._del_action)]:
-            ttk.Button(af, text=txt, command=cmd).pack(side=LEFT, padx=1)
+        for txt, cmd in [("添加", self._add_action), ("编辑", self._edit_action), ("删除", self._del_action),
+                         ("↑", self._move_action_up), ("↓", self._move_action_down)]:
+            ttk.Button(af, text=txt, command=cmd).pack(fill=X, pady=1)
         r += 1
 
         ttk.Separator(f, orient=HORIZONTAL).grid(row=r, column=0, columnspan=3, sticky=EW, pady=5)
@@ -132,8 +140,9 @@ class TriggerEditor:
         self._map_t.column("v", width=40); self._map_t.column("f", width=360)
         self._map_t.pack(side=LEFT, fill=BOTH, expand=True)
         self._map_t.bind("<Double-Button-1>", lambda e: self._edit_mapping())
-        for txt, cmd in [("添加", self._add_mapping), ("编辑", self._edit_mapping), ("删除", self._del_mapping)]:
-            ttk.Button(mf, text=txt, command=cmd).pack(side=LEFT, padx=1)
+        for txt, cmd in [("添加", self._add_mapping), ("编辑", self._edit_mapping), ("删除", self._del_mapping),
+                         ("↑", self._move_mapping_up), ("↓", self._move_mapping_down)]:
+            ttk.Button(mf, text=txt, command=cmd).pack(fill=X, pady=1)
         r += 1
 
         f.columnconfigure(1, weight=1)
@@ -262,28 +271,22 @@ class TriggerEditor:
     # ══════════════════════════════════════════════════════════
 
     def _add_module(self):
-        """弹出下拉选择对话框，可选已有函数目录或手动输入"""
+        """弹出下拉选择对话框，可下拉选择或手动输入模块目录名"""
         self._refresh_cache()  # 先刷新目录列表
         d = Toplevel(self.root)
         d.title("新建模块")
         d.transient(self.root)
         d.grab_set()
-        d.geometry("360x160")
-        ttk.Label(d, text="模块目录名（可选已有函数目录或手动输入）:").pack(anchor=W, padx=10, pady=(10, 0))
+        d.geometry("360x140")
+        ttk.Label(d, text="模块目录名:").pack(anchor=W, padx=10, pady=(10, 0))
 
-        names = self.avail_dirs + ["(自定义)"]
+        names = self.avail_dirs
         cb = ttk.Combobox(d, values=names, width=30)
-        cb.set(self.avail_dirs[0] if self.avail_dirs else "(自定义)")
+        cb.set(names[0] if names else "")
         cb.pack(padx=10, pady=5, fill=X)
 
-        manual_frame = ttk.Frame(d)
-        manual_frame.pack(padx=10, pady=2, fill=X)
-        ttk.Label(manual_frame, text="或手动输入:").pack(side=LEFT)
-        manual_e = ttk.Entry(manual_frame, width=20)
-        manual_e.pack(side=LEFT, padx=5)
-
         def on_ok():
-            name = manual_e.get().strip() or cb.get().strip()
+            name = cb.get().strip()
             if not name:
                 return
             if any(m["dir"] == name for m in self.modules):
@@ -294,11 +297,6 @@ class TriggerEditor:
             self._status.set(f"已添加模块 {name}")
             d.destroy()
 
-        def on_cb_select(ev):
-            if cb.get() in self.avail_dirs:
-                manual_e.delete(0, END)
-
-        cb.bind("<<ComboboxSelected>>", on_cb_select)
         bf = ttk.Frame(d)
         bf.pack(pady=10)
         ttk.Button(bf, text="确定", command=on_ok).pack(side=LEFT, padx=5)
@@ -331,8 +329,9 @@ class TriggerEditor:
         self.modules[mi]["triggers"].append({
             "name": f"{prefix}new_trigger",
             "display": "新 Trigger",
-            "range": DEFAULT_RANGE,
-            "reset": DEFAULT_RESET,
+            "init": -1,
+            "range": "0..",
+            "reset": -1,
         })
         self._refresh_tree()
 
@@ -344,6 +343,104 @@ class TriggerEditor:
             self._mod_idx = self._trg_idx = None
             self._clear_form()
             self._refresh_tree()
+
+    # ══════════════════════════════════════════════════════════
+    #  移动操作
+    # ══════════════════════════════════════════════════════════
+
+    def _move_module_up(self):
+        self._move_module(-1)
+
+    def _move_module_down(self):
+        self._move_module(1)
+
+    def _move_module(self, direction):
+        sel = self.tree.selection()
+        if not sel:
+            return
+        item = sel[0]
+        if self.tree.parent(item):  # 选中了 trigger，不是模块
+            return
+        idx = self.tree.index(item)
+        new_idx = idx + direction
+        if new_idx < 0 or new_idx >= len(self.modules):
+            return
+        self._save_current()
+        self.modules.insert(new_idx, self.modules.pop(idx))
+        self._mod_idx = self._trg_idx = None
+        self._clear_form()
+        self._refresh_tree()
+        new_item = self.tree.get_children()[new_idx]
+        self.tree.selection_set(new_item)
+
+    def _move_trigger_up(self):
+        self._move_trigger(-1)
+
+    def _move_trigger_down(self):
+        self._move_trigger(1)
+
+    def _move_trigger(self, direction):
+        sel = self.tree.selection()
+        if not sel:
+            return
+        item = sel[0]
+        if not self.tree.parent(item):  # 选中了模块，不是 trigger
+            return
+        mi, ti = map(int, self.tree.item(item, "tags"))
+        nt = ti + direction
+        if nt < 0 or nt >= len(self.modules[mi]["triggers"]):
+            return
+        self._save_current()
+        trgs = self.modules[mi]["triggers"]
+        trgs.insert(nt, trgs.pop(ti))
+        self._mod_idx = self._trg_idx = None
+        self._refresh_tree()
+        parent_node = self.tree.get_children()[mi]
+        new_item = self.tree.get_children(parent_node)[nt]
+        self.tree.selection_set(new_item)
+
+    def _move_action_up(self):
+        self._move_action(-1)
+
+    def _move_action_down(self):
+        self._move_action(1)
+
+    def _move_action(self, direction):
+        sel = self._act_lb.curselection()
+        if not sel:
+            return
+        idx = sel[0]
+        new_idx = idx + direction
+        if new_idx < 0 or new_idx >= self._act_lb.size():
+            return
+        text = self._act_lb.get(idx)
+        self._act_lb.delete(idx)
+        self._act_lb.insert(new_idx, text)
+        self._act_lb.selection_set(new_idx)
+        self._mark()
+
+    def _move_mapping_up(self):
+        self._move_mapping(-1)
+
+    def _move_mapping_down(self):
+        self._move_mapping(1)
+
+    def _move_mapping(self, direction):
+        sel = self._map_t.selection()
+        if not sel:
+            return
+        item = sel[0]
+        children = self._map_t.get_children()
+        idx = list(children).index(item)
+        new_idx = idx + direction
+        if new_idx < 0 or new_idx >= len(children):
+            return
+        values = self._map_t.item(item, "values")
+        self._map_t.delete(item)
+        self._map_t.insert("", new_idx, values=values)
+        new_children = self._map_t.get_children()
+        self._map_t.selection_set(new_children[new_idx])
+        self._mark()
 
     # ══════════════════════════════════════════════════════════
     #  函数选择对话框
