@@ -1,3 +1,4 @@
 scoreboard objectives add mqp.show_distance_to_block.enable dummy
 scoreboard objectives add mqp.show_distance_to_block.current_distance dummy
 scoreboard objectives add mqp.show_distance_to_block.max_step dummy
+scoreboard objectives add mqp.show_distance_to_block.initialized dummy
