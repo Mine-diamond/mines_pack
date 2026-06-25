@@ -9,3 +9,8 @@ scoreboard players enable @a mqp.trigger.simple_feature.invulnerable_mode
 scoreboard objectives add mqp.trigger.simple_feature.run_mode trigger
 scoreboard objectives modify mqp.trigger.simple_feature.run_mode displayname "切换赶路模式"
 scoreboard players enable @a mqp.trigger.simple_feature.run_mode
+
+scoreboard objectives add mqp.trigger.simple_feature.biome_title trigger
+scoreboard objectives modify mqp.trigger.simple_feature.biome_title displayname "切换显示生物群系"
+scoreboard players enable @a mqp.trigger.simple_feature.biome_title
+scoreboard players set @a mqp.trigger.simple_feature.biome_title -1

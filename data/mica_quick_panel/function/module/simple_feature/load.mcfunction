@@ -1,2 +1,3 @@
 scoreboard objectives add mqp.simple_feature.invulnerable_mode dummy
 scoreboard objectives add mqp.simple_feature.run_mode dummy
+function mica_quick_panel:module/simple_feature/biome_title/load

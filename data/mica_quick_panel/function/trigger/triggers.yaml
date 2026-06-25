@@ -104,6 +104,14 @@ modules:
         actions:
           - mica_quick_panel:module/simple_feature/run_mode/switch_run_mode
           - mica_quick_panel:dialog/simple_feature_dialog/open_simple_feature_dialog
+      - name: mqp.trigger.simple_feature.biome_title
+        display: "切换显示生物群系"
+        init: -1
+        range: "0.."
+        reset: -1
+        actions:
+          - mica_quick_panel:module/simple_feature/biome_title/switch_enable
+          - mica_quick_panel:dialog/simple_feature_dialog/open_simple_feature_dialog
   - dir: time_setting
     triggers:
       - name: mqp.trigger.time_setting.time_setting

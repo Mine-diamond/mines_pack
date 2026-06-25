@@ -28,6 +28,14 @@ $dialog show @s { \
                 "type": "run_command", \
                 "command": "trigger mqp.trigger.simple_feature.run_mode set 1" \
             } \
+        }, \
+        { \
+            "label": "显示群系:$(switch_biome_title)", \
+            "width": 120, \
+            "action": { \
+                "type": "run_command", \
+                "command": "trigger mqp.trigger.simple_feature.biome_title set 1" \
+            } \
         } \
     ], \
     "exit_action":{ \
