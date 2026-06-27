@@ -13,4 +13,4 @@ data modify storage mqp_wp:data waypoints append from storage mqp_wp:temp point
 
 execute store result storage mqp_wp:ctx new_id int 1 run data get storage mqp_wp:data waypoints
 
-tellraw @s [{"text":"[MQP-WP] 已新建全局路径点 ","color":"green"},{"nbt":"new_id","storage":"mqp_wp:ctx","color":"yellow"}]
+tellraw @s [{"text":"[快捷功能:路径点]","color":"white"},{"text":" 已新建全局路径点 ","color":"green"},{"nbt":"new_id","storage":"mqp_wp:ctx","color":"yellow"}]

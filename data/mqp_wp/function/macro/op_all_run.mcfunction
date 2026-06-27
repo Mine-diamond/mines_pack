@@ -8,4 +8,4 @@ $execute store result storage mqp_wp:data waypoints[$(idx)].z int 1 run data get
 $execute store result storage mqp_wp:data waypoints[$(idx)].yaw float 1 run data get storage mqp_wp:args input.yaw 1
 $execute store result storage mqp_wp:data waypoints[$(idx)].pitch float 1 run data get storage mqp_wp:args input.pitch 1
 
-$tellraw @s [{"text":"[MQP-WP] 已完整修改路径点 ","color":"green"},{"text":"$(id)","color":"yellow"}]
+$tellraw @s [{"text":"[快捷功能:路径点]","color":"white"},{"text":" 已完整修改路径点 ","color":"green"},{"text":"$(id)","color":"yellow"}]

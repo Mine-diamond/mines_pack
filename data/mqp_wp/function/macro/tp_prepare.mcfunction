@@ -4,4 +4,4 @@ $data modify storage mqp_wp:temp target set from storage mqp_wp:data waypoints[$
 data modify storage mqp_wp:temp target.id set from storage mqp_wp:ctx id
 
 execute if data storage mqp_wp:temp target.dim run function mqp_wp:macro/tp_run with storage mqp_wp:temp target
-$execute unless data storage mqp_wp:temp target.dim run tellraw @s [{"text":"[MQP-WP] 路径点 ","color":"red"},{"text":"$(id)","color":"yellow"},{"text":" 不存在","color":"red"}]
+$execute unless data storage mqp_wp:temp target.dim run tellraw @s [{"text":"[快捷功能:路径点]","color":"white"},{"text":" 路径点 ","color":"red"},{"text":"$(id)","color":"yellow"},{"text":" 不存在","color":"red"}]
