@@ -13,7 +13,7 @@ sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="repla
 
 from trigger_core import (
     get_all_functions, get_module_dirs, get_name_prefix,
-    load_yaml, save_yaml, validate_paths, generate_module_files,
+    load_yaml, save_yaml, validate_config, validate_paths, generate_module_files,
     DEFAULT_RANGE, DEFAULT_RESET, FUNCTION_DIR, NAMESPACE_DIR,
 )
 
@@ -26,6 +26,8 @@ class TriggerEditor:
         self.avail_dirs = get_module_dirs()
         self._mod_idx = None
         self._trg_idx = None
+        self._dirty = False
+        self._loading_form = False
 
         self.root = Tk()
         self.root.title("Mica Quick Panel - Trigger 编辑器")
@@ -76,6 +78,7 @@ class TriggerEditor:
         self.root.bind("<Control-s>", lambda e: self.save())
         self._refresh_tree()
         self._clear_form()
+        self._set_form_enabled(False)
 
     def _refresh_cache(self):
         """重新扫描文件系统，刷新函数列表和模块目录缓存"""
@@ -88,6 +91,10 @@ class TriggerEditor:
     # ══════════════════════════════════════════════════════════
 
     def _build_form(self, parent):
+        self._form_inputs = []
+        self._action_buttons = []
+        self._mapping_buttons = []
+
         f = ttk.Frame(parent)
         f.pack(fill=BOTH, expand=True, padx=8, pady=5)
 
@@ -96,16 +103,20 @@ class TriggerEditor:
         r += 1
 
         ttk.Label(f, text="Name:").grid(row=r, column=0, sticky=W, pady=2)
-        self._name_cb = ttk.Combobox(f, width=35, values=[])
+        self._name_var = StringVar()
+        self._name_var.trace_add("write", lambda *_: self._mark())
+        self._name_cb = ttk.Combobox(f, width=35, values=[], textvariable=self._name_var)
         self._name_cb.grid(row=r, column=1, columnspan=2, sticky=EW, pady=2)
-        self._name_cb.bind("<<Modified>>", lambda _: self._mark())
         self._name_cb.bind("<<ComboboxSelected>>", lambda _: self._mark())
+        self._form_inputs.append(self._name_cb)
         r += 1
 
         ttk.Label(f, text="Display:").grid(row=r, column=0, sticky=W, pady=2)
-        self._disp = ttk.Entry(f, width=35)
+        self._disp_var = StringVar()
+        self._disp_var.trace_add("write", lambda *_: self._mark())
+        self._disp = ttk.Entry(f, width=35, textvariable=self._disp_var)
         self._disp.grid(row=r, column=1, columnspan=2, sticky=EW, pady=2)
-        self._disp.bind("<<Modified>>", lambda _: self._mark())
+        self._form_inputs.append(self._disp)
         r += 1
 
         of = ttk.Frame(f)
@@ -117,42 +128,61 @@ class TriggerEditor:
 
         ttk.Separator(f, orient=HORIZONTAL).grid(row=r, column=0, columnspan=3, sticky=EW, pady=5)
         r += 1
-        ttk.Label(f, text="Actions", font=("", 9, "bold")).grid(row=r, column=0, columnspan=3, sticky=W)
-        r += 1
-        af = ttk.Frame(f)
-        af.grid(row=r, column=0, columnspan=3, sticky=EW, pady=2)
-        self._act_lb = Listbox(af, height=4)
+
+        lists_paned = ttk.PanedWindow(f, orient=VERTICAL)
+        lists_paned.grid(row=r, column=0, columnspan=3, sticky=NSEW, pady=2)
+        f.rowconfigure(r, weight=1)
+
+        actions_panel = ttk.Frame(lists_paned)
+        lists_paned.add(actions_panel, weight=1)
+        ttk.Label(actions_panel, text="Actions", font=("", 9, "bold")).pack(anchor=W)
+        af = ttk.Frame(actions_panel)
+        af.pack(fill=BOTH, expand=True, pady=2)
+        self._act_lb = Listbox(af, height=6)
         self._act_lb.pack(side=LEFT, fill=BOTH, expand=True)
+        act_scroll = ttk.Scrollbar(af, orient=VERTICAL, command=self._act_lb.yview)
+        act_scroll.pack(side=LEFT, fill=Y)
+        self._act_lb.configure(yscrollcommand=act_scroll.set)
         self._act_lb.bind("<Double-Button-1>", lambda e: self._edit_action())
+        abf = ttk.Frame(af)
+        abf.pack(side=LEFT, fill=Y, padx=(3, 0))
         for txt, cmd in [("添加", self._add_action), ("编辑", self._edit_action), ("删除", self._del_action),
                          ("↑", self._move_action_up), ("↓", self._move_action_down)]:
-            ttk.Button(af, text=txt, command=cmd).pack(fill=X, pady=1)
-        r += 1
+            btn = ttk.Button(abf, text=txt, command=cmd)
+            btn.pack(fill=X, pady=1)
+            self._action_buttons.append(btn)
 
-        ttk.Separator(f, orient=HORIZONTAL).grid(row=r, column=0, columnspan=3, sticky=EW, pady=5)
-        r += 1
-        ttk.Label(f, text="Mapping Actions", font=("", 9, "bold")).grid(row=r, column=0, columnspan=3, sticky=W)
-        r += 1
-        mf = ttk.Frame(f)
-        mf.grid(row=r, column=0, columnspan=3, sticky=EW, pady=2)
-        self._map_t = ttk.Treeview(mf, columns=("v", "f"), show="headings", height=4)
+        mapping_panel = ttk.Frame(lists_paned)
+        lists_paned.add(mapping_panel, weight=1)
+        ttk.Label(mapping_panel, text="Mapping Actions", font=("", 9, "bold")).pack(anchor=W)
+        mf = ttk.Frame(mapping_panel)
+        mf.pack(fill=BOTH, expand=True, pady=2)
+        self._map_t = ttk.Treeview(mf, columns=("v", "f"), show="headings", height=6)
         self._map_t.heading("v", text="值"); self._map_t.heading("f", text="函数")
         self._map_t.column("v", width=40); self._map_t.column("f", width=360)
         self._map_t.pack(side=LEFT, fill=BOTH, expand=True)
+        map_scroll = ttk.Scrollbar(mf, orient=VERTICAL, command=self._map_t.yview)
+        map_scroll.pack(side=LEFT, fill=Y)
+        self._map_t.configure(yscrollcommand=map_scroll.set)
         self._map_t.bind("<Double-Button-1>", lambda e: self._edit_mapping())
-        for txt, cmd in [("添加", self._add_mapping), ("编辑", self._edit_mapping), ("删除", self._del_mapping),
-                         ("↑", self._move_mapping_up), ("↓", self._move_mapping_down)]:
-            ttk.Button(mf, text=txt, command=cmd).pack(fill=X, pady=1)
+        mbf = ttk.Frame(mf)
+        mbf.pack(side=LEFT, fill=Y, padx=(3, 0))
+        for txt, cmd in [("添加", self._add_mapping), ("编辑", self._edit_mapping), ("删除", self._del_mapping)]:
+            btn = ttk.Button(mbf, text=txt, command=cmd)
+            btn.pack(fill=X, pady=1)
+            self._mapping_buttons.append(btn)
         r += 1
 
         f.columnconfigure(1, weight=1)
 
     def _mk_inline(self, parent, label, width, default=""):
         ttk.Label(parent, text=label).pack(side=LEFT)
-        e = ttk.Entry(parent, width=width)
-        e.insert(0, default)
+        var = StringVar(value=default)
+        var.trace_add("write", lambda *_: self._mark())
+        e = ttk.Entry(parent, width=width, textvariable=var)
+        e._var = var
         e.pack(side=LEFT, padx=2)
-        e.bind("<<Modified>>", lambda _: self._mark())
+        self._form_inputs.append(e)
         return e
 
     # ══════════════════════════════════════════════════════════
@@ -161,7 +191,7 @@ class TriggerEditor:
 
     def _save_current(self):
         """将当前表单内容写入 self.modules（仅内存，不写 YAML）"""
-        if self._mod_idx is None:
+        if self._mod_idx is None or self._trg_idx is None:
             return
         self.modules[self._mod_idx]["triggers"][self._trg_idx] = self._collect()
 
@@ -177,30 +207,49 @@ class TriggerEditor:
         if not sel:
             return
         item = sel[0]
-        if not self.tree.parent(item):
-            return
-        # 1) 保存现有编辑到内存
+        # 先保存现有编辑到内存，再处理新选择。
         self._save_current()
-
-        # 2) 切换到新的
+        if not self.tree.parent(item):
+            self._mod_idx = self._trg_idx = None
+            self._clear_form()
+            self._set_form_enabled(False)
+            return
         mi, ti = int(self.tree.item(item, "tags")[0]), int(self.tree.item(item, "tags")[1])
         self._mod_idx, self._trg_idx = mi, ti
         self._load_trigger(self.modules[mi]["triggers"][ti])
 
     def _clear_form(self):
-        self._name_cb.set("")
+        self._loading_form = True
+        self._set_form_enabled(True)
+        self._name_var.set("")
         self._name_cb["values"] = []
-        self._disp.delete(0, END)
+        self._disp_var.set("")
         for w in (self._init_e, self._range_e, self._reset_e):
-            w.delete(0, END)
-        self._range_e.insert(0, DEFAULT_RANGE)
-        self._reset_e.insert(0, str(DEFAULT_RESET))
+            w._var.set("")
+        self._range_e._var.set(DEFAULT_RANGE)
+        self._reset_e._var.set(str(DEFAULT_RESET))
         self._act_lb.delete(0, END)
         for i in self._map_t.get_children():
             self._map_t.delete(i)
+        self._loading_form = False
+
+    def _set_form_enabled(self, enabled: bool):
+        state = NORMAL if enabled else DISABLED
+        ttk_state = "normal" if enabled else "disabled"
+        for widget in getattr(self, "_form_inputs", []):
+            widget.configure(state=ttk_state)
+        if hasattr(self, "_act_lb"):
+            self._act_lb.configure(state=state)
+        for btn in getattr(self, "_action_buttons", []):
+            btn.configure(state=ttk_state)
+        for btn in getattr(self, "_mapping_buttons", []):
+            btn.configure(state=ttk_state)
 
     def _mark(self):
-        pass  # 预留，不需要实际标记了
+        if self._loading_form:
+            return
+        self._dirty = True
+        self._status.set("有未保存修改")
 
     def _update_name_suggestions(self, module_dir: str):
         """更新 Name 下拉的建议值"""
@@ -219,18 +268,21 @@ class TriggerEditor:
         module_dir = self.modules[self._mod_idx]["dir"]
         self._update_name_suggestions(module_dir)
 
-        self._name_cb.set(t.get("name", ""))
-        self._disp.insert(0, t.get("display", ""))
+        self._loading_form = True
+        self._name_var.set(t.get("name", ""))
+        self._disp_var.set(t.get("display", ""))
         r = t.get("range", DEFAULT_RANGE)
-        self._range_e.delete(0, END); self._range_e.insert(0, r)
+        self._range_e._var.set(r)
         rs = t.get("reset", DEFAULT_RESET)
-        self._reset_e.delete(0, END); self._reset_e.insert(0, str(rs))
+        self._reset_e._var.set(str(rs))
         if t.get("init") is not None:
-            self._init_e.insert(0, str(t["init"]))
+            self._init_e._var.set(str(t["init"]))
         for a in t.get("actions", []):
             self._act_lb.insert(END, a)
         for v in sorted(t.get("mapping_actions", {})):
             self._map_t.insert("", END, values=(v, t["mapping_actions"][v]))
+        self._loading_form = False
+        self._set_form_enabled(True)
 
     def _collect(self) -> dict:
         t = {}
@@ -282,7 +334,7 @@ class TriggerEditor:
 
         names = self.avail_dirs
         cb = ttk.Combobox(d, values=names, width=30)
-        cb.set(names[0] if names else "")
+        cb.set("")
         cb.pack(padx=10, pady=5, fill=X)
 
         def on_ok():
@@ -294,6 +346,7 @@ class TriggerEditor:
                 return
             self.modules.append({"dir": name, "triggers": []})
             self._refresh_tree()
+            self._mark()
             self._status.set(f"已添加模块 {name}")
             d.destroy()
 
@@ -315,7 +368,9 @@ class TriggerEditor:
             self.modules.pop(idx)
             self._mod_idx = self._trg_idx = None
             self._clear_form()
+            self._set_form_enabled(False)
             self._refresh_tree()
+            self._mark()
 
     def _add_trigger(self):
         sel = self.tree.selection()
@@ -334,6 +389,11 @@ class TriggerEditor:
             "reset": -1,
         })
         self._refresh_tree()
+        parent_node = self.tree.get_children()[mi]
+        new_item = self.tree.get_children(parent_node)[-1]
+        self.tree.selection_set(new_item)
+        self.tree.focus(new_item)
+        self._mark()
 
     def _del_trigger(self):
         if self._mod_idx is None:
@@ -342,7 +402,9 @@ class TriggerEditor:
             self.modules[self._mod_idx]["triggers"].pop(self._trg_idx)
             self._mod_idx = self._trg_idx = None
             self._clear_form()
+            self._set_form_enabled(False)
             self._refresh_tree()
+            self._mark()
 
     # ══════════════════════════════════════════════════════════
     #  移动操作
@@ -369,9 +431,11 @@ class TriggerEditor:
         self.modules.insert(new_idx, self.modules.pop(idx))
         self._mod_idx = self._trg_idx = None
         self._clear_form()
+        self._set_form_enabled(False)
         self._refresh_tree()
         new_item = self.tree.get_children()[new_idx]
         self.tree.selection_set(new_item)
+        self._mark()
 
     def _move_trigger_up(self):
         self._move_trigger(-1)
@@ -398,6 +462,7 @@ class TriggerEditor:
         parent_node = self.tree.get_children()[mi]
         new_item = self.tree.get_children(parent_node)[nt]
         self.tree.selection_set(new_item)
+        self._mark()
 
     def _move_action_up(self):
         self._move_action(-1)
@@ -417,29 +482,6 @@ class TriggerEditor:
         self._act_lb.delete(idx)
         self._act_lb.insert(new_idx, text)
         self._act_lb.selection_set(new_idx)
-        self._mark()
-
-    def _move_mapping_up(self):
-        self._move_mapping(-1)
-
-    def _move_mapping_down(self):
-        self._move_mapping(1)
-
-    def _move_mapping(self, direction):
-        sel = self._map_t.selection()
-        if not sel:
-            return
-        item = sel[0]
-        children = self._map_t.get_children()
-        idx = list(children).index(item)
-        new_idx = idx + direction
-        if new_idx < 0 or new_idx >= len(children):
-            return
-        values = self._map_t.item(item, "values")
-        self._map_t.delete(item)
-        self._map_t.insert("", new_idx, values=values)
-        new_children = self._map_t.get_children()
-        self._map_t.selection_set(new_children[new_idx])
         self._mark()
 
     # ══════════════════════════════════════════════════════════
@@ -475,6 +517,8 @@ class TriggerEditor:
             s = lb.curselection()
             if s:
                 result[0] = lb.get(s[0])
+            elif sv.get().strip():
+                result[0] = sv.get().strip()
             d.destroy()
 
         lb.bind("<Double-Button-1>", lambda _: ok())
@@ -535,15 +579,38 @@ class TriggerEditor:
     #  工具栏
     # ══════════════════════════════════════════════════════════
 
+    def _show_config_errors(self, errs):
+        msg = "配置无效:\n\n" + "\n".join(
+            f"[{where}] {field}: {message}" for where, field, _value, message in errs)
+        messagebox.showerror("配置错误", msg)
+        self._status.set(f"配置无效: {len(errs)} 个错误")
+
+    def _validate_config_or_alert(self) -> bool:
+        errs = validate_config(self.modules)
+        if errs:
+            self._show_config_errors(errs)
+            return False
+        return True
+
     def save(self):
         self._save_current()
+        if not self._validate_config_or_alert():
+            return
         save_yaml(self.modules)
         self._refresh_tree()
+        self._dirty = False
         self._status.set("已保存")
 
     def generate(self):
         self._save_current()
-        changed = generate_module_files(self.modules)
+        if not self._validate_config_or_alert():
+            return
+        try:
+            changed = generate_module_files(self.modules)
+        except ValueError as e:
+            messagebox.showerror("生成失败", str(e))
+            self._status.set("生成失败")
+            return
         if changed:
             self._status.set(f"已生成 {len(changed)} 个文件")
         else:
@@ -551,6 +618,8 @@ class TriggerEditor:
 
     def validate(self):
         self._save_current()
+        if not self._validate_config_or_alert():
+            return
         errs = validate_paths(self.modules)
         if errs:
             msg = f"发现 {len(errs)} 个错误:\n\n" + "\n".join(

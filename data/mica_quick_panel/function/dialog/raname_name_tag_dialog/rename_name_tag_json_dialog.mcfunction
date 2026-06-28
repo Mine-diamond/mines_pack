@@ -77,7 +77,7 @@ $dialog show @s {  \
             "width": 80,  \
             "action": {  \
                 "type": "run_command",  \
-                "command": "trigger mqp.trigger.util.close_dialog"  \
+                "command": "trigger mqp.util.close_dialog"  \
             }  \
         }  \
     ]  \

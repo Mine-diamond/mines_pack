@@ -3,7 +3,7 @@
 modules:
   - dir: core
     triggers:
-      - name: mqp.trigger.core.message_feedback
+      - name: mqp.core.switch_message_feedback
         display: "切换消息反馈"
         init: -1
         range: "0.."
@@ -211,7 +211,7 @@ modules:
           - mica_quick_panel:module/item/gaze_shift_staff/give_prepare
   - dir: util
     triggers:
-      - name: mqp.trigger.util.close_dialog
+      - name: mqp.util.close_dialog
         display: "关闭dialog"
         actions:
           - mica_quick_panel:util/dialog/close_dialog

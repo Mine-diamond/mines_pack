@@ -131,7 +131,7 @@
         "label": "退出",
         "action": {
             "type": "run_command",
-            "command": "trigger mqp.trigger.util.close_dialog"
+            "command": "trigger mqp.util.close_dialog"
         }
     }
 }

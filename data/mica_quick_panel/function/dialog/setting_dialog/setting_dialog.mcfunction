@@ -10,7 +10,7 @@ $dialog show @s { \
             "width": 120, \
             "action": { \
                 "type": "run_command", \
-                "command": "trigger mqp.trigger.core.message_feedback" \
+                "command": "trigger mqp.core.switch_message_feedback" \
             } \
         } \
     ], \
