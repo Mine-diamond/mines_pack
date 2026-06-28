@@ -7,4 +7,4 @@ attribute @s minecraft:movement_efficiency base set 0.8
 attribute @s minecraft:water_movement_efficiency base set 0.8
 #attribute @s minecraft:gravity base set 0.08
 
-tellraw @s "[快捷功能]§b赶路模式: 慢速"
+execute unless score @s mqp.core.message_feedback matches 0 run tellraw @s "[快捷功能]§b赶路模式: 慢速"

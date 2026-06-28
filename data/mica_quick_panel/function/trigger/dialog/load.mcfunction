@@ -53,3 +53,8 @@ scoreboard players enable @a mqp.dialog.way_point
 scoreboard objectives add mqp.dialog.way_point_edit trigger
 scoreboard objectives modify mqp.dialog.way_point_edit displayname "路径点编辑面板"
 scoreboard players enable @a mqp.dialog.way_point_edit
+
+scoreboard objectives add mqp.dialog.setting trigger
+scoreboard objectives modify mqp.dialog.setting displayname "设置面板"
+scoreboard players enable @a mqp.dialog.setting
+scoreboard players set @a mqp.dialog.setting -1

@@ -111,6 +111,14 @@
             }
         },
         {
+            "label": "设置",
+            "width": 120,
+            "action": {
+                "type": "run_command",
+                "command": "trigger mqp.dialog.setting"
+            }
+        },
+        {
             "label": "关于",
             "width": 120,
             "action": {

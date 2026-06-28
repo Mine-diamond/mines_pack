@@ -53,3 +53,7 @@ scoreboard players enable @a mqp.dialog.way_point
 execute as @a[scores={mqp.dialog.way_point_edit=1..}] run function mica_quick_panel:dialog/way_point_dialog/open_way_point_edit_dialog
 scoreboard players set @a[scores={mqp.dialog.way_point_edit=1..}] mqp.dialog.way_point_edit 0
 scoreboard players enable @a mqp.dialog.way_point_edit
+
+execute as @a[scores={mqp.dialog.setting=0..}] run function mica_quick_panel:dialog/setting_dialog/open_setting_dialog
+scoreboard players set @a[scores={mqp.dialog.setting=0..}] mqp.dialog.setting -1
+scoreboard players enable @a mqp.dialog.setting

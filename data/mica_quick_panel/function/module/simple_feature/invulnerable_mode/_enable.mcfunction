@@ -11,4 +11,4 @@ attribute @s minecraft:oxygen_bonus base set 1024
 attribute @s minecraft:knockback_resistance base set 1
 attribute @s minecraft:explosion_knockback_resistance base set 1
 
-tellraw @s "[快捷功能]§b已启用无敌模式"
+execute unless score @s mqp.core.message_feedback matches 0 run tellraw @s "[快捷功能]§b已启用无敌模式"

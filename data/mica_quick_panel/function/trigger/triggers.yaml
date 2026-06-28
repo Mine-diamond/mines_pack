@@ -1,6 +1,16 @@
 # 由 trigger_core 写入
 
 modules:
+  - dir: core
+    triggers:
+      - name: mqp.trigger.core.message_feedback
+        display: "切换消息反馈"
+        init: -1
+        range: "0.."
+        reset: -1
+        actions:
+          - mica_quick_panel:core/switch_message_feedback
+          - mica_quick_panel:dialog/setting_dialog/open_setting_dialog
   - dir: dialog
     triggers:
       - name: mqp.dialog.game_rule
@@ -59,6 +69,13 @@ modules:
         display: "路径点编辑面板"
         actions:
           - mica_quick_panel:dialog/way_point_dialog/open_way_point_edit_dialog
+      - name: mqp.dialog.setting
+        display: "设置面板"
+        init: -1
+        range: "0.."
+        reset: -1
+        actions:
+          - mica_quick_panel:dialog/setting_dialog/open_setting_dialog
   - dir: game_rule
     triggers:
       - name: mqp.trigger.game_rule.change

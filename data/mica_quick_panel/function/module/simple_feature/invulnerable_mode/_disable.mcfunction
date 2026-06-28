@@ -10,4 +10,4 @@ attribute @s minecraft:oxygen_bonus base reset
 attribute @s minecraft:knockback_resistance base reset
 attribute @s minecraft:explosion_knockback_resistance base reset
 
-tellraw @s "[快捷功能]§c已禁用无敌模式"
+execute unless score @s mqp.core.message_feedback matches 0 run tellraw @s "[快捷功能]§c已禁用无敌模式"

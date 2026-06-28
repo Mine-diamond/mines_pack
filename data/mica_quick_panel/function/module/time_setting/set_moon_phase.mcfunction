@@ -16,11 +16,11 @@ execute if score #target_phase mqp.calc matches 5 run time add 120000
 execute if score #target_phase mqp.calc matches 6 run time add 144000
 execute if score #target_phase mqp.calc matches 7 run time add 168000
 
-execute if score @s mqp.trigger.time_setting.moon_phase matches 0 run tellraw @s ["[快捷功能]","月相已设置为",{"text":"[满月]","color":"green"}]
-execute if score @s mqp.trigger.time_setting.moon_phase matches 1 run tellraw @s ["[快捷功能]","月相已设置为",{"text":"[亏凸月]","color":"green"}]
-execute if score @s mqp.trigger.time_setting.moon_phase matches 2 run tellraw @s ["[快捷功能]","月相已设置为",{"text":"[下弦月]","color":"green"}]
-execute if score @s mqp.trigger.time_setting.moon_phase matches 3 run tellraw @s ["[快捷功能]","月相已设置为",{"text":"[残月]","color":"green"}]
-execute if score @s mqp.trigger.time_setting.moon_phase matches 4 run tellraw @s ["[快捷功能]","月相已设置为",{"text":"[新月]","color":"green"}]
-execute if score @s mqp.trigger.time_setting.moon_phase matches 5 run tellraw @s ["[快捷功能]","月相已设置为",{"text":"[娥眉月]","color":"green"}]
-execute if score @s mqp.trigger.time_setting.moon_phase matches 6 run tellraw @s ["[快捷功能]","月相已设置为",{"text":"[上弦月]","color":"green"}]
-execute if score @s mqp.trigger.time_setting.moon_phase matches 7 run tellraw @s ["[快捷功能]","月相已设置为",{"text":"[盈凸月]","color":"green"}]
+execute unless score @s mqp.core.message_feedback matches 0 if score @s mqp.trigger.time_setting.moon_phase matches 0 run tellraw @s ["[快捷功能]","月相已设置为",{"text":"[满月]","color":"green"}]
+execute unless score @s mqp.core.message_feedback matches 0 if score @s mqp.trigger.time_setting.moon_phase matches 1 run tellraw @s ["[快捷功能]","月相已设置为",{"text":"[亏凸月]","color":"green"}]
+execute unless score @s mqp.core.message_feedback matches 0 if score @s mqp.trigger.time_setting.moon_phase matches 2 run tellraw @s ["[快捷功能]","月相已设置为",{"text":"[下弦月]","color":"green"}]
+execute unless score @s mqp.core.message_feedback matches 0 if score @s mqp.trigger.time_setting.moon_phase matches 3 run tellraw @s ["[快捷功能]","月相已设置为",{"text":"[残月]","color":"green"}]
+execute unless score @s mqp.core.message_feedback matches 0 if score @s mqp.trigger.time_setting.moon_phase matches 4 run tellraw @s ["[快捷功能]","月相已设置为",{"text":"[新月]","color":"green"}]
+execute unless score @s mqp.core.message_feedback matches 0 if score @s mqp.trigger.time_setting.moon_phase matches 5 run tellraw @s ["[快捷功能]","月相已设置为",{"text":"[娥眉月]","color":"green"}]
+execute unless score @s mqp.core.message_feedback matches 0 if score @s mqp.trigger.time_setting.moon_phase matches 6 run tellraw @s ["[快捷功能]","月相已设置为",{"text":"[上弦月]","color":"green"}]
+execute unless score @s mqp.core.message_feedback matches 0 if score @s mqp.trigger.time_setting.moon_phase matches 7 run tellraw @s ["[快捷功能]","月相已设置为",{"text":"[盈凸月]","color":"green"}]

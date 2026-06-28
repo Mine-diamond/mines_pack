@@ -15,3 +15,5 @@ scoreboard objectives add mqp.temp dummy
 
 
 data merge storage mqp:constant.word {enable:"§b启用",disable:"§c禁用",on:"§b开启",off:"§c关闭"}
+
+scoreboard objectives add mqp.core.message_feedback dummy
