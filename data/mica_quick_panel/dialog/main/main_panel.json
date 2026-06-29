@@ -1,7 +1,7 @@
 {
     "type": "minecraft:multi_action",
     "title": "快捷面板",
-    "external_title": {"text": "快捷面板", "color": "gold", "bold": true},
+    "external_title": {"text": "快捷面板"},
     "after_action": "none",
     "columns": 3,
     "pause": false,

@@ -11,5 +11,21 @@
     ],
     "min_format": [107, 1],
     "max_format": [107, 1]
+  },
+  "overlays": {
+    "entries": [
+      {
+        "directory": "overlay_other_version",
+        "min_format": [1],
+        "max_format": [107,0],
+        "formats": [1,107]
+      },
+      {
+        "directory": "overlay_other_version",
+        "min_format": [107,2],
+        "max_format": [1000,0],
+        "formats": [107,1000]
+      }
+    ]
   }
 }
