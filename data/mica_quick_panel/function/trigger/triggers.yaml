@@ -82,13 +82,41 @@ modules:
         display: "修改游戏规则"
         mapping_actions:
           1: mica_quick_panel:module/game_rule/switch_advance_time
-          2: mica_quick_panel:module/game_rule/switch_advance_weather
-          3: mica_quick_panel:module/game_rule/switch_spawn_mobs
-          4: mica_quick_panel:module/game_rule/switch_keep_inventory
-          5: mica_quick_panel:module/game_rule/switch_command_block_output
-          6: mica_quick_panel:module/game_rule/switch_mob_drops
-          7: mica_quick_panel:module/game_rule/switch_block_drops
-          8: mica_quick_panel:module/game_rule/switch_show_advancement_messages
+          2:
+            function: mica_quick_panel:module/game_rule/switch_common_game_rule
+            macro:
+              game_rule: "advance_weather"
+              game_rule_name: "天气更替"
+          3:
+            function: mica_quick_panel:module/game_rule/switch_common_game_rule
+            macro:
+              game_rule: "spawn_mobs"
+              game_rule_name: "生物生成"
+          4:
+            function: mica_quick_panel:module/game_rule/switch_common_game_rule
+            macro:
+              game_rule: "keep_inventory"
+              game_rule_name: "死亡不掉落"
+          5:
+            function: mica_quick_panel:module/game_rule/switch_common_game_rule
+            macro:
+              game_rule: "command_block_output"
+              game_rule_name: "命令方块输出"
+          6:
+            function: mica_quick_panel:module/game_rule/switch_common_game_rule
+            macro:
+              game_rule: "mob_drops"
+              game_rule_name: "生物掉落物"
+          7:
+            function: mica_quick_panel:module/game_rule/switch_common_game_rule
+            macro:
+              game_rule: "block_drops"
+              game_rule_name: "方块掉落物"
+          8:
+            function: mica_quick_panel:module/game_rule/switch_common_game_rule
+            macro:
+              game_rule: "show_advancement_messages"
+              game_rule_name: "进度消息公告"
         actions:
           - mica_quick_panel:dialog/gamerule_dialog/open_gamerule_dialog
       - name: mqp.trigger.game_rule.set_to_preferred
@@ -102,7 +130,7 @@ modules:
         range: "0.."
         reset: -1
         actions:
-          - mica_quick_panel:module/game_rule/set_random_tick_speed_init
+          - mica_quick_panel:module/game_rule/set_random_tick_speed
           - mica_quick_panel:dialog/gamerule_dialog/open_gamerule_dialog
   - dir: simple_feature
     triggers:

@@ -1,0 +1,2 @@
+execute store result storage mqp:temp input int 1 run scoreboard players get @s mqp.trigger.game_rule.set_random_tick_speed
+function mica_quick_panel:module/game_rule/_set_random_tick_speed with storage mqp:temp
