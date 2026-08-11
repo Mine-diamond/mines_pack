@@ -1,22 +1,25 @@
-[
-    {
-        "condition": "entity_properties",
-        "entity": "this",
-        "predicate": {
-            "type_specific/player": {
-                "gamemode": [
-                    "creative"
-                ]
+{
+    "type": "all_of",
+    "terms": [
+        {
+            "type": "entity_properties",
+            "entity": "this",
+            "predicate": {
+                "type_specific/player": {
+                    "gamemode": [
+                        "creative"
+                    ]
+                }
+            }
+        },
+        {
+            "type": "value_check",
+            "range": 1,
+            "value": {
+                "type": "minecraft:score",
+                "score": "mqp.entity_interaction_distance.force_mode",
+                "target": "this"
             }
         }
-    },
-    {
-        "condition": "value_check",
-        "range": 1,
-        "value": {
-            "type": "minecraft:score",
-            "score": "mqp.entity_interaction_distance.force_mode",
-            "target": "this"
-        }
-    }
-]
+    ]
+}

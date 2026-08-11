@@ -26,11 +26,11 @@
                 "\n\n\n",
                 "支持版本",
                 {
-                    "text": "26.2",
+                    "text": "26.3-snapshot-7",
                     "underlined": true,
                     "click_event": {
                         "action": "open_url",
-                        "url": "https://minecraft.wiki/w/Java_Edition_26.2"
+                        "url": "https://minecraft.wiki/w/Java_Edition_26.3_Snapshot_7"
                     }
                 },
                 "\n精力有限, 不保证其它版本的兼容"

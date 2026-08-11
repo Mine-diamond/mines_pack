@@ -9,22 +9,22 @@
         "color": "blue"
       }
     ],
-    "min_format": [107, 1],
-    "max_format": [107, 1]
+    "min_format": [115, 0],
+    "max_format": [115, 0]
   },
   "overlays": {
     "entries": [
       {
         "directory": "overlay_other_version",
         "min_format": [1],
-        "max_format": [107,0],
-        "formats": [1,107]
+        "max_format": [113,0],
+        "formats": [1,113]
       },
       {
         "directory": "overlay_other_version",
-        "min_format": [107,2],
+        "min_format": [115,2],
         "max_format": [1000,0],
-        "formats": [107,1000]
+        "formats": [115,1000]
       }
     ]
   }
