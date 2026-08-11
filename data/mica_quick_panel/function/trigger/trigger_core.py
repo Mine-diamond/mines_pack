@@ -1,5 +1,5 @@
 """trigger 相关共享核心：路径扫描、YAML 读写、mcfunction 生成"""
-import io, sys
+import io, re, sys
 from pathlib import Path
 
 try:
@@ -82,7 +82,13 @@ def load_yaml() -> list:
         return []
     with open(YAML_PATH, "r", encoding="utf-8") as f:
         cfg = yaml.safe_load(f)
-    return cfg.get("modules", []) if cfg else []
+    modules = cfg.get("modules", []) if cfg else []
+    for m in modules:
+        for t in m.get("triggers", []):
+            t["actions"] = [normalize_action(a) for a in t.get("actions", [])]
+            for k, v in list((t.get("mapping_actions") or {}).items()):
+                t["mapping_actions"][k] = normalize_action(v)
+    return modules
 
 
 def save_yaml(modules: list):
@@ -106,16 +112,166 @@ def save_yaml(modules: list):
             if t.get("mapping_actions"):
                 lines.append("        mapping_actions:")
                 for k in sorted(t["mapping_actions"]):
-                    lines.append(f"          {k}: {t['mapping_actions'][k]}")
+                    v = to_yaml_action(t["mapping_actions"][k])
+                    if isinstance(v, str):
+                        lines.append(f"          {k}: {v}")
+                    else:
+                        lines.append(f"          {k}:")
+                        lines.append(f"            function: {v['function']}")
+                        lines.append("            macro:")
+                        for mk in sorted(v["macro"], key=str):
+                            lines.append(f"              {mk}: {_yaml_macro_value(v['macro'][mk])}")
             if t.get("actions"):
                 lines.append("        actions:")
                 for a in t["actions"]:
-                    lines.append(f"          - {a}")
+                    a = to_yaml_action(a)
+                    if isinstance(a, str):
+                        lines.append(f"          - {a}")
+                    else:
+                        lines.append(f"          - function: {a['function']}")
+                        lines.append("            macro:")
+                        for mk in sorted(a["macro"], key=str):
+                            lines.append(f"              {mk}: {_yaml_macro_value(a['macro'][mk])}")
     with open(YAML_PATH, "w", encoding="utf-8") as f:
         f.write("\n".join(lines) + "\n")
 
 
+# ── 宏参数支持 ────────────────────────────────────────────────
+
+MACRO_RE = re.compile(r"\$\(([A-Za-z0-9_]+)\)")
+
+
+def normalize_action(a):
+    """str → {"function": a, "macro": {}}；dict → 复制并补默认值。
+    绝不抛异常——坏结构留给 validate_config 报友好错误。"""
+    if isinstance(a, str):
+        return {"function": a, "macro": {}}
+    if isinstance(a, dict):
+        return {"function": a.get("function", ""), "macro": dict(a.get("macro") or {})}
+    return {"function": "", "macro": {}}
+
+
+def to_yaml_action(a):
+    """归一化 dict → YAML 写回值：无 macro 回退字符串，有 macro 返回 dict（key 排序）"""
+    a = normalize_action(a)
+    if not a["macro"]:
+        return a["function"]
+    return {"function": a["function"], "macro": {k: a["macro"][k] for k in sorted(a["macro"], key=str)}}
+
+
+def function_path_to_file(path):
+    """'mica_quick_panel:module/x/y' → FUNCTION_DIR/module/x/y.mcfunction；非本命名空间返回 None"""
+    if not isinstance(path, str) or not path.startswith("mica_quick_panel:"):
+        return None
+    rel = path.split(":", 1)[1]
+    return FUNCTION_DIR / f"{rel}.mcfunction"
+
+
+def get_macro_names(path) -> list:
+    """读取函数文件，返回其宏命令行中的 $() 宏参数名（去重排序）。
+
+    仅识别以 $ 开头的宏命令行（如 `$say $(content)`）；普通命令（如
+    `say $(content)`）与注释中的 $(...) 是字面文本，Minecraft 不替换。
+    文件不存在/非本命名空间返回 []。
+    """
+    f = function_path_to_file(path)
+    if f is None or not f.is_file():
+        return []
+    try:
+        text = f.read_text("utf-8")
+    except OSError:
+        return []
+    names = set()
+    for line in text.splitlines():
+        stripped = line.strip()
+        if stripped.startswith("$"):
+            names.update(MACRO_RE.findall(stripped))
+    return sorted(names)
+
+
+def _yaml_macro_value(v):
+    """YAML 写回的宏参数值：bool/int/float 原样文本，其余带引号字符串（round-trip 类型稳定）"""
+    if isinstance(v, bool):
+        return "true" if v else "false"
+    if isinstance(v, (int, float)):
+        return str(v)
+    return quote_yaml_string(str(v))
+
+
+def _to_nbt(v):
+    """dict/list 兜底序列化为 NBT 文本（供 YAML 手写复合/列表值使用）"""
+    if isinstance(v, dict):
+        return "{" + ",".join(f"{k}:{_to_nbt(x)}" for k, x in v.items()) + "}"
+    if isinstance(v, (list, tuple)):
+        return "[" + ",".join(_to_nbt(x) for x in v) + "]"
+    return render_macro_value(v)
+
+
+def render_macro_value(v):
+    """自动推断类型的 NBT 值渲染（bool 必须先于 int 判断）"""
+    if isinstance(v, bool):
+        return "true" if v else "false"
+    if isinstance(v, (int, float)):
+        return str(v)
+    if isinstance(v, (dict, list)):
+        return _to_nbt(v)
+    s = str(v)
+    if s in ("true", "false"):
+        return s
+    if re.match(r"^-?(?:\d+\.?\d*|\.\d+)$", s):
+        return s
+    if s[:1] in ("{", "[", "\""):
+        return s
+    return '"' + s.replace("\\", "\\\\").replace('"', '\\"') + '"'
+
+
+def render_macro(macro) -> str:
+    """'k1:v1, k2:v2'；空 dict 返回 ''。key 排序保证幂等。"""
+    if not macro:
+        return ""
+    return "{" + ", ".join(
+        f"{k}:{render_macro_value(v)}" for k, v in sorted(macro.items(), key=lambda kv: str(kv[0]))
+    ) + "}"
+
+
+def render_action_call(a) -> str:
+    """'function <path>' 或 'function <path> {k:v}'，供 generate_tick 拼接在 'run ' 之后"""
+    a = normalize_action(a)
+    m = render_macro(a["macro"])
+    return f"function {a['function']} {m}" if m else f"function {a['function']}"
+
+
+def format_action(a) -> str:
+    """路径 + 宏摘要，供 GUI 表格展示"""
+    a = normalize_action(a)
+    m = render_macro(a["macro"])
+    return f"{a['function']} {m}" if m else a["function"]
+
+
 # ── 路径校验 ──────────────────────────────────────────────────
+
+def _validate_action(where, action, errors):
+    """校验单条 action / mapping_action 值：允许非空字符串或 {function, macro} 对象"""
+    if isinstance(action, str):
+        if not action.strip():
+            errors.append((where, "function", action, "必须是非空字符串"))
+        return
+    if isinstance(action, dict):
+        func = action.get("function")
+        if not isinstance(func, str) or not func.strip():
+            errors.append((where, "function", func, "必须是非空字符串"))
+        macro = action.get("macro")
+        if macro is not None and not isinstance(macro, dict):
+            errors.append((where, "macro", type(macro).__name__, "必须是字典"))
+        elif isinstance(macro, dict):
+            for mk, mv in macro.items():
+                if not isinstance(mk, str) or not re.match(r"^[A-Za-z0-9_]+$", mk):
+                    errors.append((where, f"macro key {mk!r}", mk, "必须匹配 ^[A-Za-z0-9_]+$"))
+                if mv is None or not isinstance(mv, (str, int, float, bool, dict, list)):
+                    errors.append((where, f"macro.{mk}", mv, "值必须是非空标量或 NBT 复合/列表"))
+        return
+    errors.append((where, "type", type(action).__name__, "必须是字符串或对象"))
+
 
 def validate_config(modules: list) -> list:
     """返回配置结构错误 [(位置, 字段, 值, 说明), ...]"""
@@ -167,8 +323,7 @@ def validate_config(modules: list) -> list:
                 errors.append((t_where, "actions", type(actions).__name__, "必须是列表"))
             else:
                 for ai, action in enumerate(actions):
-                    if not isinstance(action, str) or not action.strip():
-                        errors.append((t_where, f"actions[{ai}]", action, "必须是非空字符串"))
+                    _validate_action(f"{t_where}.actions[{ai}]", action, errors)
             mapping = trigger.get("mapping_actions", {})
             if not isinstance(mapping, dict):
                 errors.append((t_where, "mapping_actions", type(mapping).__name__, "必须是字典"))
@@ -176,8 +331,7 @@ def validate_config(modules: list) -> list:
                 for key, action in mapping.items():
                     if not isinstance(key, int):
                         errors.append((t_where, f"mapping_actions key {key}", key, "必须是整数"))
-                    if not isinstance(action, str) or not action.strip():
-                        errors.append((t_where, f"mapping_actions[{key}]", action, "必须是非空字符串"))
+                    _validate_action(f"{t_where}.mapping_actions[{key}]", action, errors)
     return errors
 
 def validate_paths(modules: list) -> list:
@@ -193,17 +347,49 @@ def validate_paths(modules: list) -> list:
     for m in modules:
         for t in m["triggers"]:
             name = t["name"]
-            for v, func in t.get("mapping_actions", {}).items():
+            for v, raw in t.get("mapping_actions", {}).items():
+                func = raw["function"] if isinstance(raw, dict) else raw
                 if func not in available:
                     hints = get_close_matches(func, available, n=3, cutoff=0.4)
                     hint = f"  → {', '.join(hints)}" if hints else ""
                     errors.append((name, f"mapping [{v}]", func, hint))
-            for func in t.get("actions", []):
+            for i, raw in enumerate(t.get("actions", [])):
+                func = raw["function"] if isinstance(raw, dict) else raw
                 if func not in available:
                     hints = get_close_matches(func, available, n=3, cutoff=0.4)
                     hint = f"  → {', '.join(hints)}" if hints else ""
-                    errors.append((name, "actions", func, hint))
+                    errors.append((name, f"actions[{i}]", func, hint))
     return errors
+
+
+def validate_macros(modules) -> list:
+    """返回非致命宏参数提示 [(trigger_name, 字段, 函数路径, 提示), ...]
+    仅检查已存在的函数路径、且用户填写了 macro 的条目。
+    多余的宏参数会被游戏忽略（提示），缺失的参数允许（函数内部可有默认逻辑）。"""
+    hints = []
+    for m in modules:
+        for t in m["triggers"]:
+            name = t["name"]
+            for v, raw in t.get("mapping_actions", {}).items():
+                _check_macro(name, f"mapping[{v}]", raw, hints)
+            for i, raw in enumerate(t.get("actions", [])):
+                _check_macro(name, f"actions[{i}]", raw, hints)
+    return hints
+
+
+def _check_macro(name, field, raw, hints):
+    d = normalize_action(raw)
+    if not d["macro"]:
+        return
+    declared = get_macro_names(d["function"])
+    extra = [k for k in d["macro"] if k not in declared]
+    if extra:
+        if declared:
+            known = f"，该函数已定义: {', '.join(declared)}"
+        else:
+            known = "（该函数未定义任何 $() 宏参数）"
+        hints.append((name, field, d["function"],
+                      f"宏参数 {', '.join(extra)} 未在该函数 $() 定义中（未知参数会被游戏忽略），请确认是否有笔误{known}"))
 
 
 # ── mcfunction 生成 ───────────────────────────────────────────
@@ -229,9 +415,9 @@ def generate_tick(triggers: list) -> str:
         reset_ = t.get("reset", DEFAULT_RESET)
 
         for v in sorted(t.get("mapping_actions", {})):
-            lines.append(f"execute as @a[scores={{{name}={v}}}] run function {t['mapping_actions'][v]}")
-        for func in t.get("actions", []):
-            lines.append(f"execute as @a[scores={{{name}={range_}}}] run function {func}")
+            lines.append(f"execute as @a[scores={{{name}={v}}}] run {render_action_call(t['mapping_actions'][v])}")
+        for action in t.get("actions", []):
+            lines.append(f"execute as @a[scores={{{name}={range_}}}] run {render_action_call(action)}")
         lines.append(f"scoreboard players set @a[scores={{{name}={range_}}}] {name} {reset_}")
         lines.append(f"scoreboard players enable @a {name}")
         lines.append("")

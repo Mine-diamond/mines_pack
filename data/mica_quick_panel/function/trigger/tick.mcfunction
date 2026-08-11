@@ -13,3 +13,4 @@ function mica_quick_panel:trigger/teleport_to_look_at/tick
 function mica_quick_panel:trigger/clear_entity/tick
 function mica_quick_panel:trigger/show_distance_to_block/tick
 function mica_quick_panel:trigger/way_point/tick
+function mica_quick_panel:trigger/test/tick

@@ -17,13 +17,18 @@ sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="repla
 from trigger_core import (
     DEFAULT_RANGE,
     DEFAULT_RESET,
+    format_action,
     generate_module_files,
     get_all_functions,
+    get_macro_names,
     get_module_dirs,
     get_name_prefix,
     load_yaml,
+    normalize_action,
+    render_macro,
     save_yaml,
     validate_config,
+    validate_macros,
     validate_paths,
 )
 
@@ -44,6 +49,8 @@ class TriggerEditor:
         self._form_inputs = []
         self._action_buttons = []
         self._mapping_buttons = []
+        self._act_meta = {}
+        self._map_meta = {}
 
         self.root = ttk.Window(themename=THEME_NAME)
         self.root.title("Mica Quick Panel - Trigger 编辑器")
@@ -197,11 +204,13 @@ class TriggerEditor:
         table_frame.columnconfigure(0, weight=1)
         table_frame.rowconfigure(0, weight=1)
 
-        self._act_t = ttk.Treeview(table_frame, columns=("idx", "func"), show="headings", selectmode="browse")
+        self._act_t = ttk.Treeview(table_frame, columns=("idx", "func", "macro"), show="headings", selectmode="browse")
         self._act_t.heading("idx", text="#")
         self._act_t.heading("func", text="函数")
+        self._act_t.heading("macro", text="宏参数")
         self._act_t.column("idx", width=45, anchor=CENTER, stretch=False)
-        self._act_t.column("func", width=520)
+        self._act_t.column("func", width=430)
+        self._act_t.column("macro", width=120)
         act_scroll = ttk.Scrollbar(table_frame, orient=VERTICAL, command=self._act_t.yview)
         self._act_t.configure(yscrollcommand=act_scroll.set)
         self._act_t.grid(row=0, column=0, sticky=NSEW)
@@ -232,11 +241,13 @@ class TriggerEditor:
         table_frame.columnconfigure(0, weight=1)
         table_frame.rowconfigure(0, weight=1)
 
-        self._map_t = ttk.Treeview(table_frame, columns=("v", "f"), show="headings", selectmode="browse")
+        self._map_t = ttk.Treeview(table_frame, columns=("v", "f", "m"), show="headings", selectmode="browse")
         self._map_t.heading("v", text="值")
         self._map_t.heading("f", text="函数")
+        self._map_t.heading("m", text="宏参数")
         self._map_t.column("v", width=70, anchor=CENTER, stretch=False)
-        self._map_t.column("f", width=520)
+        self._map_t.column("f", width=430)
+        self._map_t.column("m", width=120)
         map_scroll = ttk.Scrollbar(table_frame, orient=VERTICAL, command=self._map_t.yview)
         self._map_t.configure(yscrollcommand=map_scroll.set)
         self._map_t.grid(row=0, column=0, sticky=NSEW)
@@ -365,6 +376,7 @@ class TriggerEditor:
         self._range_e._var.set(DEFAULT_RANGE)
         self._reset_e._var.set(str(DEFAULT_RESET))
         self._clear_actions()
+        self._map_meta.clear()
         for item in self._map_t.get_children():
             self._map_t.delete(item)
         self._loading_form = False
@@ -407,9 +419,11 @@ class TriggerEditor:
         if trigger.get("init") is not None:
             self._init_e._var.set(str(trigger["init"]))
         for action in trigger.get("actions", []):
-            self._insert_action(action)
+            self._insert_action(normalize_action(action))
         for value in sorted(trigger.get("mapping_actions", {})):
-            self._map_t.insert("", END, values=(value, trigger["mapping_actions"][value]))
+            a = normalize_action(trigger["mapping_actions"][value])
+            iid = self._map_t.insert("", END, values=(value, a["function"], render_macro(a["macro"])))
+            self._map_meta[iid] = a
         self._loading_form = False
         self._set_form_enabled(True)
 
@@ -439,9 +453,9 @@ class TriggerEditor:
 
         mapping = {}
         for item in self._map_t.get_children():
-            value, function = self._map_t.item(item, "values")
+            value = self._map_t.item(item, "values")[0]
             try:
-                mapping[int(value)] = function
+                mapping[int(value)] = self._map_meta[item]
             except ValueError:
                 pass
         if mapping:
@@ -605,29 +619,33 @@ class TriggerEditor:
     # Actions
     # ------------------------------------------------------------------
 
-    def _insert_action(self, function, index=END):
+    def _insert_action(self, action, index=END):
+        action = normalize_action(action)
         if index == END:
             index = len(self._act_t.get_children())
-        iid = self._act_t.insert("", index, values=(index + 1, function))
+        iid = self._act_t.insert("", index, values=(
+            index + 1, action["function"], render_macro(action["macro"])))
+        self._act_meta[iid] = action
         self._renumber_actions()
         return iid
 
     def _clear_actions(self):
         for item in self._act_t.get_children():
             self._act_t.delete(item)
+        self._act_meta.clear()
 
     def _get_actions(self):
-        return [self._act_t.item(item, "values")[1] for item in self._act_t.get_children()]
+        return [self._act_meta[item] for item in self._act_t.get_children()]
 
     def _renumber_actions(self):
         for idx, item in enumerate(self._act_t.get_children(), start=1):
-            _old_idx, function = self._act_t.item(item, "values")
-            self._act_t.item(item, values=(idx, function))
+            a = self._act_meta[item]
+            self._act_t.item(item, values=(idx, a["function"], render_macro(a["macro"])))
 
     def _add_action(self):
-        function = self._pick_func("选择 Action 函数")
-        if function:
-            self._insert_action(function)
+        result = self._ask_action("添加 Action")
+        if result:
+            self._insert_action(result)
             self._mark()
 
     def _edit_action(self):
@@ -635,16 +653,17 @@ class TriggerEditor:
         if not selection:
             return
         item = selection[0]
-        _idx, current = self._act_t.item(item, "values")
-        function = self._pick_func("编辑 Action 函数", current)
-        if function:
-            self._act_t.item(item, values=(_idx, function))
+        result = self._ask_action("编辑 Action", self._act_meta[item])
+        if result:
+            self._act_meta[item] = result
+            self._renumber_actions()
             self._mark()
 
     def _del_action(self):
         selection = self._act_t.selection()
         if not selection:
             return
+        self._act_meta.pop(selection[0], None)
         self._act_t.delete(selection[0])
         self._renumber_actions()
         self._mark()
@@ -677,8 +696,9 @@ class TriggerEditor:
     def _add_mapping(self):
         result = self._ask_mapping("添加 Mapping")
         if result:
-            value, function = result
-            self._map_t.insert("", END, values=(value, function))
+            value, action = result
+            iid = self._map_t.insert("", END, values=(value, action["function"], render_macro(action["macro"])))
+            self._map_meta[iid] = action
             self._mark()
 
     def _edit_mapping(self):
@@ -686,20 +706,24 @@ class TriggerEditor:
         if not selection:
             return
         item = selection[0]
-        value, function = self._map_t.item(item, "values")
-        result = self._ask_mapping("编辑 Mapping", int(value), function)
+        value = self._map_t.item(item, "values")[0]
+        result = self._ask_mapping("编辑 Mapping", int(value), self._map_meta[item])
         if result:
-            new_value, new_function = result
-            self._map_t.item(item, values=(new_value, new_function))
+            new_value, action = result
+            self._map_meta[item] = action
+            self._map_t.item(item, values=(new_value, action["function"], render_macro(action["macro"])))
             self._mark()
 
     def _del_mapping(self):
         selection = self._map_t.selection()
         if selection:
+            self._map_meta.pop(selection[0], None)
             self._map_t.delete(selection[0])
             self._mark()
 
-    def _ask_mapping(self, title, value=0, function=""):
+    def _ask_mapping(self, title, value=0, current_action=None):
+        """返回 (整数, action dict) 或 None"""
+        current_action = normalize_action(current_action) if current_action else {"function": "", "macro": {}}
         dialog = ttk.Toplevel(self.root)
         dialog.title(title)
         dialog.transient(self.root)
@@ -712,21 +736,22 @@ class TriggerEditor:
         frame.columnconfigure(1, weight=1)
 
         value_var = StringVar(value=str(value))
-        function_var = StringVar(value=function)
 
         ttk.Label(frame, text="值").grid(row=0, column=0, sticky=W, padx=(0, 8), pady=4)
         value_entry = ttk.Entry(frame, textvariable=value_var, width=12)
         value_entry.grid(row=0, column=1, sticky=EW, pady=4)
 
-        ttk.Label(frame, text="函数").grid(row=1, column=0, sticky=W, padx=(0, 8), pady=4)
-        ttk.Entry(frame, textvariable=function_var, width=56).grid(row=1, column=1, sticky=EW, pady=4)
+        ttk.Label(frame, text="Action").grid(row=1, column=0, sticky=W, padx=(0, 8), pady=4)
+        action_label = ttk.Label(frame, text=format_action(current_action), anchor=W)
+        action_label.grid(row=1, column=1, sticky=EW, pady=4)
 
-        def choose_function():
-            picked = self._pick_func(f"值 {value_var.get().strip() or 0} -> 函数", function_var.get().strip())
+        def edit_action():
+            picked = self._ask_action(f"值 {value_var.get().strip() or 0} -> 函数", current_action)
             if picked:
-                function_var.set(picked)
+                current_action.update(picked)
+                action_label.configure(text=format_action(current_action))
 
-        ttk.Button(frame, text="选择函数", command=choose_function, bootstyle=INFO).grid(
+        ttk.Button(frame, text="编辑函数与宏参数", command=edit_action, bootstyle=INFO).grid(
             row=1, column=2, sticky=EW, padx=(8, 0)
         )
 
@@ -742,11 +767,10 @@ class TriggerEditor:
             if number < 0:
                 error_var.set("值不能小于 0")
                 return
-            selected_function = function_var.get().strip()
-            if not selected_function:
+            if not current_action["function"]:
                 error_var.set("请选择或输入函数")
                 return
-            result["value"] = (number, selected_function)
+            result["value"] = (number, dict(current_action))
             dialog.destroy()
 
         ops = ttk.Frame(frame)
@@ -764,10 +788,15 @@ class TriggerEditor:
     # Function picker
     # ------------------------------------------------------------------
 
-    def _pick_func(self, title="选择函数", initial="") -> str:
+    def _ask_action(self, title="编辑 Action", current=None):
+        """函数选择 + 宏参数编辑对话框，返回 {"function","macro"} 或 None"""
+        current = normalize_action(current) if current else {"function": "", "macro": {}}
+        self._macro_meta = {}
+        self._macro_func_var = None
+
         dialog = ttk.Toplevel(self.root)
         dialog.title(title)
-        dialog.geometry("720x520")
+        dialog.geometry("780x600")
         dialog.transient(self.root)
         dialog.grab_set()
         result = {"value": None}
@@ -775,59 +804,198 @@ class TriggerEditor:
         frame = ttk.Frame(dialog, padding=12)
         frame.pack(fill=BOTH, expand=True)
         frame.columnconfigure(0, weight=1)
-        frame.rowconfigure(2, weight=1)
+        frame.rowconfigure(3, weight=1)
 
         ttk.Label(frame, text="搜索或输入函数", font=("", 10, "bold")).grid(row=0, column=0, sticky=W)
-        search_var = StringVar(value=initial)
-        search = ttk.Entry(frame, textvariable=search_var)
-        search.grid(row=1, column=0, sticky=EW, pady=(6, 8))
+        func_var = StringVar(value=current["function"])
+        self._macro_func_var = func_var
+        search = ttk.Entry(frame, textvariable=func_var)
+        search.grid(row=1, column=0, sticky=EW, pady=(4, 6))
 
-        table_frame = ttk.Frame(frame)
-        table_frame.grid(row=2, column=0, sticky=NSEW)
-        table_frame.columnconfigure(0, weight=1)
-        table_frame.rowconfigure(0, weight=1)
+        func_table = ttk.Treeview(frame, columns=("func",), show="headings", selectmode="browse", height=9)
+        func_table.heading("func", text="函数")
+        func_table.column("func", width=720)
+        fscroll = ttk.Scrollbar(frame, orient=VERTICAL, command=func_table.yview)
+        func_table.configure(yscrollcommand=fscroll.set)
+        func_table.grid(row=2, column=0, sticky=NSEW, pady=(0, 6))
+        fscroll.grid(row=2, column=1, sticky=NS, pady=(0, 6))
 
-        table = ttk.Treeview(table_frame, columns=("func",), show="headings", selectmode="browse")
-        table.heading("func", text="函数")
-        table.column("func", width=650)
-        scroll = ttk.Scrollbar(table_frame, orient=VERTICAL, command=table.yview)
-        table.configure(yscrollcommand=scroll.set)
-        table.grid(row=0, column=0, sticky=NSEW)
-        scroll.grid(row=0, column=1, sticky=NS)
+        mframe = ttk.Labelframe(frame, text="宏参数", padding=8)
+        mframe.grid(row=3, column=0, columnspan=2, sticky=NSEW)
+        mframe.columnconfigure(0, weight=1)
+        mframe.rowconfigure(1, weight=1)
 
-        def update(*_):
-            query = search_var.get().lower()
-            table.delete(*table.get_children())
-            for function in self.all_funcs:
-                if query in function.lower():
-                    item = table.insert("", END, values=(function,))
-                    if function == initial:
-                        table.selection_set(item)
-                        table.focus(item)
+        self._macro_label = ttk.Label(mframe, text="", foreground="#666")
+        self._macro_label.grid(row=0, column=0, columnspan=3, sticky=W, pady=(0, 4))
 
-        def ok():
-            selection = table.selection()
-            if selection:
-                result["value"] = table.item(selection[0], "values")[0]
-            elif search_var.get().strip():
-                result["value"] = search_var.get().strip()
-            dialog.destroy()
+        mtable = ttk.Treeview(mframe, columns=("k", "v"), show="headings", selectmode="browse", height=6)
+        mtable.heading("k", text="参数名")
+        mtable.heading("v", text="值")
+        mtable.column("k", width=180)
+        mtable.column("v", width=460)
+        mscroll = ttk.Scrollbar(mframe, orient=VERTICAL, command=mtable.yview)
+        mtable.configure(yscrollcommand=mscroll.set)
+        mtable.grid(row=1, column=0, sticky=NSEW)
+        mscroll.grid(row=1, column=1, sticky=NS)
 
-        search_var.trace_add("write", update)
-        table.bind("<Double-Button-1>", lambda _: ok())
-        update()
+        mops = ttk.Frame(mframe)
+        mops.grid(row=1, column=2, sticky=NS, padx=(8, 0))
+        for text, cmd, style in [
+            ("添加", lambda: self._ask_macro_row(mtable), SUCCESS),
+            ("编辑", lambda: self._edit_macro_row(mtable), PRIMARY),
+            ("删除", lambda: self._del_macro_row(mtable), DANGER),
+            ("预填缺失参数", lambda: self._prefill_macros(mtable), INFO),
+        ]:
+            ttk.Button(mops, text=text, command=cmd, bootstyle=f"{style}-outline").pack(fill=X, pady=2)
 
         ops = ttk.Frame(frame)
-        ops.grid(row=3, column=0, sticky=E, pady=(10, 0))
+        ops.grid(row=4, column=0, columnspan=2, sticky=E, pady=(10, 0))
         ttk.Button(ops, text="取消", command=dialog.destroy, bootstyle=SECONDARY).pack(side=LEFT, padx=(0, 6))
-        ttk.Button(ops, text="确定", command=ok, bootstyle=SUCCESS).pack(side=LEFT)
+        ttk.Button(ops, text="确定", command=lambda: self._ok_action(dialog, result, func_var, mtable), bootstyle=SUCCESS).pack(side=LEFT)
+
+        func_var.trace_add("write", lambda *_: self._filter_funcs(func_table, func_var))
+        func_table.bind("<<TreeviewSelect>>", lambda _: self._on_pick_func(func_table, func_var))
+        func_table.bind("<Double-Button-1>", lambda _: self._on_pick_func(func_table, func_var))
+        mtable.bind("<Double-Button-1>", lambda _: self._edit_macro_row(mtable))
+
+        self._filter_funcs(func_table, func_var)
+        if current["function"]:
+            for iid in func_table.get_children():
+                if func_table.item(iid, "values")[0] == current["function"]:
+                    func_table.selection_set(iid)
+                    func_table.focus(iid)
+                    break
+        self._update_macro_label(func_var)
+        for k, v in sorted(current["macro"].items(), key=str):
+            iid = mtable.insert("", END, values=(k, v))
+            self._macro_meta[iid] = (k, v)
+
         search.focus_set()
         search.icursor(END)
+        dialog.bind("<Return>", lambda _: self._ok_action(dialog, result, func_var, mtable))
+        dialog.bind("<Escape>", lambda _: dialog.destroy())
+        self._center_window(dialog)
+        dialog.wait_window()
+        return result["value"]
+
+    def _filter_funcs(self, table, func_var):
+        query = func_var.get().lower()
+        table.delete(*table.get_children())
+        for function in self.all_funcs:
+            if query in function.lower():
+                table.insert("", END, values=(function,))
+
+    def _on_pick_func(self, func_table, func_var):
+        sel = func_table.selection()
+        if sel:
+            func_var.set(func_table.item(sel[0], "values")[0])
+        self._update_macro_label(func_var)
+
+    def _current_macro_candidates(self):
+        if self._macro_func_var is None:
+            return []
+        return get_macro_names(self._macro_func_var.get().strip())
+
+    def _update_macro_label(self, func_var):
+        names = get_macro_names(func_var.get().strip())
+        if names:
+            self._macro_label.configure(text=f"当前函数 $() 参数: {', '.join(names)}")
+        else:
+            self._macro_label.configure(text="当前函数未定义 $() 宏参数")
+
+    def _ask_macro_row(self, table):
+        result = self._macro_row_dialog("添加宏参数", "", "")
+        if result:
+            k, v = result
+            iid = table.insert("", END, values=(k, v))
+            self._macro_meta[iid] = (k, v)
+
+    def _edit_macro_row(self, table):
+        selection = table.selection()
+        if not selection:
+            return
+        item = selection[0]
+        k, v = self._macro_meta[item]
+        result = self._macro_row_dialog("编辑宏参数", k, v)
+        if result:
+            nk, nv = result
+            self._macro_meta[item] = (nk, nv)
+            table.item(item, values=(nk, nv))
+
+    def _del_macro_row(self, table):
+        selection = table.selection()
+        if selection:
+            self._macro_meta.pop(selection[0], None)
+            table.delete(selection[0])
+
+    def _prefill_macros(self, table):
+        names = self._current_macro_candidates()
+        existing = {self._macro_meta[i][0] for i in table.get_children()}
+        for n in names:
+            if n not in existing:
+                iid = table.insert("", END, values=(n, ""))
+                self._macro_meta[iid] = (n, "")
+
+    def _macro_row_dialog(self, title, k_initial="", v_initial=""):
+        dialog = ttk.Toplevel(self.root)
+        dialog.title(title)
+        dialog.transient(self.root)
+        dialog.grab_set()
+        dialog.resizable(False, False)
+        result = {"value": None}
+
+        frame = ttk.Frame(dialog, padding=16)
+        frame.pack(fill=BOTH, expand=True)
+        frame.columnconfigure(1, weight=1)
+
+        k_var = StringVar(value=k_initial)
+        v_var = StringVar(value=v_initial)
+
+        ttk.Label(frame, text="参数名").grid(row=0, column=0, sticky=W, padx=(0, 8), pady=4)
+        k_combo = ttk.Combobox(frame, textvariable=k_var, values=self._current_macro_candidates(), width=24)
+        k_combo.grid(row=0, column=1, sticky=EW, pady=4)
+
+        ttk.Label(frame, text="值").grid(row=1, column=0, sticky=W, padx=(0, 8), pady=4)
+        v_entry = ttk.Entry(frame, textvariable=v_var, width=40)
+        v_entry.grid(row=1, column=1, sticky=EW, pady=4)
+
+        ttk.Label(frame, text="提示: 值按类型自动推断（数字 / true / false / {..} / [..] / 以引号开头 原样输出，其余自动加引号）",
+                  bootstyle=SECONDARY, wraplength=380).grid(row=2, column=0, columnspan=2, sticky=W, pady=(4, 0))
+
+        error_var = StringVar(value="")
+        ttk.Label(frame, textvariable=error_var, bootstyle=DANGER).grid(row=3, column=0, columnspan=2, sticky=W)
+
+        def ok():
+            k = k_var.get().strip()
+            if not k:
+                error_var.set("参数名不能为空")
+                return
+            result["value"] = (k, v_var.get())
+            dialog.destroy()
+
+        ops = ttk.Frame(frame)
+        ops.grid(row=4, column=0, columnspan=2, sticky=E, pady=(12, 0))
+        ttk.Button(ops, text="取消", command=dialog.destroy, bootstyle=SECONDARY).pack(side=LEFT, padx=(0, 6))
+        ttk.Button(ops, text="确定", command=ok, bootstyle=SUCCESS).pack(side=LEFT)
+        k_combo.focus_set()
         dialog.bind("<Return>", lambda _: ok())
         dialog.bind("<Escape>", lambda _: dialog.destroy())
         self._center_window(dialog)
         dialog.wait_window()
         return result["value"]
+
+    def _ok_action(self, dialog, result, func_var, table):
+        path = func_var.get().strip()
+        if not path:
+            dialog.destroy()
+            return
+        macro = {}
+        for item in table.get_children():
+            k, v = self._macro_meta[item]
+            if k:
+                macro[k] = v
+        result["value"] = {"function": path, "macro": macro}
+        dialog.destroy()
 
     # ------------------------------------------------------------------
     # Toolbar actions
@@ -882,8 +1050,16 @@ class TriggerEditor:
             )
             self._alert("校验结果", message, "error")
             self._status.set(f"校验失败: {len(errors)} 个错误")
+            return
+        hints = validate_macros(self.modules)
+        if hints:
+            message = f"发现 {len(hints)} 条宏参数提示（不会导致失败）:\n\n" + "\n".join(
+                f"[{name}] {field}: {path}  {hint}" for name, field, path, hint in hints
+            )
+            self._alert("校验结果", message, "warning")
+            self._status.set(f"宏参数提示: {len(hints)} 条")
         else:
-            self._alert("校验结果", "全部函数路径有效", "info")
+            self._alert("校验结果", "全部函数路径有效，宏参数无多余项", "info")
             self._status.set("校验通过")
 
     def _on_close(self):

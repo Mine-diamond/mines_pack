@@ -279,3 +279,14 @@ modules:
         actions:
           - mica_quick_panel:module/way_point/trigger/down
           - mica_quick_panel:dialog/way_point_dialog/open_way_point_dialog
+  - dir: test
+    triggers:
+      - name: mqp.test.macro_test
+        display: "宏测试"
+        init: -1
+        range: "0.."
+        reset: -1
+        actions:
+          - function: mica_quick_panel:test/marco_test
+            macro:
+              say_content: "5"

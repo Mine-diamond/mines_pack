@@ -13,7 +13,7 @@ sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="repla
 
 from trigger_core import (
     load_yaml, get_all_functions,
-    validate_paths, generate_module_files,
+    validate_paths, validate_macros, generate_module_files,
 )
 
 
@@ -46,8 +46,13 @@ def cmd_validate():
         for name, field, path, hint in errors:
             print(f"  [{name}] {field}: {path}  → 不存在{hint}")
         sys.exit(1)
-    else:
-        print("[OK] 所有函数路径均有效")
+    hints = validate_macros(modules)
+    if hints:
+        print(f"[宏参数提示] 发现 {len(hints)} 条（不会导致失败）:\n")
+        for name, field, path, hint in hints:
+            print(f"  [{name}] {field}: {path}  {hint}")
+        sys.exit(0)
+    print("[OK] 所有函数路径有效，宏参数无多余项")
 
 
 def cmd_tree():
