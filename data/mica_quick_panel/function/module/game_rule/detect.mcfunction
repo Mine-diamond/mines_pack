@@ -1,4 +1,4 @@
-execute store result score #advance_time mqp.game_rule.game_rule_state run gamerule advance_time
+function mica_quick_panel:module/game_rule/_detect_advance_time
 execute store result score #advance_weather mqp.game_rule.game_rule_state run gamerule advance_weather
 execute store result score #spawn_mobs mqp.game_rule.game_rule_state run gamerule spawn_mobs
 execute store result score #keep_inventory mqp.game_rule.game_rule_state run gamerule keep_inventory
